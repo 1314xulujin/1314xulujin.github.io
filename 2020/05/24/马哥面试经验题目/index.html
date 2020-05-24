@@ -18,15 +18,15 @@
   
   
   <title>马哥面试经验题目 | 永恒的金色年华</title>
-  <meta name="description" content="css 11. transform，transition和translate的区别    Vue 1234567891. 	生命周期的实现原理？2.  $nextick3.  Vue 中这些挂载的顺序 prop  methods  data  computed  watch4.  Vue各种守卫钩子，说出钩子函数及其参数就够了5.  Vue组件传值6.  利用div实现table，不能用flex布">
+  <meta name="description" content="css 12341. transform，transition和translate的区别	答：首先，三者的中文意思transform(变形，变换)，translate(调动)，transition(过渡)	transform是css3的属性；而translate是tranform的属性值，指的是元素平移的值；transition也是css3的属性，作用是用来实现一组css属性变换到另一组css属性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="马哥面试经验题目">
 <meta property="og:url" content="http://yoursite.com/2020/05/24/%E9%A9%AC%E5%93%A5%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/index.html">
 <meta property="og:site_name" content="LuKing">
-<meta property="og:description" content="css 11. transform，transition和translate的区别    Vue 1234567891. 	生命周期的实现原理？2.  $nextick3.  Vue 中这些挂载的顺序 prop  methods  data  computed  watch4.  Vue各种守卫钩子，说出钩子函数及其参数就够了5.  Vue组件传值6.  利用div实现table，不能用flex布">
+<meta property="og:description" content="css 12341. transform，transition和translate的区别	答：首先，三者的中文意思transform(变形，变换)，translate(调动)，transition(过渡)	transform是css3的属性；而translate是tranform的属性值，指的是元素平移的值；transition也是css3的属性，作用是用来实现一组css属性变换到另一组css属性">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-24T01:56:47.000Z">
-<meta property="article:modified_time" content="2020-05-24T02:00:42.469Z">
+<meta property="article:modified_time" content="2020-05-24T13:39:48.566Z">
 <meta property="article:author" content="LuKing-Xun">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
@@ -375,12 +375,12 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <p>css</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. transform，transition和translate的区别</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. transform，transition和translate的区别</span><br><span class="line"></span><br><span class="line">	答：首先，三者的中文意思transform(变形，变换)，translate(调动)，transition(过渡)</span><br><span class="line">	transform是css3的属性；而translate是tranform的属性值，指的是元素平移的值；transition也是css3的属性，作用是用来实现一组css属性变换到另一组css属性的动画过程，其参数有 transition-property(需要过渡的属性，如宽度) transition-duration(过渡的总时间) transition-delay(动画延迟播放的时间) transition-timing-function(时间曲线)</span><br></pre></td></tr></table></figure>
 
 
 
 <p>Vue</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 	生命周期的实现原理？</span><br><span class="line">2.  $nextick</span><br><span class="line">3.  Vue 中这些挂载的顺序 prop  methods  data  computed  watch</span><br><span class="line">4.  Vue各种守卫钩子，说出钩子函数及其参数就够了</span><br><span class="line">5.  Vue组件传值</span><br><span class="line">6.  利用div实现table，不能用flex布局和table标签</span><br><span class="line">7.  左右布局，左边固定宽度，右边自适应</span><br><span class="line">8.  数组去重的方法</span><br><span class="line">9.  函数组件和动态组件</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1. 	生命周期的实现原理？</span><br><span class="line">	</span><br><span class="line">2.  $nextick</span><br><span class="line"></span><br><span class="line">3.  Vue 中这些挂载的顺序 prop  methods  data  computed  watch</span><br><span class="line"></span><br><span class="line">4.  Vue各种守卫钩子，说出钩子函数及其参数就够了</span><br><span class="line"></span><br><span class="line">5.  Vue组件传值</span><br><span class="line"></span><br><span class="line">6.  利用div实现table，不能用flex布局和table标签</span><br><span class="line"></span><br><span class="line">7.  左右布局，左边固定宽度，右边自适应</span><br><span class="line">	答：</span><br><span class="line">		①：给他加float:left，右边的盒子width:100%。</span><br><span class="line">		②：他们的父级盒子加display:flex弹性盒子，右边的盒子添加属性flex:1。</span><br><span class="line">		③：假如左边为200px，左右俩个盒子都添加属性float:left,右边的盒子设置宽度width:calc(100% - 200px)</span><br><span class="line">	</span><br><span class="line">8.  数组去重的方法</span><br><span class="line"></span><br><span class="line">9.  函数组件和动态组件</span><br></pre></td></tr></table></figure>
 
 
 
