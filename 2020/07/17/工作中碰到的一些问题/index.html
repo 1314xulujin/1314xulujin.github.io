@@ -17,16 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>工作中碰到的一些问题 | 永恒的金色年华</title>
-  <meta name="description" content="2020​    0717 ​        1.element-ui的table表格布局多了一条线（已解决） ​            答：添加样式 123.el-table::before &amp;#123; &#x2F;&#x2F; 解决table-el布局栏多一条线的问题	z-index: inherit;&amp;#125;  ​        2.element-ui新增表单提交数据后还出现验证（已解决） ​">
+  <title>在工作中遇到的问题 | 永恒的金色年华</title>
+  <meta name="description" content="2020东鹏portal07月09日 ​        1.element-ui的table表格布局多了一条线（已解决） ​            答：添加样式 123&gt;.el-table::before &amp;#123; &#x2F;&#x2F; 解决table-el布局栏多一条线的问题z-index: inherit;&gt;&amp;#125;  ​        2.element-ui新增表单提交数据后还出现验证">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工作中碰到的一些问题">
+<meta property="og:title" content="在工作中遇到的问题">
 <meta property="og:url" content="https://xulujin.gitee.io/blog/2020/07/17/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%A2%B0%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="LuKing">
-<meta property="og:description" content="2020​    0717 ​        1.element-ui的table表格布局多了一条线（已解决） ​            答：添加样式 123.el-table::before &amp;#123; &#x2F;&#x2F; 解决table-el布局栏多一条线的问题	z-index: inherit;&amp;#125;  ​        2.element-ui新增表单提交数据后还出现验证（已解决） ​">
+<meta property="og:description" content="2020东鹏portal07月09日 ​        1.element-ui的table表格布局多了一条线（已解决） ​            答：添加样式 123&gt;.el-table::before &amp;#123; &#x2F;&#x2F; 解决table-el布局栏多一条线的问题z-index: inherit;&gt;&amp;#125;  ​        2.element-ui新增表单提交数据后还出现验证">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-17T06:31:29.000Z">
-<meta property="article:modified_time" content="2020-07-28T02:51:37.376Z">
+<meta property="article:modified_time" content="2020-12-02T08:26:14.272Z">
 <meta property="article:author" content="LuKing-Xun">
 <meta property="article:tag" content="智扬信达">
 <meta name="twitter:card" content="summary">
@@ -346,7 +346,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      工作中碰到的一些问题
+      在工作中遇到的问题
     </h1>
   
 
@@ -374,16 +374,54 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="2020"><a href="#2020" class="headerlink" title="2020"></a>2020</h3><p>​    0717</p>
+        <h2 id="2020"><a href="#2020" class="headerlink" title="2020"></a>2020</h2><h3 id="东鹏portal"><a href="#东鹏portal" class="headerlink" title="东鹏portal"></a>东鹏portal</h3><h4 id="07月09日"><a href="#07月09日" class="headerlink" title="07月09日"></a>07月09日</h4><blockquote>
 <p>​        1.element-ui的table表格布局多了一条线<a style="color:#ff3c3c">（已解决）</a></p>
 <p>​            答：添加样式</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.el-table::before &#123; // 解决table-el布局栏多一条线的问题</span><br><span class="line">	<span class="selector-tag">z-index</span>: <span class="selector-tag">inherit</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;.el-table::before &#123; // 解决table-el布局栏多一条线的问题</span><br><span class="line"><span class="selector-tag">z-index</span>: <span class="selector-tag">inherit</span>;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>​        2.element-ui新增表单提交数据后还出现验证<a style="color:#ff3c3c">（已解决）</a></p>
 <p>​            答：请求接口之后重置表单验证</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.$refs[formName].resetFields() <span class="comment">// 解决提交表单数据后还触发验证的问题</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="built_in">this</span>.$refs[formName].resetFields() <span class="comment">// 解决提交表单数据后还触发验证的问题</span></span><br></pre></td></tr></table></figure>
 
 <p>​        3.常常碰到与后端对接口的问题<a style="color:#ff3c3c">（常见）</a>：比如返回的字段少了(分类字段)，比如新增用户过去带的状态(userStatus)是无效的(0),但是更新数据返回过来的还是有效的用户</p>
+</blockquote>
+<h3 id="祥生经营分析"><a href="#祥生经营分析" class="headerlink" title="祥生经营分析"></a>祥生经营分析</h3><h4 id="11月09日"><a href="#11月09日" class="headerlink" title="11月09日"></a>11月09日</h4><p>2020年11月06日开会需要提出的问题<br>1.svn账号问题，（因为有多个人同时进行项目协作，用同一个账号在导致冲突之后不能及时的找到根源而浪费时间）<br>2.vpn账号权限问题，vpn账号申请<br>3.</p>
+<p>项目</p>
+<p>1.关于数据的问题：数据不完整，导致联调时在接口请求方式正确的情况下错误判断为其他问题<br>2.后端接口规范问题：</p>
+<blockquote>
+<p>1.最好不要返回map类型数据</p>
+<p>2.在返回数据带上相应的status，code，data，msg等等</p>
+<p>3.在传入空字符串后端应判断接收该参数没传而返回相应的msg提示，比如：参数错误400错误</p>
+<p>4.在少传了参数之后返回msg：参数缺失，而不是直接报400错误</p>
+<p>5.接口文档可以一般用swragger把传的参数的备注model，和返回的参数的意思标注规范，必传可以用粗体列出来require，</p>
+</blockquote>
+<p>3.多人开发协调问题：</p>
+<blockquote>
+<p>1.规定时间上传代码，</p>
+<p>2.上传的描述见开发框架的README.md文档</p>
+<p>3.规定一个必须的发版时间（在确认所有人上传代码完毕）</p>
+</blockquote>
+<h4 id="11月08日"><a href="#11月08日" class="headerlink" title="11月08日"></a>11月08日</h4><p>1.关于sessionStorage存入函数的问题</p>
+<blockquote>
+<p>问题描述：1.由于需要页面之间需要sessionStorage来传值，需要将传的值JSON.stringify，但是有些需要传的值有函数，在JSON.stringify之后不会存储。</p>
+<p>解决方法：1.首先需要使用toSting()将函数真正的转化为字符串，才可以将他存入到sessionStorage中。</p>
+<p>​                 2.然后接收方需要使用eval函数将字符串执行。</p>
+<p>​                    3.使用eval函数你会碰到Function statements require a function name，这是由于匿名函数直接执行而不知道他是谁的函数</p>
+<p>​                    4.我们需要在这个需要执行的字符串外层加一个括号，然后再使用eval函数执行。</p>
+</blockquote>
+<h4 id="11月13日"><a href="#11月13日" class="headerlink" title="11月13日"></a>11月13日</h4><blockquote>
+<p>1.关于IE不能打开tomcat运行的页面</p>
+<p>​    问题可能起因：1.本机防火墙问题</p>
+<p>​                                2.IE自身兼容性问题</p>
+<p>2.关于tomcat换了端口之后，比如把8443换成8444端口，不能访问</p>
+<p>​    问题可能起因：1.本机防火墙问题                    </p>
+<p>​    解决方法：<br>   systemctl stop firewalld 关闭防火墙<br>   systemctl status  firewalld  查看防火墙状态</p>
+<p>​    内外服务器如果比较安全的话，可以把防火墙关了</p>
+</blockquote>
+<h4 id="12月02日"><a href="#12月02日" class="headerlink" title="12月02日"></a>12月02日</h4><blockquote>
+<p>​        1.经营分析明细表下钻问题：</p>
+<p>​            问题描述：由于后端返回的参数没有统一，返回的规范最好要有areaCode（组织编码），areaType（组织层级），且传的参数在签约，存货，计划页面中有多少个层级就写了多少个参数，这样做很不合理，于是在后面改成了传areaCode和areaType。</p>
+</blockquote>
 
       
     </div>
@@ -393,7 +431,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://xulujin.gitee.io/blog/2020/07/17/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%A2%B0%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" title="工作中碰到的一些问题" target="_blank" rel="external">https://xulujin.gitee.io/blog/2020/07/17/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%A2%B0%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</a>
+      <a href="https://xulujin.gitee.io/blog/2020/07/17/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%A2%B0%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" title="在工作中遇到的问题" target="_blank" rel="external">https://xulujin.gitee.io/blog/2020/07/17/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%A2%B0%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -582,7 +620,7 @@ var gitment = new Gitment({
   // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
   // https://github.com/imsun/gitment/issues/55
   // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
-  id: '工作中碰到的一些问题', 
+  id: '在工作中遇到的问题', 
   owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
   repo: '1314xulujin.github.io',
   oauth: {

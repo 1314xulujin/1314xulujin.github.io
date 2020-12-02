@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xulujin.gitee.io/blog/2020/07/17/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%A2%B0%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2020-12-02</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xulujin.gitee.io/blog/2020/06/11/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2020-12-02</lastmod>
@@ -45,13 +52,6 @@
   
   <url>
     <loc>https://xulujin.gitee.io/blog/2020/07/17/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/</loc>
-    
-    <lastmod>2020-07-28</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xulujin.gitee.io/blog/2020/07/17/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%A2%B0%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2020-07-28</lastmod>
     
@@ -473,14 +473,14 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/BFC/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/BootStrap/</loc>
     <lastmod>2020-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/BootStrap/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/BFC/</loc>
     <lastmod>2020-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -494,13 +494,6 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/ES6/</loc>
-    <lastmod>2020-12-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xulujin.gitee.io/blog/tags/git/</loc>
     <lastmod>2020-12-02</lastmod>
     <changefreq>daily</changefreq>
@@ -508,7 +501,7 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/ES6/</loc>
     <lastmod>2020-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -522,14 +515,14 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/photoshop/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2020-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/photoshop/</loc>
     <lastmod>2020-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -543,7 +536,7 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/Web-Worker/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2020-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -551,6 +544,13 @@
   
   <url>
     <loc>https://xulujin.gitee.io/blog/tags/css3/</loc>
+    <lastmod>2020-12-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xulujin.gitee.io/blog/tags/Web-Worker/</loc>
     <lastmod>2020-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -571,14 +571,14 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/websocket/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/webpack/</loc>
     <lastmod>2020-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/webpack/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/websocket/</loc>
     <lastmod>2020-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
