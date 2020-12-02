@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>前端基础面试题34道(2) | 永恒的金色年华</title>
+  <meta name="description" content="123456789101.以下为一段浏览器中可运行的Javascript 代码，则运行该段Javascript代码的页面弹出框中显示的结果是：（）var obj &#x3D; &amp;#123;&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;2&quot;&amp;#125;;var newObj &#x3D; obj;newObj.value  &#x3D; obj.key;al">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端基础面试题34道(2)">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2020/02/11/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%9834%E9%81%93(2)/index.html">
+<meta property="og:site_name" content="LuKing">
+<meta property="og:description" content="123456789101.以下为一段浏览器中可运行的Javascript 代码，则运行该段Javascript代码的页面弹出框中显示的结果是：（）var obj &#x3D; &amp;#123;&quot;key&quot;:&quot;1&quot;,&quot;value&quot;:&quot;2&quot;&amp;#125;;var newObj &#x3D; obj;newObj.value  &#x3D; obj.key;al">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-11T01:27:35.000Z">
+<meta property="article:modified_time" content="2020-06-21T13:10:21.356Z">
+<meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="前端面试题">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2020/02/11/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%9834%E9%81%93(2)/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/1314xulujin" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">LuKing-Xun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/blog/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/blog/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/blog/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一如前端深似海,回头?...没头回了!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BootStrap/" rel="tag">BootStrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML5-css3/" rel="tag">HTML5+css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" rel="tag">Storage存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Web-Worker/" rel="tag">Web Worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">hexo搭建博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html4/" rel="tag">html4</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/photoshop/" rel="tag">photoshop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/websocket/" rel="tag">websocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window10/" rel="tag">window10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" rel="tag">冷知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">函数柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" rel="tag">微信小程序UI框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" rel="tag">本科考试科目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">软件设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/BFC/" style="font-size: 13px;">BFC</a> <a href="/blog/tags/BootStrap/" style="font-size: 13px;">BootStrap</a> <a href="/blog/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/blog/tags/HTML5-css3/" style="font-size: 13px;">HTML5+css3</a> <a href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" style="font-size: 13px;">OOP面向对象思想</a> <a href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" style="font-size: 13px;">Storage存储</a> <a href="/blog/tags/Web-Worker/" style="font-size: 13px;">Web Worker</a> <a href="/blog/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/blog/tags/call%E5%92%8Capply/" style="font-size: 13px;">call和apply</a> <a href="/blog/tags/css3/" style="font-size: 13px;">css3</a> <a href="/blog/tags/git/" style="font-size: 13px;">git</a> <a href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">hexo搭建博客</a> <a href="/blog/tags/html4/" style="font-size: 13px;">html4</a> <a href="/blog/tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="/blog/tags/javascript/" style="font-size: 13.2px;">javascript</a> <a href="/blog/tags/photoshop/" style="font-size: 13px;">photoshop</a> <a href="/blog/tags/vue/" style="font-size: 13.6px;">vue</a> <a href="/blog/tags/webpack/" style="font-size: 13.2px;">webpack</a> <a href="/blog/tags/websocket/" style="font-size: 13px;">websocket</a> <a href="/blog/tags/window10/" style="font-size: 13px;">window10</a> <a href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" style="font-size: 13.2px;">冷知识</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" style="font-size: 13px;">函数柯里化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 13px;">前端工程化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.8px;">前端面试题</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">微信小程序UI框架</a> <a href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" style="font-size: 13.2px;">智扬信达</a> <a href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" style="font-size: 13px;">本科考试科目</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 13px;">跨域</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">软件设计模式</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.4px;">面试题</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">八月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">六月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">四月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">十月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.215Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.176Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/" class="title">echarts多Y轴显示负数零刻度线对齐</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-18T03:23:11.000Z" itemprop="datePublished">2020-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" class="title">chrome80版本以后，SAMESITE COOKIE验证跨站问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="title">前端知识结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-前端基础面试题34道(2)" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端基础面试题34道(2)
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2020/02/11/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%9834%E9%81%93(2)/" class="article-date">
+	  <time datetime="2020-02-11T01:27:35.000Z" itemprop="datePublished">2020-02-11</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/02/11/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%9834%E9%81%93(2)/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>以下为一段浏览器中可运行的Javascript 代码，则运行该段Javascript代码的页面弹出框中显示的结果是：（）</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="string">&quot;key&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;value&quot;</span>:<span class="string">&quot;2&quot;</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> newObj = obj;</span><br><span class="line">newObj.value  = obj.key;</span><br><span class="line">alert(obj.value);</span><br><span class="line"></span><br><span class="line">A<span class="number">.2</span> B<span class="number">.12</span> C<span class="number">.3</span> D<span class="number">.1</span> </span><br><span class="line"></span><br><span class="line">正确答案是:D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2.以下语句那个是判断foo是否为String类型？</span><br><span class="line"></span><br><span class="line">A.foo instanceof String </span><br><span class="line">B.typeof foo &#x3D;&#x3D; ’string’ </span><br><span class="line">C.foo is String </span><br><span class="line">D.以上答案都不正确 </span><br><span class="line"></span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3.在JavaScript 中，使用（ ）事件可以更合理实现当焦点离开文本框userName 时，调用函数checkUser() 来验证文本框内容的合法性。</span><br><span class="line"></span><br><span class="line">A.onfocus B.onblur C.onchange D.onclick</span><br><span class="line"></span><br><span class="line">正确答案是:C</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4.</span>以下代码运行后，结果为（ ）</span><br><span class="line"></span><br><span class="line">fn1();</span><br><span class="line"><span class="keyword">var</span> fn1 = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123; </span><br><span class="line">	alert(a);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">A<span class="number">.1</span> </span><br><span class="line">B.程序报错 </span><br><span class="line">C.alert(<span class="number">1</span>); </span><br><span class="line">D.undefined</span><br><span class="line"></span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5.alert( “12”&gt;“9” ) 的运行结果正确的是（ ）</span><br><span class="line"></span><br><span class="line">A.true B.false C.语法错误</span><br><span class="line"></span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">6.下面的描述中不正确的是（ ）</span><br><span class="line"></span><br><span class="line"> A.&#39;&#x3D;&#x3D;&#39; 在比较过程中，不但会比较两边的值，还会比较两边的数据类型。 </span><br><span class="line"> B.NaN &#x3D;&#x3D; NaN 的结果是 true。 </span><br><span class="line"> C.isNaN，判断传入的参数是否为数字，为数字返回true，否则返回false </span><br><span class="line"> D.字符串的 length 只可以获取，不可以设置。</span><br><span class="line"> </span><br><span class="line"> 正确答案是:ABC</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">7.下面关于数组的描述正确的是（ ）</span><br><span class="line"></span><br><span class="line">A.数组的 length 既可以获取，也可以修改。</span><br><span class="line">B.调用 pop() 方法，不会修改原数组中的值。</span><br><span class="line">C.shift() 方法的返回值是新数组的长度。</span><br><span class="line">D.调用 concat() 方法，会修改原数组的值。</span><br><span class="line"></span><br><span class="line">正确答案是:A</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">8.在 HTML 页面中包含一个按钮控件 mybutton ，如果要实现点击该按钮时调用已定义的 JavaScript 函数 compute ，要编写的 HTML 代码是()</span><br><span class="line"></span><br><span class="line">A.<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">”mybutton”</span> <span class="attr">type</span>=<span class="string">”button”</span> <span class="attr">onBlur</span>=<span class="string">”compute()”</span> <span class="attr">value</span>=<span class="string">”计算”</span>&gt;</span></span><br><span class="line">B.<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">”mybutton”</span> <span class="attr">type</span>=<span class="string">”button”</span> <span class="attr">onFocus</span>=<span class="string">”compute()”</span> <span class="attr">value</span>=<span class="string">”计算”</span>&gt;</span></span><br><span class="line">C.<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">”mybutton”</span> <span class="attr">type</span>=<span class="string">”button”</span> <span class="attr">onClick</span>=<span class="string">”function</span> <span class="attr">compute</span>()” <span class="attr">value</span>=<span class="string">”计算”</span>&gt;</span></span><br><span class="line">D.<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">”mybutton”</span> <span class="attr">type</span>=<span class="string">”button”</span> <span class="attr">onClick</span>=<span class="string">”compute()”</span> <span class="attr">value</span>=<span class="string">”计算”</span>&gt;</span></span><br><span class="line"></span><br><span class="line">正确答案是:D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">9.下面这段JS程序的执行结果是：</span><br><span class="line"></span><br><span class="line">var a &#x3D;[1,2,3];</span><br><span class="line">var b &#x3D; a.slice();</span><br><span class="line">b.push(4);</span><br><span class="line">console.log(a)</span><br><span class="line"></span><br><span class="line">A.[1,2,3,4] B.[1,2,3] C.[4] D.[2,3,4]</span><br><span class="line"></span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10.</span>问：控制台打印的结果是？</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;,<span class="number">100</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)&#123;</span><br><span class="line">   <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(i)</span><br><span class="line">   &#125;,<span class="number">100</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">A<span class="number">.0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span>  B<span class="number">.0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">1</span>  C<span class="number">.0</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span>  D<span class="number">.1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">正确答案:A</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">11.</span>查看如下 JavaScript 代码：</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;10&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> (a == b)</span><br><span class="line">     alert(<span class="string">&quot;equal&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (a === b)</span><br><span class="line">    alert(<span class="string">&quot;same&quot;</span>);</span><br><span class="line"></span><br><span class="line">此代码运行后，效果为( )</span><br><span class="line"></span><br><span class="line">A.只弹出”equal“ B.只弹出”same“ C.先弹出”equal“，再弹出”same“ D.没有弹出显示</span><br><span class="line"></span><br><span class="line">正确答案是:A</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">12.</span>阅读如下代码：</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">12</span>];</span><br><span class="line">    <span class="keyword">var</span> a2 = [<span class="number">4</span>, <span class="number">23</span>];</span><br><span class="line">    a1.concat(a2);</span><br><span class="line">    a1.sort();</span><br><span class="line">    alert(a1.join(<span class="string">&quot;;&quot;</span>));</span><br><span class="line"></span><br><span class="line">代码运行后，alert 方法弹出的内容为( )</span><br><span class="line"></span><br><span class="line">A<span class="number">.1</span>;<span class="number">2</span>;<span class="number">12</span>  B<span class="number">.1</span>;<span class="number">12</span>;<span class="number">2</span>  C<span class="number">.1</span>;<span class="number">2</span>;<span class="number">4</span>;<span class="number">12</span>;<span class="number">23</span>  D<span class="number">.1</span>;<span class="number">12</span>;<span class="number">2</span>;<span class="number">23</span>;<span class="number">4</span></span><br><span class="line"></span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">13.</span>HTML 页面上有一个超链接，要实现当鼠标移入该超级链接时，超级链接的文本背景色变为灰色。下列选项中，能实现此功能的是()</span><br><span class="line"></span><br><span class="line">A.&lt;a href=<span class="string">&quot;#&quot;</span> onmouseover=<span class="string">&quot;this.style.background.color=&#x27;gray&#x27;;&quot;</span>&gt;注册&lt;/a&gt;</span><br><span class="line">B.&lt;a href=<span class="string">&quot;#&quot;</span> onmouseout=<span class="string">&quot;this.style.background-color=&#x27;gray&#x27;;&quot;</span>&gt;注册&lt;/a&gt;</span><br><span class="line">C.&lt;a href=<span class="string">&quot;#&quot;</span> onmouseover=<span class="string">&quot;this.style.backgroundColor=gray;&quot;</span>&gt;注册&lt;/a&gt;</span><br><span class="line">D.&lt;a href=<span class="string">&quot;#&quot;</span> onmouseover=<span class="string">&quot;this.style.backgroundColor=&#x27;gray&#x27;;&quot;</span>&gt;注册&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">正确答案是:D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">14.</span>有数组定义如下：</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a1 = [<span class="number">1</span>, <span class="number">14</span>, <span class="number">4</span>, <span class="number">12</span>, <span class="number">23</span>];</span><br><span class="line">现需要实现对数组 a1 中的内容按照数值大小升序排列，下列代码中，错误的是()</span><br><span class="line"></span><br><span class="line">A.a1.sort(<span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;return a-b;&quot;</span>));</span><br><span class="line">B.a1.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> a - b; &#125;);</span><br><span class="line">C.a1.sort(<span class="keyword">new</span> <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> a - b; &#125;);</span><br><span class="line">D.a1.sort(sortFunc); <span class="function"><span class="keyword">function</span> <span class="title">sortFunc</span>(<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> a - b; &#125;</span><br><span class="line"></span><br><span class="line">正确答案是:C</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">15.下列选项中，不是 window 对象的子对象的是()</span><br><span class="line"></span><br><span class="line">A.location  B.history  C.screen  D.arguments</span><br><span class="line"></span><br><span class="line">正确答案是:D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">16.	html 页面上有一个 id 值为 b1 的按钮，现需要使用 JavaScript 代码为其定义单击事件：单击该按钮后，弹出“Hello”。下列选项中，错误的是()</span><br><span class="line"></span><br><span class="line">A.document.getElementById(&quot;b1&quot;).onclick &#x3D; function () &#123; alert(&quot;hello&quot;); &#125;;</span><br><span class="line">B.document.getElementById(&quot;b1&quot;).onclick &#x3D; new Function(&quot;alert(&#39;hello&#39;); &quot;);</span><br><span class="line">C.document.getElementById(&quot;b1&quot;).onclick &#x3D; new function () &#123; alert(&quot;hello&quot;); &#125;;</span><br><span class="line">D.document.getElementById(&quot;b1&quot;).onclick &#x3D; clickFunc; function clickFunc() &#123; alert(&quot;Hello&quot;); &#125;</span><br><span class="line"></span><br><span class="line">正确答案是:C</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">17.window对象的方法中，( ）方法是用于弹出确认对话框，可让选择“确定”或“取消”</span><br><span class="line"></span><br><span class="line">A.confirm()  B.alert()  C.prompt()  D.open()</span><br><span class="line"></span><br><span class="line">正确答案是:A</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">18.以下JavaScript变量名不合法的有()</span><br><span class="line"></span><br><span class="line"> A.4Myvariable  B.My@variable  C.function  D.Myvariable4</span><br><span class="line"> </span><br><span class="line"> 正确答案是:ABC</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">19.在JavaScript程序中加入注释，方法有()</span><br><span class="line"></span><br><span class="line"> A.&#x2F;&#x2F;注释内容  B.&#x2F;*注释内容*&#x2F;  C.&#x2F;注释内容  D.&#x2F;*注释内容</span><br><span class="line"> </span><br><span class="line"> 正确答案是:AB</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">20.关于javascript语言说法错误的是？</span><br><span class="line"></span><br><span class="line">A.JavaScript是目前Web应用程序开发者使用最为广泛的客户端脚本编程语言</span><br><span class="line">B.javaScript是网景公司专为Navigator浏览器开发、实现网页内容交互的功能。</span><br><span class="line">C.javascript是由SUN公司开发的。</span><br><span class="line">D.ECMAScript是一个为了规范Javascript语言而产生的国际标准。</span><br><span class="line"></span><br><span class="line">正确答案是:C</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">21.表达式5+22&#x2F;2%2的计算结果是：</span><br><span class="line"></span><br><span class="line">A.5  B.6  C.7  D.8  E.语法错误</span><br><span class="line"></span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">22.关于文档对象模型（Document Object Model），如下说法错误的是</span><br><span class="line"></span><br><span class="line">A.DOM能够以编程方式访问和操作web页面内容。</span><br><span class="line">B.DOM允许通过对象的属性和方法访问页面中的对象</span><br><span class="line">C.DOM能够创建动态的文档内容，但是不能删除文档对象</span><br><span class="line">D.DOM也提供了处理事件的接口，它允许捕获和响应用户以及浏览器的动作</span><br><span class="line"></span><br><span class="line">正确答案是:C</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">23.下列事件哪个不是由鼠标触发的事件</span><br><span class="line"></span><br><span class="line">A.click  B.contextmenu  C.mouseout  D.keydown</span><br><span class="line"></span><br><span class="line">正确答案是:D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">24.</span>下面代码执行后， arr 的值是：（）</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr=[&#123;<span class="attr">a</span>:<span class="number">1</span>&#125;,&#123;&#125;];</span><br><span class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,idx</span>)</span>&#123;</span><br><span class="line">    item.b=idx;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">A.[&#123;<span class="attr">a</span>:<span class="number">1</span>&#125;,&#123;&#125;]  B.[&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">0</span>&#125;,&#123;<span class="attr">b</span>:<span class="number">1</span>&#125;]  C.[&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">1</span>&#125;,&#123;<span class="attr">b</span>:<span class="number">1</span>&#125;]  D.[&#123;<span class="attr">a</span>:!,b:<span class="number">0</span>&#125;,&#123;<span class="attr">b</span>:<span class="number">0</span>&#125;]</span><br><span class="line"></span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">25.</span>以下哪一条Javascript语句会产生运行错误？</span><br><span class="line"></span><br><span class="line">A.var obj=( );  B.var obj=[ ];  C.var obj=&#123; &#125;;  D.var obj=<span class="regexp">/ /</span>;</span><br><span class="line"></span><br><span class="line">正确答案是:A</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">26.下列js延迟加载的方式中，只有IE浏览器支持的是哪一种方式？（）</span><br><span class="line">备注：该题可能过时，请按照之前的知识选择。</span><br><span class="line"></span><br><span class="line">A.async  B.defer  C.动态创建DOM方式  D.按需异步载入</span><br><span class="line"></span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">27.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="keyword">if</span> (x) &#123;</span><br><span class="line">  alert(<span class="string">&#x27;hi&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> y = <span class="built_in">Boolean</span>(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> (y) &#123;</span><br><span class="line">  alert(<span class="string">&#x27;hello&#x27;</span>); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">的显示结果是？</span><br><span class="line"></span><br><span class="line">A.hi  B.hi hello  C.hello  D.不显示</span><br><span class="line"></span><br><span class="line">正确答案是:A</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">28.页面有一个按钮button id为button1，通过原生的js如何禁用？（）</span><br><span class="line"></span><br><span class="line"> A.document.getElementById(“button1”).setAttribute(“Readolny”,true); </span><br><span class="line"> B.document.getElementById(“button1”).setAttribute(“disabled”,true); </span><br><span class="line"> C.document.getElementById(“button1”).Readolny&#x3D;true; </span><br><span class="line"> D.document.getElementById(“button1”).disabled&#x3D;true;</span><br><span class="line"> </span><br><span class="line"> 正确答案是:BD</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">29.下列 JavaScript 代码执行后的 li 元素的数量是()</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">&lt;li&gt;Item&lt;&#x2F;li&gt;</span><br><span class="line">&lt;li&gt;&lt;&#x2F;li&gt;</span><br><span class="line">&lt;li&gt;&lt;&#x2F;li&gt;</span><br><span class="line">&lt;li&gt;Item&lt;&#x2F;li&gt;</span><br><span class="line">&lt;li&gt;Item&lt;&#x2F;li&gt;</span><br><span class="line">&lt;&#x2F;ul&gt;</span><br><span class="line">var items &#x3D; document.getElementsByTagName(&#39;li&#39;);</span><br><span class="line">for(var i &#x3D; 0; i&lt; items.length; i++)&#123;</span><br><span class="line">if(items[i].innerHTML &#x3D;&#x3D; &#39;&#39;)&#123;</span><br><span class="line">items[i].parentNode.removeChild(items[i]);</span><br><span class="line">&#125; &#125;</span><br><span class="line">                               </span><br><span class="line">A.3  B.4  C.5  D.6</span><br><span class="line">                               </span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">30.</span>请选择结果为真的表达式：（ )</span><br><span class="line"></span><br><span class="line">A.null <span class="keyword">instanceof</span> <span class="built_in">Object</span></span><br><span class="line">B.null === <span class="literal">undefined</span></span><br><span class="line">C.null == <span class="literal">undefined</span></span><br><span class="line">D.NaN == <span class="literal">NaN</span></span><br><span class="line"></span><br><span class="line">正确答案是:C</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">31.下面的 JavaScript 语句中，（ ）实现检索当前页面中的表单元素中的所有文本框，并将它们全部清空</span><br><span class="line"></span><br><span class="line">A.for(var i&#x3D;0;i&lt; form1.elements.length;i++) &#123; if(form1.elements.type&#x3D;&#x3D;”text”) form1.elements.value&#x3D;”&quot;;&#125;</span><br><span class="line">B.for(var i&#x3D;0;i&lt;document.forms.length;i++) &#123; if(forms[0].elements.type&#x3D;&#x3D;”text”) forms[0].elements.value&#x3D;”&quot;; &#125;</span><br><span class="line">C.if(document.form.elements.type&#x3D;&#x3D;”text”) form.elements.va lue&#x3D;”&quot;;</span><br><span class="line">D.for(var i&#x3D;0;i&lt;document.forms.length; i++)&#123; for(var j&#x3D;0;j&lt;document.forms.elements.length; j++)&#123; if(document.forms.elements[j].type&#x3D;&#x3D;”text”) document.forms.elements[j].value&#x3D;”&quot;; &#125; &#125;</span><br><span class="line"></span><br><span class="line">正确答案是:D</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">32.以下哪个单词不属于 javascript 保留字：（ ）</span><br><span class="line"></span><br><span class="line">A.with  B.parent  C.class  D.void</span><br><span class="line"></span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">33.以下哪个结果是正确的？</span><br><span class="line"></span><br><span class="line">var a&#x3D;10;b&#x3D;20;c&#x3D;4;</span><br><span class="line">console.log(++b+c+a++);</span><br><span class="line"></span><br><span class="line">A.34  B.35  C.36  D.37</span><br><span class="line"></span><br><span class="line">正确答案是:B</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">34.</span>以下运算会输出什么结果?</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = &#123;<span class="attr">a</span>:<span class="number">1234</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> b = &#123;<span class="attr">b</span>:<span class="number">5678</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> c = &#123;&#125;</span><br><span class="line">c[a] = a;</span><br><span class="line">c[b] = <span class="number">1122</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c[a]);</span><br><span class="line"></span><br><span class="line">A.报错  B<span class="number">.1234</span>  C<span class="number">.5678</span>  D<span class="number">.1122</span></span><br><span class="line"></span><br><span class="line">正确答案是:D</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2020/02/11/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%9834%E9%81%93(2)/" title="前端基础面试题34道(2)" target="_blank" rel="external">https://xulujin.gitee.io/blog/2020/02/11/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%9834%E9%81%93(2)/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2020/02/11/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%9840%E9%81%93(1)/" title="(no title)"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2020/01/31/Git-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" title="Git 版本控制工具"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+            更多功能正在开发中...
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: '前端基础面试题34道(2)', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

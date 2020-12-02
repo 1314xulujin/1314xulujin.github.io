@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>OOP思想(面向对象思想) | 永恒的金色年华</title>
+  <meta name="description" content="OOP思想应该怎样来理解？ https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq157962718&#x2F;article&#x2F;details&#x2F;50990154 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;xiaosongluffy&#x2F;p&#x2F;5072501.html https:&#x2F;&#x2F;blog.csdn.net&#x2F;sinat_37212928&#x2F;article&#x2F;details&#x2F;72874598  它强调对象的“抽象”、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OOP思想(面向对象思想)">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2019/10/18/OOP%E6%80%9D%E6%83%B3-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/index.html">
+<meta property="og:site_name" content="LuKing">
+<meta property="og:description" content="OOP思想应该怎样来理解？ https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq157962718&#x2F;article&#x2F;details&#x2F;50990154 https:&#x2F;&#x2F;www.cnblogs.com&#x2F;xiaosongluffy&#x2F;p&#x2F;5072501.html https:&#x2F;&#x2F;blog.csdn.net&#x2F;sinat_37212928&#x2F;article&#x2F;details&#x2F;72874598  它强调对象的“抽象”、">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-18T06:38:53.000Z">
+<meta property="article:modified_time" content="2020-06-21T13:10:21.253Z">
+<meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="OOP面向对象思想">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2019/10/18/OOP%E6%80%9D%E6%83%B3-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/1314xulujin" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">LuKing-Xun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/blog/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/blog/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/blog/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一如前端深似海,回头?...没头回了!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BootStrap/" rel="tag">BootStrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML5-css3/" rel="tag">HTML5+css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" rel="tag">Storage存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Web-Worker/" rel="tag">Web Worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">hexo搭建博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html4/" rel="tag">html4</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/photoshop/" rel="tag">photoshop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/websocket/" rel="tag">websocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window10/" rel="tag">window10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" rel="tag">冷知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">函数柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" rel="tag">微信小程序UI框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" rel="tag">本科考试科目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">软件设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/BFC/" style="font-size: 13px;">BFC</a> <a href="/blog/tags/BootStrap/" style="font-size: 13px;">BootStrap</a> <a href="/blog/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/blog/tags/HTML5-css3/" style="font-size: 13px;">HTML5+css3</a> <a href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" style="font-size: 13px;">OOP面向对象思想</a> <a href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" style="font-size: 13px;">Storage存储</a> <a href="/blog/tags/Web-Worker/" style="font-size: 13px;">Web Worker</a> <a href="/blog/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/blog/tags/call%E5%92%8Capply/" style="font-size: 13px;">call和apply</a> <a href="/blog/tags/css3/" style="font-size: 13px;">css3</a> <a href="/blog/tags/git/" style="font-size: 13px;">git</a> <a href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">hexo搭建博客</a> <a href="/blog/tags/html4/" style="font-size: 13px;">html4</a> <a href="/blog/tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="/blog/tags/javascript/" style="font-size: 13.2px;">javascript</a> <a href="/blog/tags/photoshop/" style="font-size: 13px;">photoshop</a> <a href="/blog/tags/vue/" style="font-size: 13.6px;">vue</a> <a href="/blog/tags/webpack/" style="font-size: 13.2px;">webpack</a> <a href="/blog/tags/websocket/" style="font-size: 13px;">websocket</a> <a href="/blog/tags/window10/" style="font-size: 13px;">window10</a> <a href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" style="font-size: 13.2px;">冷知识</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" style="font-size: 13px;">函数柯里化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 13px;">前端工程化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.8px;">前端面试题</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">微信小程序UI框架</a> <a href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" style="font-size: 13.2px;">智扬信达</a> <a href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" style="font-size: 13px;">本科考试科目</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 13px;">跨域</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">软件设计模式</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.4px;">面试题</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">八月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">六月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">四月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">十月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.215Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.176Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/" class="title">echarts多Y轴显示负数零刻度线对齐</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-18T03:23:11.000Z" itemprop="datePublished">2020-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" class="title">chrome80版本以后，SAMESITE COOKIE验证跨站问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="title">前端知识结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-OOP思想-面向对象思想" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OOP思想(面向对象思想)
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2019/10/18/OOP%E6%80%9D%E6%83%B3-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" class="article-date">
+	  <time datetime="2019-10-18T06:38:53.000Z" itemprop="datePublished">2019-10-18</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2019/10/18/OOP%E6%80%9D%E6%83%B3-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="OOP思想应该怎样来理解？"><a href="#OOP思想应该怎样来理解？" class="headerlink" title="OOP思想应该怎样来理解？"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/bluealine/p/8664561.html">OOP思想应该怎样来理解？</a></h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq157962718/article/details/50990154">https://blog.csdn.net/qq157962718/article/details/50990154</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaosongluffy/p/5072501.html">https://www.cnblogs.com/xiaosongluffy/p/5072501.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_37212928/article/details/72874598">https://blog.csdn.net/sinat_37212928/article/details/72874598</a></p>
+</blockquote>
+<p>它强调对象的“抽象”、“封装”、“继承”、“多态”。<br>  OOP思想浅谈 收藏<br>07年11月27号在校内举办了第一次技术讲座，主题是Java now and future.和以往的同主题的讲座不同，我在讲座里面着重讲了一下我对OOP思想的理解并对比了Java和C++的区别，这也是很多编程爱好者所津津乐道的话题，至于大家喜欢哪种编程语言我个人觉得主要决定于自己的性格，当初喜欢Java也是因为其跨平台的特点，和外向兴趣广泛的我一样，能让生活充满更多的乐趣和颜色。</p>
+<p>​    下面浅谈下我对OOP思想的理解，OOP思想中很重要的有五点，类，对象，还有面向对象的三大特征：继承，多态和封装。</p>
+<p>​    类：对现实世界事物的抽象表示，包括事物的状态信息（成员变量）和行为信息（成员方法）。我们要让我们的计算机程序设计更有意思，也更有逻辑性，则我们的程序中对事物的描叙就必须符合真实情况，同时符合人类的思维习惯。因此，我们如果在计算中要描叙人这个事物，也是一类事物，我们就必须把该事物的所有特点包含进来，用成员变量描叙人的基本属性，如：身高，体重，年龄，性别等。这样就可以描叙一个“静态”的人了，所谓静态的意思也就是该人并不参与任何社会活动，没有任何行为。但是这样并不符合现实意义，那样我们必须为人添上行为，让他参加社会活动有自己的行为。所以我们需要用成员方法来描叙人的活动，如：吃饭，洗澡，睡觉等。</p>
+<p>​    对象：对抽象事物的具体表示，使其具有自身的特点。类好比一个大的集合，里面的元素都有共同的特点，但是比较每个元素又可以发现每个有其自身的特点，对象就是这样，它是一个类的具体化，也是实例化，类是泛指，而对象是特指。虽然人都有身高，体重，年龄，同时有行为有吃饭，洗澡，睡觉等，但是当具体到某个人的时候就会有不同，例如：老人和小孩的年龄就有不同，所以，从类到对象是我们把现实事物进行计算机描叙的过程，同时也是一个从抽象到具体的过程，这很符合我们的真实思维逻辑。</p>
+<p>​    下面浅谈一下面向对象的三大特征的基本思想。</p>
+<p>​    多态：用一种解决方案来解决对一类问题，对于不同的事物解决途径和结果不同。在C++中实现多态性有三种方法，分别是：虚函数，函数重载和运算符重载。这三种方法大家都可以看到我们解决问题的初衷是一样的，都是利用同名函数，同名的运算符号，这抽象出来也就是解决问题的方法，但是对于不同的事物的反应却是不同的，例如：当用一个getPadNumber()方法来得到普通自行车和双人自行车的坐垫数量的时候，返回的结果是一个和两个，这就是具体的事物返回的结果不同。</p>
+<p>​    继承：让抽象出来的事物具有本应该具有的联系。我们能用类来描叙一个抽象的事物，同时能用对象来描叙具体的事物，但是这些事物都是独立的，彼此之间没有应该有的联系，这样的孤立设计并不符合现实逻辑，让事物之间的联系得到描叙，我们就需要继承，例如：发明自行车的人并不是一开始就发明了多人自行车，这些都是从双轮自行车演变和发展而来，但是他们都有共同的特点，有轮子，有车架子，等等。让我们用继承的关系把这两个现实的抽象联系起来，这样我们就能设计出不孤立的类，而是和其他类有联系的类。</p>
+<p>​    封装：让抽象的事物保护自身的状态，防止非其他事物对其进行错误的状态改变操作。我们抽象完一个事物后，可能在特定的条件下，其本身的状态需要改变，但是这个改变并允许其他的事物来进行，这样的改变只允许这个事物认同的操作域来进行，可以是该事物本身，也可以是它信任的其他事物。这样我们就能对我们抽象完的每个事物进行自身数据的保护。</p>
+<h4 id="以下有几个案例"><a href="#以下有几个案例" class="headerlink" title="以下有几个案例"></a>以下有几个案例</h4><h5 id="创建对象-字面量创建"><a href="#创建对象-字面量创建" class="headerlink" title="创建对象-字面量创建"></a>创建对象-字面量创建</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//1. 使用字面量方式创建对象</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> obj = &#123;</span></span><br><span class="line"><span class="javascript">        name:<span class="string">&quot;张三&quot;</span>,</span></span><br><span class="line"><span class="javascript">        run:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&#x27;我能跑&#x27;</span>);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    obj.run();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="创建对象-使用new-Object"><a href="#创建对象-使用new-Object" class="headerlink" title="创建对象-使用new Object"></a>创建对象-使用new Object</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//回顾数组  , 日期 , 正则 , 数字 , 字符串对象, 布尔对象 ...</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// var arr = new Array();</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// var date = new Date();</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// var reg = new RegExp();</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">//不足: 创建使用单一 ,过程繁琐 ,不能很好支持创建多个对象</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(); <span class="comment">//创建一个对象 , 空对象</span></span></span><br><span class="line"><span class="javascript">        obj.name = <span class="string">&quot;张三&quot;</span>;</span></span><br><span class="line"><span class="javascript">        obj[<span class="string">&#x27;run&#x27;</span>] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&#x27;我能跑!&#x27;</span>);</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(obj);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="创建对象-工厂模式"><a href="#创建对象-工厂模式" class="headerlink" title="创建对象-工厂模式"></a>创建对象-工厂模式</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//3.工厂模式 = &gt; 批量大量操作 : 其实就是把创建对象的过程封装成一个方法</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">//工厂模式属于23中设计模式的一种 详情见:http://c.biancheng.net/design_pattern/</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">//可以解决批量声明对象的繁琐过程和重复代码问题</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">//但是 使用工厂模式批量创建的对象都是Object  , 无法 像js中内置的Array , Date , RegExp ... 一样 ,容易辨别什么对象</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">//检测数据类型  :   typeof  = &gt; number , string , null , undefined , boolean object</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">//检测对象的类型 instanceof  检测对象是由哪个类(模具)创建出来的</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// = &gt; true  , 可以理解为arr是不是由Array 这个模子刻出来的</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">createObj</span>(<span class="params">index,len</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span></span><br><span class="line">        obj.index = index;</span><br><span class="line">        obj.len = len;</span><br><span class="line"><span class="javascript">        obj.autoplay = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&#x27;这是一个自动播放的函数!&#x27;</span>);</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> obj;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">    <span class="comment">//批量创建对象</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> slide1 = createObj(<span class="number">1</span>,<span class="number">5</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> slide2 = createObj(<span class="number">3</span>,<span class="number">12</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> slide3 = createObj(<span class="number">4</span>,<span class="number">9</span>);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="面向对象编程思想"><a href="#面向对象编程思想" class="headerlink" title="面向对象编程思想"></a>面向对象编程思想</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    /*</span><br><span class="line">        面向过程 : 就是把需要解决问题的事务分解成一个个的步骤 , 然后按所需要的步骤一个个执行(调用方法)</span><br><span class="line">        面向过程一样可以解决实际的问题, 但是这种思想,方式不利于项目的维护, 变更 ,扩展 不能很好实现代码的灵活复用或者业务解耦 ,容易造成代码冗余</span><br><span class="line"></span><br><span class="line">        面向对象 : 把构成问题的事务,分解成各个对象 ,每个对象只负责各自部分(实现代码业务解耦)</span><br><span class="line"></span><br><span class="line">        使用生活例子理解:</span><br><span class="line">            面向过程 : 像刀耕火种的时代, 从耕地 , 农活 , 收割 , 打谷 ,做饭 , 衣服 ,纺织 ... (一个人全部流程实现)</span><br><span class="line"></span><br><span class="line">            面向对象 : 现代社会 , 把日常生活工作 分配到不同岗位或行业领域,每个领域有各自的职责任务 (把任务分解,各自独立, 互不影响)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      */</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="面向对象-混合模式-原型-构造模式"><a href="#面向对象-混合模式-原型-构造模式" class="headerlink" title="面向对象-混合模式(原型+构造模式)"></a>面向对象-混合模式(原型+构造模式)</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    /**</span><br><span class="line">     *  无论是单纯的构造函数(浪费一些内存) , 还是单纯的原型(参数无法自定义),都只能解决某一些问题,还不是最终完美的方案</span><br><span class="line">     *  理想方案: 该独立的独立 ,该共享的就共享 ,实现功能和内存的优化</span><br><span class="line">     *      混合模式 =  构造函数  +  原型</span><br><span class="line">     *</span><br><span class="line">     *      一般做法: 属性通过构造函数添加 (不同)  , 方法就通过原型添加 (一样)</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">Cat</span> (<span class="params">name,type</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">this</span>.name = name;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">this</span>.type = type;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">        Cat.prototype.catchMouse = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&quot;我能抓老鼠!&quot;</span>);</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> cat1 = <span class="keyword">new</span> Cat(<span class="string">&quot;小花&quot;</span>,<span class="string">&quot;波斯猫&quot;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> cat2 = <span class="keyword">new</span> Cat(<span class="string">&quot;小黑&quot;</span>,<span class="string">&quot;加菲猫&quot;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log( cat1.catchMouse === cat2.catchMouse); <span class="comment">// true  说明内存地址一样</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="comment">//其实在js内置的构造函数中 ,也是把一些方法添加到对应的原型上的</span></span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="原型的常规妙用"><a href="#原型的常规妙用" class="headerlink" title="原型的常规妙用"></a>原型的常规妙用</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;ie=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//其实在js内置的构造函数中 ,也是把一些方法添加到对应的原型上的 (一般不会去修改原来的方法, 如果需要改善 会直接新增方法)</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">Array</span>.prototype.push2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="built_in">this</span>) ;<span class="comment">// this  = &gt;  arr</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;<span class="built_in">arguments</span>.length;i++)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">this</span>.push(<span class="built_in">arguments</span>[i]*<span class="built_in">arguments</span>[i]);</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr = [];  <span class="comment">// = &gt; 等价于 new Array()  就是一个构造函数的实例化过程</span></span></span><br><span class="line"><span class="javascript">            <span class="comment">// arr.push(1,2,3);</span></span></span><br><span class="line"><span class="javascript">            arr.push2(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">//  = &gt; 预期: [1 ,4, 9]</span></span></span><br><span class="line"><span class="javascript">           <span class="built_in">console</span>.log(arr);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> arr2 = [];</span></span><br><span class="line">            arr2.push2()</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="comment">// 可以把一些常用的方法 ,添加到对应构造函数的原型上,从而实现方便的调用</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="comment">// Math 数学对象, 不是一个函数 ,更不是一个构造函数,所有没有原型,无法通过原型修改</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2019/10/18/OOP%E6%80%9D%E6%83%B3-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" title="OOP思想(面向对象思想)" target="_blank" rel="external">https://xulujin.gitee.io/blog/2019/10/18/OOP%E6%80%9D%E6%83%B3-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2019/10/22/Ajax%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/" title="Ajax数据交互"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2018/12/05/js%E4%B8%AD%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="js中的跨域及其解决的办法"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+            更多功能正在开发中...
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'OOP思想(面向对象思想)', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

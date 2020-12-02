@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>对象的call方法和数组的apply方法 | 永恒的金色年华</title>
+  <meta name="description" content="对象的call方法和数组的apply方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465&lt;!doctype html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象的call方法和数组的apply方法">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2019/11/14/%E5%AF%B9%E8%B1%A1%E7%9A%84call%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84apply%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="LuKing">
+<meta property="og:description" content="对象的call方法和数组的apply方法1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465&lt;!doctype html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-11-14T08:42:20.000Z">
+<meta property="article:modified_time" content="2020-06-21T13:10:21.370Z">
+<meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="call和apply">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2019/11/14/%E5%AF%B9%E8%B1%A1%E7%9A%84call%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84apply%E6%96%B9%E6%B3%95/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/1314xulujin" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">LuKing-Xun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/blog/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/blog/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/blog/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一如前端深似海,回头?...没头回了!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BootStrap/" rel="tag">BootStrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML5-css3/" rel="tag">HTML5+css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" rel="tag">Storage存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Web-Worker/" rel="tag">Web Worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">hexo搭建博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html4/" rel="tag">html4</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/photoshop/" rel="tag">photoshop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/websocket/" rel="tag">websocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window10/" rel="tag">window10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" rel="tag">冷知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">函数柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" rel="tag">微信小程序UI框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" rel="tag">本科考试科目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">软件设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/BFC/" style="font-size: 13px;">BFC</a> <a href="/blog/tags/BootStrap/" style="font-size: 13px;">BootStrap</a> <a href="/blog/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/blog/tags/HTML5-css3/" style="font-size: 13px;">HTML5+css3</a> <a href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" style="font-size: 13px;">OOP面向对象思想</a> <a href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" style="font-size: 13px;">Storage存储</a> <a href="/blog/tags/Web-Worker/" style="font-size: 13px;">Web Worker</a> <a href="/blog/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/blog/tags/call%E5%92%8Capply/" style="font-size: 13px;">call和apply</a> <a href="/blog/tags/css3/" style="font-size: 13px;">css3</a> <a href="/blog/tags/git/" style="font-size: 13px;">git</a> <a href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">hexo搭建博客</a> <a href="/blog/tags/html4/" style="font-size: 13px;">html4</a> <a href="/blog/tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="/blog/tags/javascript/" style="font-size: 13.2px;">javascript</a> <a href="/blog/tags/photoshop/" style="font-size: 13px;">photoshop</a> <a href="/blog/tags/vue/" style="font-size: 13.6px;">vue</a> <a href="/blog/tags/webpack/" style="font-size: 13.2px;">webpack</a> <a href="/blog/tags/websocket/" style="font-size: 13px;">websocket</a> <a href="/blog/tags/window10/" style="font-size: 13px;">window10</a> <a href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" style="font-size: 13.2px;">冷知识</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" style="font-size: 13px;">函数柯里化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 13px;">前端工程化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.8px;">前端面试题</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">微信小程序UI框架</a> <a href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" style="font-size: 13.2px;">智扬信达</a> <a href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" style="font-size: 13px;">本科考试科目</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 13px;">跨域</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">软件设计模式</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.4px;">面试题</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">八月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">六月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">四月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">十月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.215Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.176Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/" class="title">echarts多Y轴显示负数零刻度线对齐</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-18T03:23:11.000Z" itemprop="datePublished">2020-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" class="title">chrome80版本以后，SAMESITE COOKIE验证跨站问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="title">前端知识结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-对象的call方法和数组的apply方法" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      对象的call方法和数组的apply方法
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2019/11/14/%E5%AF%B9%E8%B1%A1%E7%9A%84call%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84apply%E6%96%B9%E6%B3%95/" class="article-date">
+	  <time datetime="2019-11-14T08:42:20.000Z" itemprop="datePublished">2019-11-14</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2019/11/14/%E5%AF%B9%E8%B1%A1%E7%9A%84call%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84apply%E6%96%B9%E6%B3%95/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="对象的call方法和数组的apply方法"><a href="#对象的call方法和数组的apply方法" class="headerlink" title="对象的call方法和数组的apply方法"></a>对象的call方法和数组的apply方法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot;</span><br><span class="line">          content&#x3D;&quot;width&#x3D;device-width, user-scalable&#x3D;no, initial-scale&#x3D;1.0, maximum-scale&#x3D;1.0, minimum-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;ie&#x3D;edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F;其实在js中 , 方法也是一个对象 , 那么在方法类型的对象中 , 会具有 apply() , call() 方法</span><br><span class="line">    function abc()&#123;&#125;</span><br><span class="line">    console.dir(abc);</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * apply() 与 call() 方法 的作用:</span><br><span class="line">     *    相同:   在某一对象的方法中,使用指定的对象身份去执行该方法 .  &#x3D; &gt; &quot;借鸡下蛋&quot;</span><br><span class="line">     *</span><br><span class="line">     *    不同点 : 传参数方式</span><br><span class="line">     *      apply : 以数组传参</span><br><span class="line">     *      call : 逐个参数传递</span><br><span class="line">     *</span><br><span class="line">     *      在实现一个对象中自身没有的方法,通过一定手段或者方式可以从其他对象中执行到该方法的手段 即可视为继承.</span><br><span class="line">     *&#x2F;</span><br><span class="line">        var obj1 &#x3D; &#123;</span><br><span class="line">            name:&quot;张三&quot;,</span><br><span class="line">            sing:function (a,b,c,d) &#123;</span><br><span class="line">                console.log(&quot;我是:&quot;+this.name,&#39;我能唱歌!&#39;,&#39;拿手歌曲:&#39;,a,b,c,d);</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         &#x2F;&#x2F;调用obj1 的 sing 方法</span><br><span class="line">        &#x2F;&#x2F; obj1.sing();</span><br><span class="line"></span><br><span class="line">        var obj2 &#x3D; &#123;</span><br><span class="line">            name:&quot;李四&quot;,</span><br><span class="line">            dance:function()&#123;</span><br><span class="line">                console.log(&quot;我是:&quot;+this.name,&quot;我能跳舞!&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; obj2.dance();</span><br><span class="line">        var songList &#x3D; [&#39;中国话&#39;,&#39;我和我的祖国&#39;,&#39;我的中国心&#39;,&#39;追光者&#39;];</span><br><span class="line">        &#x2F;&#x2F;call(用哪个对象的身份去执行,执行该方法的参数) 上场 - &gt; 调用call() 方法</span><br><span class="line">        &#x2F;&#x2F; obj1.sing.call(obj2,&#39;中国话&#39;,&#39;我和我的祖国&#39;,&#39;我的中国心&#39;,&#39;追光者&#39;); &#x2F;&#x2F; &#x3D; &gt; 我是:李四 我能唱歌!</span><br><span class="line">            obj1.sing.apply(obj2,songList);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        obj2.dance.call(obj1); &#x2F;&#x2F; &#x3D; &gt; 我是:张三 我能跳舞!</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;使用场景1:</span><br><span class="line">        var arr &#x3D; [10,20,30,40,50,60,80,0,20,60];</span><br><span class="line">        &#x2F;&#x2F; console.log(Math.max(arr)); &#x2F;&#x2F; 因为内置的Math.max等方法 ,只支持参数一个个传递 ,所以如果直接传数组会无法识别&#x3D; &gt; NaN</span><br><span class="line">        console.log(Math.max.apply(null,arr));</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;使用ES6语法</span><br><span class="line">        console.log(Math.max(...arr));</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;使用场景2: 在一些复杂的业务场景下,为了实现对象方法的引用(继承) :</span><br><span class="line">        &#x2F;&#x2F; 就是A中本身没有abc方法 ,但是B有 ,那么怎么办,就可以通过apply&#x2F;call方法 实现在A对象的身份情况下执行到B</span><br><span class="line">        &#x2F;&#x2F; 中的abc方法(可以稍微理解为A中有abc方法了,虽然也不是有)</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="apply方法复习版"><a href="#apply方法复习版" class="headerlink" title="apply方法复习版"></a>apply方法复习版</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0,minimum-scale&#x3D;1.0,maximum-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;ie&#x3D;edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F;Math.min(20,30,50);Math.min传参方式是直接写一串数字，每个用逗号隔开，检测出最小的一个数字。</span><br><span class="line">        var arr &#x3D; [10,20,50,30,520];&#x2F;&#x2F;如果想传进去一个数组，则必须用到apply方法</span><br><span class="line">        console.log(Math.min.apply(null,arr));&#x2F;&#x2F;这样也可以比较出数组中最小的一个数字</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F;ES6新增 ... 这三个点通俗叫展开</span><br><span class="line">        console.log(Math.min(...arr));&#x2F;&#x2F;和上面用到apply效果一样</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2019/11/14/%E5%AF%B9%E8%B1%A1%E7%9A%84call%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84apply%E6%96%B9%E6%B3%95/" title="对象的call方法和数组的apply方法" target="_blank" rel="external">https://xulujin.gitee.io/blog/2019/11/14/%E5%AF%B9%E8%B1%A1%E7%9A%84call%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84%E7%9A%84apply%E6%96%B9%E6%B3%95/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2019/11/16/BFC%E5%9D%97%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87/" title="BFC块格式化上下文"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2019/11/14/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" title="函数柯里化及其使用到的案例"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+            更多功能正在开发中...
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: '对象的call方法和数组的apply方法', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

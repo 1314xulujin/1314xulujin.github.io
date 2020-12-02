@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>试用期工作总结 | 永恒的金色年华</title>
+  <meta name="description" content="2020年07081.负责东鹏后台系统的各个页面的局部样式（scss）的修改。 1.比如一些table布局溢出看不到内容。 2.比如控制一处表单一行显示等，主要修改element的样式。 3.遇到element的table布局下面多一条横线，添加如下代码解决 123&gt;.el-table::before &amp;#123;    &#x2F;&#x2F; 解决table-el布局栏多一条线的问题	z-index:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="试用期工作总结">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2020/07/27/%E8%AF%95%E7%94%A8%E6%9C%9F%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-%E5%BE%90%E8%B7%AF%E9%87%91/index.html">
+<meta property="og:site_name" content="LuKing">
+<meta property="og:description" content="2020年07081.负责东鹏后台系统的各个页面的局部样式（scss）的修改。 1.比如一些table布局溢出看不到内容。 2.比如控制一处表单一行显示等，主要修改element的样式。 3.遇到element的table布局下面多一条横线，添加如下代码解决 123&gt;.el-table::before &amp;#123;    &#x2F;&#x2F; 解决table-el布局栏多一条线的问题	z-index:">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-27T02:49:25.000Z">
+<meta property="article:modified_time" content="2020-07-30T10:12:00.355Z">
+<meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="智扬信达">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2020/07/27/%E8%AF%95%E7%94%A8%E6%9C%9F%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-%E5%BE%90%E8%B7%AF%E9%87%91/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/1314xulujin" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">LuKing-Xun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/blog/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/blog/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/blog/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一如前端深似海,回头?...没头回了!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BootStrap/" rel="tag">BootStrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML5-css3/" rel="tag">HTML5+css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" rel="tag">Storage存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Web-Worker/" rel="tag">Web Worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">hexo搭建博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html4/" rel="tag">html4</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/photoshop/" rel="tag">photoshop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/websocket/" rel="tag">websocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window10/" rel="tag">window10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" rel="tag">冷知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">函数柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" rel="tag">微信小程序UI框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" rel="tag">本科考试科目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">软件设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/BFC/" style="font-size: 13px;">BFC</a> <a href="/blog/tags/BootStrap/" style="font-size: 13px;">BootStrap</a> <a href="/blog/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/blog/tags/HTML5-css3/" style="font-size: 13px;">HTML5+css3</a> <a href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" style="font-size: 13px;">OOP面向对象思想</a> <a href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" style="font-size: 13px;">Storage存储</a> <a href="/blog/tags/Web-Worker/" style="font-size: 13px;">Web Worker</a> <a href="/blog/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/blog/tags/call%E5%92%8Capply/" style="font-size: 13px;">call和apply</a> <a href="/blog/tags/css3/" style="font-size: 13px;">css3</a> <a href="/blog/tags/git/" style="font-size: 13px;">git</a> <a href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">hexo搭建博客</a> <a href="/blog/tags/html4/" style="font-size: 13px;">html4</a> <a href="/blog/tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="/blog/tags/javascript/" style="font-size: 13.2px;">javascript</a> <a href="/blog/tags/photoshop/" style="font-size: 13px;">photoshop</a> <a href="/blog/tags/vue/" style="font-size: 13.6px;">vue</a> <a href="/blog/tags/webpack/" style="font-size: 13.2px;">webpack</a> <a href="/blog/tags/websocket/" style="font-size: 13px;">websocket</a> <a href="/blog/tags/window10/" style="font-size: 13px;">window10</a> <a href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" style="font-size: 13.2px;">冷知识</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" style="font-size: 13px;">函数柯里化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 13px;">前端工程化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.8px;">前端面试题</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">微信小程序UI框架</a> <a href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" style="font-size: 13.2px;">智扬信达</a> <a href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" style="font-size: 13px;">本科考试科目</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 13px;">跨域</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">软件设计模式</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.4px;">面试题</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">八月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">六月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">四月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">十月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.215Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.176Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/" class="title">echarts多Y轴显示负数零刻度线对齐</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-18T03:23:11.000Z" itemprop="datePublished">2020-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" class="title">chrome80版本以后，SAMESITE COOKIE验证跨站问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="title">前端知识结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-试用期工作总结-徐路金" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      试用期工作总结
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2020/07/27/%E8%AF%95%E7%94%A8%E6%9C%9F%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-%E5%BE%90%E8%B7%AF%E9%87%91/" class="article-date">
+	  <time datetime="2020-07-27T02:49:25.000Z" itemprop="datePublished">2020-07-27</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/07/27/%E8%AF%95%E7%94%A8%E6%9C%9F%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-%E5%BE%90%E8%B7%AF%E9%87%91/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="2020年"><a href="#2020年" class="headerlink" title="2020年"></a>2020年</h2><h5 id="0708"><a href="#0708" class="headerlink" title="0708"></a>0708</h5><h6 id="1-负责东鹏后台系统的各个页面的局部样式（scss）的修改。"><a href="#1-负责东鹏后台系统的各个页面的局部样式（scss）的修改。" class="headerlink" title="1.负责东鹏后台系统的各个页面的局部样式（scss）的修改。"></a>1.负责东鹏后台系统的各个页面的局部样式（scss）的修改。</h6><blockquote>
+<p>1.比如一些table布局溢出看不到内容。</p>
+<p>2.比如控制一处表单一行显示等，主要修改element的样式。</p>
+<p>3.遇到element的table布局下面多一条横线，添加如下代码解决</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="selector-class">.el-table</span><span class="selector-pseudo">::before</span> &#123; </span><br><span class="line">   // 解决table-el布局栏多一条线的问题	z-index: 		inherit;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<h6 id="2-在钉钉直播观看胡主管讲关于多租户saas架构设计"><a href="#2-在钉钉直播观看胡主管讲关于多租户saas架构设计" class="headerlink" title="2.在钉钉直播观看胡主管讲关于多租户saas架构设计"></a>2.在钉钉直播观看胡主管讲关于多租户saas架构设计</h6><blockquote>
+<p>定义：</p>
+<p>​     SaaS是Software-as-a-service（软件即服务）。SaaS提供商为企业搭建信息化所需要的所有网络基础设施及软件、硬件运作平台，并负责所有前期的实施、后期的维护等一系列服务，企业无需购买软硬件、建设机房、招聘IT人员，即可通过互联网使用信息系统。就像打开自来水龙头就能用水一样，企业根据实际需要，向SaaS提供商租赁软件服务。 </p>
+<p>我的认识：</p>
+<p>​    对不同的租户提供不同的权限，返回不同的路由表，即显示的页面也不同。</p>
+<p>实现的方面：</p>
+<p>​    1.数据库实现</p>
+<p>​        多个租户可能有多个不同的表或者不同的字段来分开</p>
+<p>​    2.程序实现</p>
+<p>​        返回的权限码不同</p>
+<p>​    3.应用实现</p>
+<p>总结：</p>
+<p>​    需要实现一些资料的共享，且还要达到每个租户的数据隔离（自己的数据只有自己看的到）</p>
+</blockquote>
+<h6 id="3-钉钉直播-2020期刊分享-大数据开发部-大数据技术体系初窥"><a href="#3-钉钉直播-2020期刊分享-大数据开发部-大数据技术体系初窥" class="headerlink" title="3.钉钉直播-2020期刊分享-大数据开发部-大数据技术体系初窥"></a>3.钉钉直播-2020期刊分享-大数据开发部-大数据技术体系初窥</h6><blockquote>
+<p>1.分享主题</p>
+<p>​    ①让您了解*<strong>大数据前沿技术*</strong>，不管在BI领域还是H5领域瞬          间变身专家级Level。</p>
+<p>​    ②让您了解炫酷的<strong>数据可视化</strong>是怎么做出来的，它的极限在哪    儿？抑或没有极限。</p>
+<p>​    ③从一堆普通的数据，如何经过技术处理变成了生动互操作的    直观图表？这个过程中数仓起了哪些作用？</p>
+<p>2.演讲的同学</p>
+<p>​    前端：曾诚、李小平</p>
+<p>​    java：王海杏、黄任成</p>
+<p>3.关于前端</p>
+<p>​    从前端三剑客HTML，CSS，JS基础，到前端自动化开发npm，webpack和Vue全家桶，前端的同学们讲的很不错，让我了解到前端开发是包括了日常用的一些技术但不仅限于这些，应验了一句圈子里常说的话：前端入门容易，精通难。但其实又何止前端是这样，其他像java，数据库，运维等等，都是如此。</p>
+</blockquote>
+<h5 id="0724"><a href="#0724" class="headerlink" title="0724"></a>0724</h5><h6 id="1-负责管理中心的-参数管理和租户主表-页面功能的实现。"><a href="#1-负责管理中心的-参数管理和租户主表-页面功能的实现。" class="headerlink" title="1.负责管理中心的 参数管理和租户主表 页面功能的实现。"></a>1.负责管理中心的 参数管理和租户主表 页面功能的实现。</h6><blockquote>
+<p>1.调用新增菜单接口在路由表新增页面，接口为 <a target="_blank" rel="noopener" href="http://192.168.2.232:8080/euicp-biz-service/swagger-ui.html#/operations/%E8%8F%9C%E5%8D%95%E7%AE%A1%E7%90%86%E6%8E%A5%E5%8F%A3/insertMenuUsingPOST">/menu/insertMenu</a> ，填写相应的路由名称和路由url。</p>
+<p>2.参数管理布局和接口基本参照字典管理来编写；租户主表布局参照用户管理，租户主表的租户除了有租户的信息，多了一项租户的属性，目前暂时只显示是否为新窗口打开报表。</p>
+<p>3.每个页面对表格的数据操作有    编辑，删除，修改状态，预览，授权，角色绑定，映射，详情，同步，测试，查看，取消收藏；但不是每个路由的表格都有所有的操作，是根据每次切换路由获取到表格数据，判断里面有没有这个操作权限，逐一显示出来；其中说一下删除，后端返回了两种接口，一种是硬删除，一种是软删除(改变其status状态，不算是删除)。</p>
+<p>4.碰到问题：对Vue定义的一些方法熟悉，常常碰到500错误与后端协商。</p>
+<p>4.问题起因：500错误可能是因为前端带过去的参数不规范导致，也可能是后端没对多个出现的情况进行判断。</p>
+</blockquote>
+<h6 id="2-了解了单点登录的流程。"><a href="#2-了解了单点登录的流程。" class="headerlink" title="2.了解了单点登录的流程。"></a>2.了解了单点登录的流程。</h6><blockquote>
+<h5 id="1-单点登录的定义："><a href="#1-单点登录的定义：" class="headerlink" title="1.单点登录的定义："></a>1.单点登录的定义：</h5><p>​     单点登录（Single Sign On），简称为 SSO，是比较流行的企业业务整合的解决方案之一。SSO的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。</p>
+<h5 id="2-实现方法："><a href="#2-实现方法：" class="headerlink" title="2.实现方法："></a>2.实现方法：</h5><p>​    server端：</p>
+<p>​         “共享<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Cookie/1119">Cookie</a>”这个就是上面提到的共享session的方式 </p>
+<pre><code>    SSO-Token方式因为共享session的方式不安全，所以我们不再以session-id作为身份的标识。我们另外生成一种标识，把它取名SSO-Token(或Ticket) </code></pre>
+<p>​    浏览器端:</p>
+<p>​         用户登录成功拿到token(或者是session-id)后怎么让浏览器存储和分享到其它域名下？同域名很简单，把token存在cookie里，把cookie的路径设置成顶级域名下，这样所有子域都能读取cookie中的token。这就是共享cookie的方式（这才叫共享Cookie嘛，上面那个应该叫共享session）</p>
+<h5 id="3-前端负责单点登录哪些"><a href="#3-前端负责单点登录哪些" class="headerlink" title="3.前端负责单点登录哪些"></a>3.前端负责单点登录哪些</h5><p>​    大部分单点登录逻辑都交给后端进行处理；</p>
+<p>​    前端需判断是否为跳转到loading登录，loading可能有几种登录方式，比如微信登录或者根据地址栏参数登录；地址栏又会传不同的字段过来，比如是code、token或者其他租户规定的字段，再调用后端返回的不同的接口进行验证登录；</p>
+<p>​    也有些租户，比如东鹏，需求是不使用跳转loading页登录，要和系统登陆一样，这时需要根据打开当前页面返回的用户信息的loginType字段判断是系统默认登录方式还是像东鹏这样的租户登录的方式。</p>
+</blockquote>
+<h6 id="3-修改东鹏页面日常的一些bug。"><a href="#3-修改东鹏页面日常的一些bug。" class="headerlink" title="3.修改东鹏页面日常的一些bug。"></a>3.修改东鹏页面日常的一些bug。</h6><blockquote>
+<p>1.调用新增接口新增一段信息后，再次打开表单后表单验证提示不消失。</p>
+<p>​    起因：是表单域的  el-item-form 的prop属性 与 v-model的值  的名称不一样导致的。</p>
+<p>​    解决方法：1.可以将 prop属性 与 v-model的值  的名称改成一样的(推荐)；2.使用重置表单验证的方法     this.$refs[formName].resetFields() ，在提交接口之后添加，方法比较粗暴，不建议使用。</p>
+<p>2.vue router连续点击多次路由报错解决方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">// 在main.js下添加以下代码：</span></span><br><span class="line">&gt;<span class="keyword">const</span> originalPush = Router.prototype.push</span><br><span class="line">&gt;Router.prototype.push = <span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">location</span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> originalPush.call(<span class="built_in">this</span>, location).catch(<span class="function"><span class="params">err</span> =&gt;</span> err)</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3.角色管理 点击授权按钮，其中没有子集的父属性不会被勾选。</p>
+<p>​    起因：在实例中定义了一个array_diff方法，里面的逻辑涉及到浅拷贝影响数组的内存地址；</p>
+<p>​    解决：加一个判断，如果这个父属性也被选中了，判断它有没有子集，有子集就剔除，反之…</p>
+<p>4.</p>
+</blockquote>
+<h6 id="4-兼容IE9-样式适配。"><a href="#4-兼容IE9-样式适配。" class="headerlink" title="4.兼容IE9+样式适配。"></a>4.兼容IE9+样式适配。</h6><blockquote>
+<p>1.根据东鹏租户的需求，兼容IE9浏览器。</p>
+<p>2.IE9 ，IE10， IE11三个版本对一种代码所体现出来的样式都有不同，IE10和IE11大体差别不大，侧重点在IE9，它不支持flex布局，所以之前写的flex不生效，可以使用float浮动来解决(推荐)，也可使用position定位解决，这里我使用了float。</p>
+<p>3.对IE9 ，IE10， IE11媒体查询设置样式，媒体查询模板代码参考下面</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">// 1920px, 1440px, 1366px, IE9+适配媒体查询模板</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">@media</span> screen <span class="keyword">and</span> (max-width: <span class="number">1920px</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">@media</span> screen <span class="keyword">and</span> (max-width: <span class="number">1440px</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">@media</span> screen <span class="keyword">and</span> (max-width: <span class="number">1366px</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line">&gt;<span class="comment">/* IE Hacks: targets IE 8, 9 and 10 , 需要先设置IE 9 + 才能去设置IE 10 +*/</span></span><br><span class="line">&gt;<span class="keyword">@media</span> screen\<span class="number">0</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">&gt;<span class="comment">/* IE Hacks: targets IE 10 + , 需要先设置IE 10 + 再去设置IE 11 */</span></span><br><span class="line">&gt;<span class="keyword">@media</span> screen <span class="keyword">and</span> (-ms-high-contrast: active),</span><br><span class="line">&gt;(-ms-high-contrast: none) &#123;</span><br><span class="line"></span><br><span class="line"> 类名&#123; <span class="comment">/* IE 10 + */</span></span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> _:-ms-fullscreen, :root, 类名 &#123; /* IE <span class="number">11</span> */</span><br><span class="line"> &#125;  </span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.IE9也不支持过渡和动画，如果需要做动画，只能使用js，但是考虑到性能，还是不做为好。</p>
+</blockquote>
+<h5 id="0728"><a href="#0728" class="headerlink" title="0728"></a>0728</h5><h6 id="1-东鹏页面增加二级菜单收缩功能。"><a href="#1-东鹏页面增加二级菜单收缩功能。" class="headerlink" title="1.东鹏页面增加二级菜单收缩功能。"></a>1.东鹏页面增加二级菜单收缩功能。</h6><blockquote>
+<p>1.需求详解：在二级菜单里面增加一个按钮，在点击按钮时切换菜单状态(收缩状态还是展开状态)；每个一级菜单的二级菜单都是同步的状态。</p>
+<p>2.具体实现：定义初始的状态，在点击按钮后，下一次点击，判断当前的状态，改变二级菜单的宽度即可。</p>
+<p>3.遇到的问题：1.IE9中不支持flex布局，需要做另外处理；2.1366px 1440px 1920px各个屏幕会有些不同，1920px出现菜单收缩状态时，它没有被内容区域全部覆盖；</p>
+<p>4.解决办法：1.IE9使用的float布局，做另外处理；2.1920px下将内容区域的z-index设置大于二级菜单的z-index。</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2020/07/27/%E8%AF%95%E7%94%A8%E6%9C%9F%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-%E5%BE%90%E8%B7%AF%E9%87%91/" title="试用期工作总结" target="_blank" rel="external">https://xulujin.gitee.io/blog/2020/07/27/%E8%AF%95%E7%94%A8%E6%9C%9F%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-%E5%BE%90%E8%B7%AF%E9%87%91/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" title="前端知识结构"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2020/07/17/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/" title="深度优先遍历和广度优先遍历"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+            更多功能正在开发中...
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: '试用期工作总结', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

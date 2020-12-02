@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>前端知识结构 | 永恒的金色年华</title>
+  <meta name="description" content="前端知识结构项目起源还记得@jayli 的这幅前端知识结构图么。  图片的形式具有诸多的不便。缺失源图的我们，无法为此图贡献些什么，随着时间的迁移，或许有些技术点会发生改变，所以有了这个GitHub项目。我们可以通过协作的方式来共同维护这个项目。Git的历史记录也可以见证前端行业的一些变迁。 可视化效果 前端开发知识结构 前端工程师 浏览器 IE6&#x2F;7&#x2F;8&#x2F;9&#x2F;10&#x2F;11 (Trident) &#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端知识结构">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:site_name" content="LuKing">
+<meta property="og:description" content="前端知识结构项目起源还记得@jayli 的这幅前端知识结构图么。  图片的形式具有诸多的不便。缺失源图的我们，无法为此图贡献些什么，随着时间的迁移，或许有些技术点会发生改变，所以有了这个GitHub项目。我们可以通过协作的方式来共同维护这个项目。Git的历史记录也可以见证前端行业的一些变迁。 可视化效果 前端开发知识结构 前端工程师 浏览器 IE6&#x2F;7&#x2F;8&#x2F;9&#x2F;10&#x2F;11 (Trident) &#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://camo.githubusercontent.com/6797bdc1a11d35369611c817bbd5dae9a162d775/68747470733a2f2f7261772e6769746875622e636f6d2f4a61636b736f6e5469616e2f666b732f6d61737465722f666967757265732f666b732e6a7067">
+<meta property="article:published_time" content="2020-08-21T08:33:10.000Z">
+<meta property="article:modified_time" content="2020-08-21T08:33:34.217Z">
+<meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/6797bdc1a11d35369611c817bbd5dae9a162d775/68747470733a2f2f7261772e6769746875622e636f6d2f4a61636b736f6e5469616e2f666b732f6d61737465722f666967757265732f666b732e6a7067">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/1314xulujin" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">LuKing-Xun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/blog/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/blog/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/blog/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一如前端深似海,回头?...没头回了!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BootStrap/" rel="tag">BootStrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML5-css3/" rel="tag">HTML5+css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" rel="tag">Storage存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Web-Worker/" rel="tag">Web Worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">hexo搭建博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html4/" rel="tag">html4</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/photoshop/" rel="tag">photoshop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/websocket/" rel="tag">websocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window10/" rel="tag">window10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" rel="tag">冷知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">函数柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" rel="tag">微信小程序UI框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" rel="tag">本科考试科目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">软件设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/BFC/" style="font-size: 13px;">BFC</a> <a href="/blog/tags/BootStrap/" style="font-size: 13px;">BootStrap</a> <a href="/blog/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/blog/tags/HTML5-css3/" style="font-size: 13px;">HTML5+css3</a> <a href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" style="font-size: 13px;">OOP面向对象思想</a> <a href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" style="font-size: 13px;">Storage存储</a> <a href="/blog/tags/Web-Worker/" style="font-size: 13px;">Web Worker</a> <a href="/blog/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/blog/tags/call%E5%92%8Capply/" style="font-size: 13px;">call和apply</a> <a href="/blog/tags/css3/" style="font-size: 13px;">css3</a> <a href="/blog/tags/git/" style="font-size: 13px;">git</a> <a href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">hexo搭建博客</a> <a href="/blog/tags/html4/" style="font-size: 13px;">html4</a> <a href="/blog/tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="/blog/tags/javascript/" style="font-size: 13.2px;">javascript</a> <a href="/blog/tags/photoshop/" style="font-size: 13px;">photoshop</a> <a href="/blog/tags/vue/" style="font-size: 13.6px;">vue</a> <a href="/blog/tags/webpack/" style="font-size: 13.2px;">webpack</a> <a href="/blog/tags/websocket/" style="font-size: 13px;">websocket</a> <a href="/blog/tags/window10/" style="font-size: 13px;">window10</a> <a href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" style="font-size: 13.2px;">冷知识</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" style="font-size: 13px;">函数柯里化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 13px;">前端工程化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.8px;">前端面试题</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">微信小程序UI框架</a> <a href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" style="font-size: 13.2px;">智扬信达</a> <a href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" style="font-size: 13px;">本科考试科目</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 13px;">跨域</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">软件设计模式</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.4px;">面试题</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">八月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">六月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">四月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">十月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.215Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.176Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/" class="title">echarts多Y轴显示负数零刻度线对齐</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-18T03:23:11.000Z" itemprop="datePublished">2020-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" class="title">chrome80版本以后，SAMESITE COOKIE验证跨站问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="title">前端知识结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-前端知识结构" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端知识结构
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="article-date">
+	  <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="前端知识结构"><a href="#前端知识结构" class="headerlink" title="前端知识结构"></a>前端知识结构</h1><h2 id="项目起源"><a href="#项目起源" class="headerlink" title="项目起源"></a>项目起源</h2><p>还记得@jayli 的这幅前端知识结构图么。</p>
+<p><a target="_blank" rel="noopener" href="https://camo.githubusercontent.com/6797bdc1a11d35369611c817bbd5dae9a162d775/68747470733a2f2f7261772e6769746875622e636f6d2f4a61636b736f6e5469616e2f666b732f6d61737465722f666967757265732f666b732e6a7067"><img src="https://camo.githubusercontent.com/6797bdc1a11d35369611c817bbd5dae9a162d775/68747470733a2f2f7261772e6769746875622e636f6d2f4a61636b736f6e5469616e2f666b732f6d61737465722f666967757265732f666b732e6a7067" alt="前端知识结构"></a></p>
+<p>图片的形式具有诸多的不便。缺失源图的我们，无法为此图贡献些什么，随着时间的迁移，或许有些技术点会发生改变，所以有了这个GitHub项目。我们可以通过协作的方式来共同维护这个项目。Git的历史记录也可以见证前端行业的一些变迁。</p>
+<p><a target="_blank" rel="noopener" href="http://html5ify.com/fks/fks_chart/">可视化效果</a></p>
+<h2 id="前端开发知识结构"><a href="#前端开发知识结构" class="headerlink" title="前端开发知识结构"></a>前端开发知识结构</h2><ul>
+<li>前端工程师<ul>
+<li>浏览器<ul>
+<li>IE6/<a target="_blank" rel="noopener" href="http://www.microsoft.com/en-us/download/internet-explorer-7-details.aspx">7</a>/<a target="_blank" rel="noopener" href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-8">8</a>/<a target="_blank" rel="noopener" href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie-9/worldwide-languages">9</a>/<a target="_blank" rel="noopener" href="http://windows.microsoft.com/en-US/internet-explorer/ie-10-worldwide-languages">10</a>/<a target="_blank" rel="noopener" href="http://windows.microsoft.com/en-US/internet-explorer/ie-11-worldwide-languages">11</a> (Trident) / <a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/windows/microsoft-edge">Edge</a> (EdgeHTML)</li>
+<li><a target="_blank" rel="noopener" href="http://www.mozilla.org/en-US/">Firefox</a> (Gecko)</li>
+<li><a target="_blank" rel="noopener" href="http://www.google.com/chrome">Chrome</a>/<a target="_blank" rel="noopener" href="http://www.chromium.org/">Chromium</a> (Blink)</li>
+<li><a target="_blank" rel="noopener" href="http://www.apple.com/safari/">Safari</a> (WebKit)</li>
+<li><a target="_blank" rel="noopener" href="http://www.opera.com/">Opera</a> (Blink)</li>
+</ul>
+</li>
+<li>编程语言<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/JavaScript">JavaScript</a>/<a target="_blank" rel="noopener" href="http://nodejs.org/">Node.js</a></li>
+<li><a target="_blank" rel="noopener" href="http://coffeescript.org/">CoffeeScript</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.typescriptlang.org/">TypeScript</a></li>
+</ul>
+</li>
+<li>切页面<ul>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/html/">HTML</a>/<a target="_blank" rel="noopener" href="http://www.w3.org/TR/html5/">HTML5</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/Style/CSS/">CSS/CSS3</a></li>
+<li><a target="_blank" rel="noopener" href="http://sass-lang.com/">Sass</a>/<a target="_blank" rel="noopener" href="http://lesscss.org/">LESS</a>/<a target="_blank" rel="noopener" href="http://learnboost.github.io/stylus/">Stylus</a>/<a target="_blank" rel="noopener" href="https://github.com/postcss/postcss">postCSS</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.photoshop.com/products/photoshop">PhotoShop</a>/<a target="_blank" rel="noopener" href="http://www.getpaint.net/">Paint.net</a>/<a target="_blank" rel="noopener" href="http://www.adobe.com/cn/products/fireworks.html">Fireworks</a>/<a target="_blank" rel="noopener" href="http://www.gimp.org/">GIMP</a>/<a target="_blank" rel="noopener" href="http://bohemiancoding.com/sketch/">Sketch</a></li>
+</ul>
+</li>
+<li>开发工具<ul>
+<li>编辑器和IDE<ul>
+<li><a target="_blank" rel="noopener" href="http://www.vim.org/">VIM</a>/<a target="_blank" rel="noopener" href="http://www.sublimetext.com/">Sublime Text2</a></li>
+<li><a target="_blank" rel="noopener" href="http://notepad-plus-plus.org/">Notepad++</a>/<a target="_blank" rel="noopener" href="http://www.editplus.com/">EditPlus</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.jetbrains.com/webstorm/">WebStorm</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.gnu.org/software/emacs/">Emacs</a> <a target="_blank" rel="noopener" href="http://emacswiki.org/">EmacsWiki</a></li>
+<li><a target="_blank" rel="noopener" href="http://brackets.io/">Brackets</a></li>
+<li><a target="_blank" rel="noopener" href="https://atom.io/">Atom</a></li>
+<li><a target="_blank" rel="noopener" href="http://limetext.org/">Lime Text</a></li>
+<li><a target="_blank" rel="noopener" href="http://lighttable.com/">Light Table</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.codebox.io/">Codebox</a></li>
+<li><a target="_blank" rel="noopener" href="http://macromates.com/">TextMate</a></li>
+<li><a target="_blank" rel="noopener" href="http://neovim.org/">Neovim</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.activestate.com/komodo-edit">Komodo IDE / Edit</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.eclipse.org/">Eclipse</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.visualstudio.com/">Visual Studio</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li><a target="_blank" rel="noopener" href="https://netbeans.org/">NetBeans</a></li>
+<li><a target="_blank" rel="noopener" href="http://c9.io/">Cloud9 IDE</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.dcloud.io/">HBuilder</a></li>
+<li><a target="_blank" rel="noopener" href="http://nuclide.io/">Nuclide</a></li>
+</ul>
+</li>
+<li>调试工具<ul>
+<li><a target="_blank" rel="noopener" href="http://getfirebug.com/">Firebug</a>/<a target="_blank" rel="noopener" href="https://addons.mozilla.org/en-US/firefox/addon/firecookie/">Firecookie</a></li>
+<li><a target="_blank" rel="noopener" href="http://developer.yahoo.com/yslow/">YSlow</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.microsoft.com/en-us/download/details.aspx?id=18359">IEDeveloperToolbar</a>/<a target="_blank" rel="noopener" href="http://www.my-debugbar.com/wiki/IETester/HomePage">IETester</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.telerik.com/fiddler">Fiddler</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.chrome.com/devtools">Chrome Dev Tools</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.opera.com/dragonfly/">Dragonfly</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.debugbar.com/">DebugBar</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Venkman">Venkman</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.charlesproxy.com/">Charles</a></li>
+</ul>
+</li>
+<li>版本管理<ul>
+<li><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a>/<a target="_blank" rel="noopener" href="http://subversion.apache.org/">SVN</a>/<a target="_blank" rel="noopener" href="http://mercurial.selenic.com/">Mercurial</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/">Github</a>/<a target="_blank" rel="noopener" href="https://about.gitlab.com/">GitLab</a>/<a target="_blank" rel="noopener" href="https://bitbucket.org/">Bitbucket</a>/<a target="_blank" rel="noopener" href="https://gitorious.org/">Gitorious</a>/<a target="_blank" rel="noopener" href="http://savannah.gnu.org/">GNU Savannah</a>/<a target="_blank" rel="noopener" href="https://launchpad.net/">Launchpad</a>/<a target="_blank" rel="noopener" href="http://sourceforge.net/">SourceForge</a>/<a target="_blank" rel="noopener" href="http://www.collab.net/products/teamforge">TeamForge</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代码质量<ul>
+<li>Coding style<ul>
+<li><a target="_blank" rel="noopener" href="http://www.jslint.com/">JSLint</a>/<a target="_blank" rel="noopener" href="http://www.jshint.com/">JSHint</a>/<a target="_blank" rel="noopener" href="https://github.com/mdevils/node-jscs">jscs</a>/<a target="_blank" rel="noopener" href="https://github.com/eslint/eslint">ESLint</a></li>
+<li><a target="_blank" rel="noopener" href="http://csslint.net/">CSSLint</a></li>
+<li><a target="_blank" rel="noopener" href="http://validator.w3.org/">Markup Validation Service</a></li>
+<li><a target="_blank" rel="noopener" href="https://validator.whatwg.org/">HTML Validators</a></li>
+</ul>
+</li>
+<li>单元测试<ul>
+<li><a target="_blank" rel="noopener" href="http://qunitjs.com/">QUnit</a>/<a target="_blank" rel="noopener" href="http://jasmine.github.io/">Jasmine</a></li>
+<li><a target="_blank" rel="noopener" href="http://mochajs.org/">Mocha</a>/<a target="_blank" rel="noopener" href="https://github.com/visionmedia/should.js/">Should</a>/<a target="_blank" rel="noopener" href="http://chaijs.com/">Chai</a>/<a target="_blank" rel="noopener" href="https://github.com/LearnBoost/expect.js/">Expect</a></li>
+<li><a target="_blank" rel="noopener" href="http://unitjs.com/">Unit JS</a></li>
+</ul>
+</li>
+<li>自动化测试<ul>
+<li><a target="_blank" rel="noopener" href="http://docs.seleniumhq.org/docs/03_webdriver.jsp">WebDriver</a>/<a target="_blank" rel="noopener" href="https://github.com/angular/protractor">Protractor</a>/<a target="_blank" rel="noopener" href="https://github.com/karma-runner/karma">Karma Runner</a>/<a target="_blank" rel="noopener" href="http://sahi.co.in/">Sahi</a></li>
+<li><a target="_blank" rel="noopener" href="http://phantomjs.org/">phantomjs</a></li>
+<li><a target="_blank" rel="noopener" href="https://saucelabs.com/">SourceLabs</a>/<a target="_blank" rel="noopener" href="http://www.browserstack.com/">BrowserStack</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>前端库/框架<ul>
+<li><a target="_blank" rel="noopener" href="http://jquery.com/">jQuery</a>/<a target="_blank" rel="noopener" href="http://underscorejs.org/">Underscore</a>/<a target="_blank" rel="noopener" href="http://mootools.net/">Mootools</a>/<a target="_blank" rel="noopener" href="http://www.prototypejs.org/">Prototype.js</a></li>
+<li><a target="_blank" rel="noopener" href="http://yuilibrary.com/projects/yui3/">YUI3</a>/<a target="_blank" rel="noopener" href="http://dojotoolkit.org/">Dojo</a>/<a target="_blank" rel="noopener" href="http://www.sencha.com/products/extjs">ExtJS</a>/<a target="_blank" rel="noopener" href="http://docs.kissyui.com/">KISSY</a></li>
+<li><a target="_blank" rel="noopener" href="http://backbonejs.org/">Backbone</a>/<a target="_blank" rel="noopener" href="http://knockoutjs.com/">KnockoutJS</a>/<a target="_blank" rel="noopener" href="http://emberjs.com/">Emberjs</a></li>
+<li>AngularJS<ul>
+<li><a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk">Batarang</a></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="http://getbootstrap.com/">Bootstrap</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.semantic-ui.com/">Semantic UI</a></li>
+<li><a target="_blank" rel="noopener" href="http://juiceui.com/">Juice UI</a></li>
+<li><a target="_blank" rel="noopener" href="http://webatomsjs.neurospeech.com/">Web Atoms</a></li>
+<li><a target="_blank" rel="noopener" href="http://docs.polymerchina.org/">Polymer</a></li>
+<li><a target="_blank" rel="noopener" href="http://dhtmlx.com/">Dhtmlx</a></li>
+<li><a target="_blank" rel="noopener" href="http://qooxdoo.org/">qooxdoo</a></li>
+<li><a target="_blank" rel="noopener" href="http://facebook.github.io/react/">React</a></li>
+<li><a target="_blank" rel="noopener" href="http://mozbrick.github.io/">Brick</a></li>
+<li><a target="_blank" rel="noopener" href="http://cn.vuejs.org/">vue.js</a></li>
+</ul>
+</li>
+<li>前端标准/规范<ul>
+<li>HTTP/1.1: RFCs 7230-7235</li>
+<li><a target="_blank" rel="noopener" href="https://http2.github.io/">HTTP/2</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMAScript3/5</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ecma-international.org/ecma-262/6.0/index.html">ECMAScript6</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/TR/">W3C: DOM/BOM/XHTML/XML/JSON/JSONP/…</a></li>
+<li><a target="_blank" rel="noopener" href="http://wiki.commonjs.org/wiki/Modules/1.0">CommonJS Modules</a>/<a target="_blank" rel="noopener" href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/html/wg/drafts/html/master/">HTML5</a>/<a target="_blank" rel="noopener" href="http://www.w3.org/Style/CSS/specs.en.html">CSS3</a></li>
+<li>Semantic Web<ul>
+<li><a target="_blank" rel="noopener" href="http://schema.org/">MicroData</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/TR/rdfa-core/">RDFa</a></li>
+</ul>
+</li>
+<li>Web Accessibility<ul>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/TR/WAI-WEBCONTENT/">WCAG</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/TR/role-attribute/">Role Attribute</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/TR/wai-aria/">WAI-ARIA</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>性能<ul>
+<li><a target="_blank" rel="noopener" href="http://jsperf.com/">JSPerf</a></li>
+<li><a target="_blank" rel="noopener" href="http://developer.yahoo.com/performance/rules.html">YSlow 35 rules</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/speed/pagespeed/">PageSpeed</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.httpwatch.com/">HTTPWatch</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.compuware.com/application-performance-management/dynatrace-ajax-download.html">DynaTrace’s Ajax</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/5362856/">高性能JavaScript</a></li>
+</ul>
+</li>
+<li>SEO</li>
+<li>编程知识储备<ul>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a></li>
+<li>OOP/AOP</li>
+<li><a target="_blank" rel="noopener" href="http://net.tutsplus.com/tutorials/javascript-ajax/prototypes-in-javascript-what-you-need-to-know/">原型链</a>/作用域链</li>
+<li><a target="_blank" rel="noopener" href="http://www.jibbering.com/faq/notes/closures/">闭包</a></li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E7%BC%96%E7%A8%8B%E8%8C%83%E5%9E%8B">编程范型</a></li>
+<li><a target="_blank" rel="noopener" href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/">设计模式</a></li>
+<li><a target="_blank" rel="noopener" href="http://sanshi.me/articles/JavaScript-Garden-CN/html/index.html">Javascript Tips</a></li>
+</ul>
+</li>
+<li>部署流程<ul>
+<li>压缩合并<ul>
+<li><a target="_blank" rel="noopener" href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/closure/compiler/">Google Clousure Complier</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mishoo/UglifyJS">UglifyJS</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/GoalSmashers/clean-css">CleanCSS</a></li>
+</ul>
+</li>
+<li>文档输出<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/jsdoc3/jsdoc">JSDoc</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/visionmedia/dox">Dox</a>/<a target="_blank" rel="noopener" href="https://github.com/JacksonTian/doxmate">Doxmate</a>/<a target="_blank" rel="noopener" href="https://github.com/luozhihua/grunt-doxmate">Grunt-Doxmate</a></li>
+</ul>
+</li>
+<li>项目构建工具<ul>
+<li><a target="_blank" rel="noopener" href="http://www.gnu.org/software/make/">make</a>/<a target="_blank" rel="noopener" href="http://ant.apache.org/">Ant</a></li>
+<li><a target="_blank" rel="noopener" href="http://code.google.com/p/gyp/">GYP</a></li>
+<li><a target="_blank" rel="noopener" href="http://gruntjs.com/">Grunt</a></li>
+<li><a target="_blank" rel="noopener" href="http://gulpjs.com/">Gulp</a></li>
+<li><a target="_blank" rel="noopener" href="http://yeoman.io/">Yeoman</a></li>
+<li><a target="_blank" rel="noopener" href="http://fis.baidu.com/">FIS</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/modulejs/modjs">Mod</a></li>
+</ul>
+</li>
+<li>ES6＋ 转换器<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/google/traceur-compiler">Traceur</a></li>
+<li><a target="_blank" rel="noopener" href="https://babeljs.io/">Babel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>代码组织<ul>
+<li>类库模块化<ul>
+<li><a target="_blank" rel="noopener" href="http://www.commonjs.org/">CommonJS</a>/AMD</li>
+<li><a target="_blank" rel="noopener" href="http://yuilibrary.com/projects/yui3/">YUI3模块</a></li>
+<li><a target="_blank" rel="noopener" href="http://webpack.github.io/">webpack</a></li>
+</ul>
+</li>
+<li>业务逻辑模块化<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/twitter/bower">bower</a>/<a target="_blank" rel="noopener" href="https://github.com/component/component">component</a></li>
+</ul>
+</li>
+<li>文件加载<ul>
+<li><a target="_blank" rel="noopener" href="http://labjs.com/">LABjs</a></li>
+<li><a target="_blank" rel="noopener" href="http://seajs.org/">SeaJS</a>/<a target="_blank" rel="noopener" href="http://requirejs.org/">Require.js</a></li>
+</ul>
+</li>
+<li>模块化预处理器<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/substack/node-browserify">Browserify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>安全<ul>
+<li><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a>/<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Cross-site_scripting">XSS</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/TR/CSP/">CSP</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/docs/Web/Security/Same-origin_policy">Same-origin policy</a></li>
+<li>ADsafe/Caja/Sandbox</li>
+</ul>
+</li>
+<li>移动Web<ul>
+<li>HTML5/CSS3</li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1">响应式网页设计</a></li>
+<li><a target="_blank" rel="noopener" href="http://zeptojs.com/">Zeptojs</a>/<a target="_blank" rel="noopener" href="http://cubiq.org/iscroll">iScroll</a></li>
+<li>V5/<a target="_blank" rel="noopener" href="http://www.sencha.com/products/touch">Sencha Touch</a></li>
+<li><a target="_blank" rel="noopener" href="http://phonegap.com/">PhoneGap</a>/<a target="_blank" rel="noopener" href="https://cordova.apache.org/">Cordova</a></li>
+<li><a target="_blank" rel="noopener" href="http://jquerymobile.com/">jQuery Mobile</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3.org/Mobile/">W3C Mobile Web Initiative</a></li>
+<li><a target="_blank" rel="noopener" href="http://validator.w3.org/mobile/">W3C mobileOK Checker</a></li>
+<li><a target="_blank" rel="noopener" href="http://openmobilealliance.org/">Open Mobile Alliance</a></li>
+<li><a target="_blank" rel="noopener" href="https://facebook.github.io/react-native/">React Native</a></li>
+<li><a target="_blank" rel="noopener" href="http://ionicframework.com/">ionic</a></li>
+</ul>
+</li>
+<li>前沿技术社区/会议<ul>
+<li><a target="_blank" rel="noopener" href="http://d2forum.org/">D2</a>/<a target="_blank" rel="noopener" href="http://www.webrebuild.org/">WebRebuild</a></li>
+<li>NodeParty/<a target="_blank" rel="noopener" href="http://w3ctech.com/">W3CTech</a>/<a target="_blank" rel="noopener" href="http://www.html5dw.com/">HTML5梦工厂</a></li>
+<li><a target="_blank" rel="noopener" href="http://jsconf.com/">JSConf</a>/<a target="_blank" rel="noopener" href="http://jsconf.cn/">沪JS(JSConf.cn)</a></li>
+<li>QCon/Velocity/SDCC</li>
+<li><a target="_blank" rel="noopener" href="http://jsconf.com/">JSConf</a>/<a target="_blank" rel="noopener" href="http://www.nodeconf.com/">NodeConf</a></li>
+<li><a target="_blank" rel="noopener" href="http://cssconf.com/">CSSConf</a></li>
+<li>YDN/YUIConf</li>
+<li>HybridApp</li>
+<li><a target="_blank" rel="noopener" href="http://whatwg.org/">WHATWG</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/">MDN</a></li>
+<li><a target="_blank" rel="noopener" href="http://codepen.io/">codepen</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.w3cplus.com/">w3cplus</a></li>
+<li><a target="_blank" rel="noopener" href="https://cnodejs.org/">CNode</a></li>
+</ul>
+</li>
+<li>计算机知识储备<ul>
+<li>编译原理</li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C">计算机网络</a></li>
+<li><a target="_blank" rel="noopener" href="http://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a></li>
+<li>算法原理</li>
+<li>软件工程/软件测试原理</li>
+<li><a target="_blank" rel="noopener" href="http://www.unicode.org/">Unicode</a></li>
+</ul>
+</li>
+<li>软技能<ul>
+<li>知识管理/总结分享</li>
+<li>沟通技巧/团队协作</li>
+<li>需求管理/PM</li>
+<li>交互设计/可用性/可访问性知识</li>
+</ul>
+</li>
+<li>可视化<ul>
+<li>SVG/Canvas/VML</li>
+<li>SVG: <a target="_blank" rel="noopener" href="http://d3js.org/">D3</a>/<a target="_blank" rel="noopener" href="http://dmitrybaranovskiy.github.io/raphael/">Raphaël</a>/<a target="_blank" rel="noopener" href="http://snapsvg.io/">Snap.svg</a>/<a target="_blank" rel="noopener" href="http://datavlab.org/datavjs/">DataV</a></li>
+<li>Canvas: <a target="_blank" rel="noopener" href="http://www.createjs.com/">CreateJS</a>/<a target="_blank" rel="noopener" href="http://kineticjs.com/">KineticJS</a></li>
+<li><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/WebGL">WebGL</a>/<a target="_blank" rel="noopener" href="http://threejs.org/">Three.JS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>后端工程师<ul>
+<li>编程语言<ul>
+<li>C/C++/Java/PHP/Ruby/Python/…</li>
+</ul>
+</li>
+<li>网页服务器<ul>
+<li><a target="_blank" rel="noopener" href="http://nginx.org/en/">Nginx</a></li>
+<li><a target="_blank" rel="noopener" href="http://httpd.apache.org/">Apache</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.lighttpd.net/">Lighttpd</a></li>
+</ul>
+</li>
+<li>数据库<ul>
+<li>SQL</li>
+<li><a target="_blank" rel="noopener" href="http://www.mysql.com/">MySQL</a>/<a target="_blank" rel="noopener" href="http://www.postgresql.org/">PostgreSQL</a>/<a target="_blank" rel="noopener" href="http://www.oracle.com/us/products/database/overview/index.html">Oracle</a>/<a target="_blank" rel="noopener" href="http://www-01.ibm.com/software/data/db2">DB2</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.mongodb.org/">MongoDB</a>/<a target="_blank" rel="noopener" href="http://couchdb.apache.org/">CouchDB</a></li>
+</ul>
+</li>
+<li>数据缓存<ul>
+<li><a target="_blank" rel="noopener" href="http://redis.io/">Redis</a></li>
+<li><a target="_blank" rel="noopener" href="http://memcached.org/">Memcached</a></li>
+</ul>
+</li>
+<li>文件缓存/代理<ul>
+<li><a target="_blank" rel="noopener" href="https://www.varnish-cache.org/">Varnish</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.squid-cache.org/">Squid</a></li>
+</ul>
+</li>
+<li>操作系统<ul>
+<li>Unix/Linux/OS X/Windows</li>
+</ul>
+</li>
+<li>数据结构</li>
+</ul>
+</li>
+</ul>
+<h2 id="前端书籍推荐"><a href="#前端书籍推荐" class="headerlink" title="前端书籍推荐"></a>前端书籍推荐</h2><p>★越少越简单,越适合入门,★多的要么是难度比较高,要么是比较适合在后面看,比如讲性能之类的书.</p>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://www.amazon.cn/Eric-Meyer-%E8%B0%88-CSS-%E8%BF%88%E8%80%B6/dp/B00170M84I/">Eric Meyer 谈 CSS（卷二）</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/2308234/">CSS权威指南 （第3版）</a>★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/4736167/">精通CSS</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/21338365/">HTML &amp; CSS设计与构建网站</a>★</li>
+</ul>
+<h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/26433805/">JavaScript &amp; jQuery交互式Web前端开发</a>★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/6038371/">JavaScript DOM编程艺术 （第2版）</a>★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/10546125/">JavaScript高级程序设计（第3版）</a>★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/10792216/">锋利的jQuery</a>★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/5362856/">高性能JavaScript</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3590768/">JavaScript语言精粹</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/10549733/">JavaScript权威指南</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/21792530/">编写可维护的JavaScript</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3012828/">JAVASCRIPT语言精髓与编程实践</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://www.amazon.com/Effective-JavaScript-Specific-Software-Development/dp/0321812182">Effective Javascript</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3176860/">Secrets of the JavaScript Ninja</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/11506062/">JavaScript模式</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3329540/">JavaScript设计模式</a>★★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/10733304/">基于MVC的JavaScript Web富应用开发</a>★★★</li>
+</ul>
+<h3 id="性能实践"><a href="#性能实践" class="headerlink" title="性能实践"></a>性能实践</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://book.douban.com/subject/3132277/">高性能网站建设指南</a>★</li>
+<li><a target="_blank" rel="noopener" href="https://book.douban.com/subject/4719162/">高性能网站建设进阶指南</a>★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/25891125/">Web性能实践日志</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/25856314/">Web性能权威指南</a>★★★</li>
+</ul>
+<h3 id="版本控制工具"><a href="#版本控制工具" class="headerlink" title="版本控制工具"></a>版本控制工具</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/4813786/">版本控制之道 (git)</a>★★</li>
+<li><a target="_blank" rel="noopener" href="http://iissnan.com/progit/">Pro Git</a>★★★</li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/6526452/">Git权威指南</a>★★★★</li>
+</ul>
+<h2 id="后端书籍推荐"><a href="#后端书籍推荐" class="headerlink" title="后端书籍推荐"></a>后端书籍推荐</h2><h3 id="Linux管理"><a href="#Linux管理" class="headerlink" title="Linux管理"></a>Linux管理</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3042029/">Linux 系统管理技术手册</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/4889838/">鸟哥的 Linux 私房菜</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.thegeekstuff.com/linux-101-hacks-free-ebook-non-english/">Linux 101 Hacks</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3519360/">UNIX Shell Scripting</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/6806862/">The Linux Command Line</a></li>
+<li><a target="_blank" rel="noopener" href="http://oreilly.com/openbook/linag2/book/index.html">Linux Network Administrator’s Guide</a></li>
+</ul>
+<h3 id="Linux编程"><a href="#Linux编程" class="headerlink" title="Linux编程"></a>Linux编程</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/4831448/">Linux程序设计</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3907181/">Linux系统编程</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/1788421/">Unix环境高级编程</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/1467587/">Unix编程艺术</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/4292217/">The Linux Programming Interface</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3652388/">程序员的自我修养</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/2287506/">深入理解Linux内核</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/1500149/">Unix网络编程</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/1088054/">TCP/IP高级编程</a></li>
+</ul>
+<h3 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/4141733/">Linux C编程一站式学习</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/3012360/">C和指针</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/2778632/">C陷阱与缺陷</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/2377310/">C专家编程</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/2226913/">C语言核心技术</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0CDEQFjAA&url=http://blogimg.chinaunix.net/blog/upfile2/110210170023.pdf&ei=P95mUfrmNKKriALS04HAAw&usg=AFQjCNEzB88PnpfL0fRgJDkP3O9TlBPswA&sig2=isyd4ktsByNBMa5M9EPhRQ&bvm=bv.45107431,d.cGE&cad=rjt">彻底搞定C指针</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/21317828/">征服C指针</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/1094797/">C++编程思想</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/2116929/">高质量程序设计指南—C/C++语言</a></li>
+<li><a target="_blank" rel="noopener" href="http://book.douban.com/subject/1484262/">Inside the C++ Object Model</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.stroustrup.com/Tour.html">A Tour of C++</a></li>
+<li><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/The_C%2B%2B_Programming_Language">The C++ Programming Language</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cppstdlib.com/">The C++ Standard Library - A Tutorial and Reference</a></li>
+<li><a target="_blank" rel="noopener" href="http://webstore.ansi.org/RecordDetail.aspx?sku=INCITS/ISO/IEC+14882-2012">The C++ Standard (INCITS/ISO/IEC 14882-2011)</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.artima.com/shop/overview_of_the_new_cpp">Overview of the New C++</a></li>
+</ul>
+<h2 id="前端工作面试"><a href="#前端工作面试" class="headerlink" title="前端工作面试"></a>前端工作面试</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/darcyclarke/Front-end-Developer-Interview-Questions">前端工作面试问题</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Question">前端开发面试题（中文）</a></li>
+</ul>
+<h2 id="内容贡献者"><a href="#内容贡献者" class="headerlink" title="内容贡献者"></a>内容贡献者</h2><p>除了感谢Jayli提供了知识结构图的原本来，还感谢以下的内容贡献者们，结果由<code>git-summary</code>生成于2014-01-03：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">project  : fks</span><br><span class="line">repo age : 1 year, 3 months</span><br><span class="line">active   : 53 days</span><br><span class="line">commits  : 108</span><br><span class="line">files    : 4</span><br><span class="line">authors  :</span><br><span class="line">   56  Jackson Tian            51.9%</span><br><span class="line">    9  吴晓兰               8.3%</span><br><span class="line">    5  liyinkan                4.6%</span><br><span class="line">    3  chriscai                2.8%</span><br><span class="line">    3  fengxiaolong            2.8%</span><br><span class="line">    3  XiNGRZ                  2.8%</span><br><span class="line">    2  monkadd                 1.9%</span><br><span class="line">    2  Johnny                  1.9%</span><br><span class="line">    2  weiwenqing              1.9%</span><br><span class="line">    2  Yinkan Li               1.9%</span><br><span class="line">    2  Copypeng                1.9%</span><br><span class="line">    2  左岸                  1.9%</span><br><span class="line">    2  Jakukyo Friel           1.9%</span><br><span class="line">    2  Glowin                  1.9%</span><br><span class="line">    1  李亚川               0.9%</span><br><span class="line">    1  Evan You                0.9%</span><br><span class="line">    1  Mickey                  0.9%</span><br><span class="line">    1  Mickey-                 0.9%</span><br><span class="line">    1  Qi Junyuan              0.9%</span><br><span class="line">    1  browsnet                0.9%</span><br><span class="line">    1  doabit                  0.9%</span><br><span class="line">    1  guoxiangyang            0.9%</span><br><span class="line">    1  linkgod                 0.9%</span><br><span class="line">    1  popomore                0.9%</span><br><span class="line">    1  vipzhicheng             0.9%</span><br><span class="line">    1  zhaqiang                0.9%</span><br><span class="line">    1  Colin Luo               0.9%</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" title="前端知识结构" target="_blank" rel="external">https://xulujin.gitee.io/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" title="chrome80版本以后，SAMESITE COOKIE验证跨站问题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2020/07/27/%E8%AF%95%E7%94%A8%E6%9C%9F%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93-%E5%BE%90%E8%B7%AF%E9%87%91/" title="试用期工作总结"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+            更多功能正在开发中...
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: '前端知识结构', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

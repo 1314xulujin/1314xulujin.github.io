@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>前端工程化 | 永恒的金色年华</title>
+  <meta name="description" content="前端工程化  ​    前端工程化是使用软件工程的技术和方法来进行前端的开发流程、技术、工具、经验等规范化、标准化，其主要目的为了提高效率和降低成本，即提高开发过程中的开发效率，减少不必要的重复工作时间，而前端工程本质上是软件工程的一种，因此我们应该从软件工程的角度来研究前端工程。 工程化是为了规范前端工作流中的：模块化 ， 组件化，工作流规范 ，自动化 几个方向出发。   原生的javascri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端工程化">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2018/10/22/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/index.html">
+<meta property="og:site_name" content="LuKing">
+<meta property="og:description" content="前端工程化  ​    前端工程化是使用软件工程的技术和方法来进行前端的开发流程、技术、工具、经验等规范化、标准化，其主要目的为了提高效率和降低成本，即提高开发过程中的开发效率，减少不必要的重复工作时间，而前端工程本质上是软件工程的一种，因此我们应该从软件工程的角度来研究前端工程。 工程化是为了规范前端工作流中的：模块化 ， 组件化，工作流规范 ，自动化 几个方向出发。   原生的javascri">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-10-22T02:39:09.000Z">
+<meta property="article:modified_time" content="2020-06-21T13:10:21.364Z">
+<meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="前端工程化">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2018/10/22/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/1314xulujin" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">LuKing-Xun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/blog/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/blog/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/blog/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一如前端深似海,回头?...没头回了!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BootStrap/" rel="tag">BootStrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML5-css3/" rel="tag">HTML5+css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" rel="tag">Storage存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Web-Worker/" rel="tag">Web Worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">hexo搭建博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html4/" rel="tag">html4</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/photoshop/" rel="tag">photoshop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/websocket/" rel="tag">websocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window10/" rel="tag">window10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" rel="tag">冷知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">函数柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" rel="tag">微信小程序UI框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" rel="tag">本科考试科目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">软件设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/BFC/" style="font-size: 13px;">BFC</a> <a href="/blog/tags/BootStrap/" style="font-size: 13px;">BootStrap</a> <a href="/blog/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/blog/tags/HTML5-css3/" style="font-size: 13px;">HTML5+css3</a> <a href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" style="font-size: 13px;">OOP面向对象思想</a> <a href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" style="font-size: 13px;">Storage存储</a> <a href="/blog/tags/Web-Worker/" style="font-size: 13px;">Web Worker</a> <a href="/blog/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/blog/tags/call%E5%92%8Capply/" style="font-size: 13px;">call和apply</a> <a href="/blog/tags/css3/" style="font-size: 13px;">css3</a> <a href="/blog/tags/git/" style="font-size: 13px;">git</a> <a href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">hexo搭建博客</a> <a href="/blog/tags/html4/" style="font-size: 13px;">html4</a> <a href="/blog/tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="/blog/tags/javascript/" style="font-size: 13.2px;">javascript</a> <a href="/blog/tags/photoshop/" style="font-size: 13px;">photoshop</a> <a href="/blog/tags/vue/" style="font-size: 13.6px;">vue</a> <a href="/blog/tags/webpack/" style="font-size: 13.2px;">webpack</a> <a href="/blog/tags/websocket/" style="font-size: 13px;">websocket</a> <a href="/blog/tags/window10/" style="font-size: 13px;">window10</a> <a href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" style="font-size: 13.2px;">冷知识</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" style="font-size: 13px;">函数柯里化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 13px;">前端工程化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.8px;">前端面试题</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">微信小程序UI框架</a> <a href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" style="font-size: 13.2px;">智扬信达</a> <a href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" style="font-size: 13px;">本科考试科目</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 13px;">跨域</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">软件设计模式</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.4px;">面试题</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">八月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">六月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">四月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">十月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.215Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.176Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/" class="title">echarts多Y轴显示负数零刻度线对齐</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-18T03:23:11.000Z" itemprop="datePublished">2020-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" class="title">chrome80版本以后，SAMESITE COOKIE验证跨站问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="title">前端知识结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-前端工程化" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端工程化
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2018/10/22/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" class="article-date">
+	  <time datetime="2018-10-22T02:39:09.000Z" itemprop="datePublished">2018-10-22</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2018/10/22/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h4 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h4><hr>
+<blockquote>
+<p>​    前端工程化是使用软件工程的技术和方法来进行前端的开发流程、技术、工具、经验等规范化、标准化，其主要目的为了提高效率和降低成本，即提高开发过程中的开发效率，减少不必要的重复工作时间，而前端工程本质上是软件工程的一种，因此我们应该从软件工程的角度来研究前端工程。</p>
+<p>工程化是为了规范前端工作流中的：模块化 ， 组件化，工作流规范 ，自动化 几个方向出发。</p>
+</blockquote>
+<blockquote>
+<p>原生的javascript中是不支持模块化，所以很多时候需要借助一些第三方实现的工具来完成，就好比为了更好的编写样式同一，结构清晰，便利的css样式 ，我们会选用less去完成样式的编写，然后通过工具编译成浏览器支持的css.</p>
+</blockquote>
+<blockquote>
+<p>自动化：就是解决那些曾经需要手动去完成的重复任务（工作） （自动化的意义）</p>
+</blockquote>
+<h5 id="工程化工具（常用）："><a href="#工程化工具（常用）：" class="headerlink" title="工程化工具（常用）："></a>工程化工具（常用）：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">代码版本控制（团队协作） ： git &#x2F; svn</span><br><span class="line">模块化工具：浏览器端：require.js  &#x2F; sea.js </span><br><span class="line">模块化规范：commonjs  、 AMDjs , CMDjs</span><br><span class="line">自动化构建（打包工具）：</span><br><span class="line">	rollup &#x2F; grunt &#x2F; gulp &#x2F; webpack（当下最火）</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h6 id=""><a href="#" class="headerlink" title=""></a></h6><h4 id="使用Gulp-基于流的自动化构建工具-，-任务的模式增强工作流"><a href="#使用Gulp-基于流的自动化构建工具-，-任务的模式增强工作流" class="headerlink" title="使用Gulp (基于流的自动化构建工具 ， 任务的模式增强工作流)"></a>使用Gulp (基于流的自动化构建工具 ， 任务的模式增强工作流)</h4><ol>
+<li><h6 id="安装-需要全局安装-，-当作是一个命令工具使用-，使用的版本-：-3-9-1"><a href="#安装-需要全局安装-，-当作是一个命令工具使用-，使用的版本-：-3-9-1" class="headerlink" title="安装 (需要全局安装 ， 当作是一个命令工具使用) ，使用的版本 ： 3.9.1"></a>安装 (需要全局安装 ， 当作是一个命令工具使用) ，使用的版本 ： 3.9.1</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install gulp@3.9.1 -g</span><br></pre></td></tr></table></figure>
+
+<h6 id="安装成功：-使用-gulp-v-查看当前安装版本号-，如果能正常输出，表示安装成功。"><a href="#安装成功：-使用-gulp-v-查看当前安装版本号-，如果能正常输出，表示安装成功。" class="headerlink" title="安装成功： 使用  gulp -v 查看当前安装版本号 ，如果能正常输出，表示安装成功。"></a>安装成功： 使用  gulp -v 查看当前安装版本号 ，如果能正常输出，表示安装成功。</h6></li>
+<li><h6 id="创建gulp任务清单入口"><a href="#创建gulp任务清单入口" class="headerlink" title="创建gulp任务清单入口"></a>创建gulp任务清单入口</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在项目的根目录下 ，创建一个 gulpfile.js 文件 （gulp默认从该文件进行处理，相当于一个任务的入口文件）</span><br></pre></td></tr></table></figure>
+</li>
+<li><h6 id="安装gulp提供的项目开发依赖包"><a href="#安装gulp提供的项目开发依赖包" class="headerlink" title="安装gulp提供的项目开发依赖包"></a>安装gulp提供的项目开发依赖包</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp是开发工具，所以依赖包也应该是开发依赖 ,安装的时候需要记录为开发依赖，而非项目依赖</span><br><span class="line"></span><br><span class="line">cnpm install gulp@3.9.1 --save-dev  ( --save-dev 也可以写成 -D)</span><br></pre></td></tr></table></figure>
+
+<p>注意：安装依赖的之前 先确认项目目录下是否有package.json 文件 （目前非必须）养成习惯。</p>
+</li>
+<li><h6 id="使用gulp命令执行任务"><a href="#使用gulp命令执行任务" class="headerlink" title="使用gulp命令执行任务"></a>使用gulp命令执行任务</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp 命令 不带参数 ，默认就是执行 gulpfile中定义的 default任务</span><br><span class="line"></span><br><span class="line">带参数：  gulp less  执行less任务</span><br></pre></td></tr></table></figure>
+</li>
+<li><h6 id="编写gulp任务"><a href="#编写gulp任务" class="headerlink" title="编写gulp任务"></a>编写gulp任务</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;因为gulp 是基于任务的模式进行处理的，所以可以把一些需要自动完成的工作写成一个任务即可。</span><br><span class="line">const gulp &#x3D; require(&quot;gulp&quot;);&#x2F;&#x2F;引入gulp 的依赖</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;创建任务 - default</span><br><span class="line">gulp.task(&quot;default&quot;,()&#x3D;&gt;&#123;</span><br><span class="line">    console.log(&#39;正在执行gulp默认任务...&#39;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h6 id="使用gulp编写一个less编译任务"><a href="#使用gulp编写一个less编译任务" class="headerlink" title="使用gulp编写一个less编译任务"></a>使用gulp编写一个less编译任务</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">const gulp &#x3D; require(&quot;gulp&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;需要引入 gulp-less 工具中间件来处理less的文件流编译</span><br><span class="line">const less &#x3D; require(&quot;gulp-less&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引入一个处理css补充兼容性前缀</span><br><span class="line">const autoprefixer &#x3D; require(&quot;gulp-autoprefixer&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引入一个css压缩库</span><br><span class="line">const miniCss &#x3D; require(&quot;gulp-minify-css&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引入生成sourcemap 映射文件库</span><br><span class="line">const sourcemaps &#x3D; require(&quot;gulp-sourcemaps&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;引入重命名库</span><br><span class="line">const rename &#x3D; require(&quot;gulp-rename&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;创建一个less编译的任务</span><br><span class="line">gulp.task(&quot;less&quot;,()&#x3D;&gt;&#123;</span><br><span class="line">    &#x2F;&#x2F;读取文件流（读取需要编译的less文件）</span><br><span class="line">    &#x2F;&#x2F; gulp.src(&quot;.&#x2F;src&#x2F;less&#x2F;index.less&quot;)</span><br><span class="line">    &#x2F;&#x2F; gulp.src([&quot;.&#x2F;src&#x2F;less&#x2F;index.less&quot;,&quot;.&#x2F;src&#x2F;less&#x2F;reset.less&quot;])</span><br><span class="line">    gulp.src(&quot;.&#x2F;src&#x2F;less&#x2F;**&#x2F;*.less&quot;)</span><br><span class="line">    .pipe(sourcemaps.init()) &#x2F;&#x2F;初始化映射</span><br><span class="line">    .pipe(less()) &#x2F;&#x2F;在流的中间添加一个处理less 的环节用于编译less</span><br><span class="line">    .pipe(autoprefixer(&#123;</span><br><span class="line">        &#x2F;&#x2F; browsers:[&quot;last 5 versions&quot;],&#x2F;&#x2F;配置需要考虑兼容的浏览器的版本信息</span><br><span class="line">        cascade:true,&#x2F;&#x2F;是否美化格式</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(sourcemaps.write())&#x2F;&#x2F;写入map映射信息</span><br><span class="line">    .pipe(gulp.dest(&quot;.&#x2F;dist&#x2F;css&quot;))&#x2F;&#x2F;输出压缩之前的代码</span><br><span class="line">    .pipe(miniCss())</span><br><span class="line">    .pipe(rename(&#123;</span><br><span class="line">        suffix:&#39;.min&#39;</span><br><span class="line">    &#125;))&#x2F;&#x2F;修改输出文件名 ，补个min 表示压缩文件</span><br><span class="line">    .pipe(gulp.dest(&quot;.&#x2F;dist&#x2F;css&quot;)); &#x2F;&#x2F; gulp.dest() 将读取的文件流输出到指定的位置</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<hr>
+<h6 id="实现自动编译-Less-和刷新浏览器配置"><a href="#实现自动编译-Less-和刷新浏览器配置" class="headerlink" title="实现自动编译(Less)和刷新浏览器配置"></a>实现自动编译(Less)和刷新浏览器配置</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> gulp = <span class="built_in">require</span>(<span class="string">&quot;gulp&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> less = <span class="built_in">require</span>(<span class="string">&quot;gulp-less&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> sourcemaps = <span class="built_in">require</span>(<span class="string">&quot;gulp-sourcemaps&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> autoprefixer = <span class="built_in">require</span>(<span class="string">&quot;gulp-autoprefixer&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> browserSync = <span class="built_in">require</span>(<span class="string">&quot;browser-sync&quot;</span>).create(); <span class="comment">//创建一个http服务</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个默认任务</span></span><br><span class="line">gulp.task(<span class="string">&quot;default&quot;</span>,[<span class="string">&#x27;less&#x27;</span>,<span class="string">&#x27;http&#x27;</span>],<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">//默认任务开启对项目源代码文件的变化监听</span></span><br><span class="line">   <span class="keyword">let</span> watcher =  gulp.watch(<span class="string">&quot;./src/less/**/*.less&quot;</span>,[<span class="string">&#x27;less&#x27;</span>]);</span><br><span class="line">    <span class="comment">//监听dist目录文件变化实现浏览器刷新</span></span><br><span class="line">    gulp.watch(<span class="string">&quot;./dist/**/*&quot;</span>).on(<span class="string">&quot;change&quot;</span>,browserSync.reload);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个less任务 </span></span><br><span class="line">gulp.task(<span class="string">&quot;less&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;正在编译less...&#x27;</span>);</span><br><span class="line">    gulp.src(<span class="string">&quot;./src/less/index.less&quot;</span>)</span><br><span class="line">    .pipe(sourcemaps.init())</span><br><span class="line">    .pipe(less())</span><br><span class="line">    .pipe(autoprefixer())</span><br><span class="line">    .pipe(sourcemaps.write())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&#x27;./dist/css&#x27;</span>));</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个http 静态资源服务器启动任务</span></span><br><span class="line">gulp.task(<span class="string">&quot;http&quot;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    browserSync.init(&#123;</span><br><span class="line">        server:<span class="string">&quot;./dist&quot;</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="gulp工具中常用的包"><a href="#gulp工具中常用的包" class="headerlink" title="gulp工具中常用的包"></a>gulp工具中常用的包</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">gulp  gulp命令基础的依赖包</span><br><span class="line">gulp-less  编译less</span><br><span class="line">gulp-minify-css  压缩css</span><br><span class="line">gulp-rename  输出文件重命名</span><br><span class="line">gulp-autoprefixer 自动补充浏览器兼容前缀</span><br><span class="line">gulp-sourcemaps 自动生成映射map文件</span><br><span class="line">browser-sync 搭建静态资源服务器和浏览器刷新</span><br><span class="line">gulp-uglify  压缩js</span><br><span class="line">gulp-inject 用于将处理的文件直接插入到html文件中</span><br><span class="line">gulp-hash-name 将文件名修改成hash</span><br><span class="line">gulp-jade</span><br><span class="line">gulp-ejs</span><br><span class="line">gulp-clean 清空输出目录</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h6 id="使用项目根目录下的package-json文件"><a href="#使用项目根目录下的package-json文件" class="headerlink" title="使用项目根目录下的package.json文件"></a>使用项目根目录下的package.json文件</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">除了了一些基本的信息外：</span><br><span class="line">	browserslist 字段 ： 可以用于标识当前项目需要考虑兼容的浏览器版本情况</span><br><span class="line">	</span><br><span class="line">	scripts 字段 :用于配置一些cli命令脚本（实现简化每次执行的命令的长度）</span><br><span class="line">	</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;npm run dev&quot;,</span><br><span class="line">    &quot;dev&quot;:&quot;gulp --mode=development --port=3000&quot;,</span><br><span class="line">    &quot;build&quot;:&quot;gulp --mode=production&quot;,</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<h6 id="注意：要去执行dev中的脚本命令-，-要使用-npm-run-dev-如果是build-就是-npm-run-build"><a href="#注意：要去执行dev中的脚本命令-，-要使用-npm-run-dev-如果是build-就是-npm-run-build" class="headerlink" title="注意：要去执行dev中的脚本命令 ， 要使用 npm run dev  , 如果是build 就是 npm run build"></a>注意：要去执行dev中的脚本命令 ， 要使用 npm run dev  , 如果是build 就是 npm run build</h6><h6 id="其中有一个比较特殊的命令（固定的）start-内置的-，可以直接-npm-start-使用-，其他的是自定义的，需要npm-run-dev-的方式使用。"><a href="#其中有一个比较特殊的命令（固定的）start-内置的-，可以直接-npm-start-使用-，其他的是自定义的，需要npm-run-dev-的方式使用。" class="headerlink" title="其中有一个比较特殊的命令（固定的）start 内置的 ，可以直接 npm start 使用 ，其他的是自定义的，需要npm run dev 的方式使用。"></a>其中有一个比较特殊的命令（固定的）start 内置的 ，可以直接 npm start 使用 ，其他的是自定义的，需要npm run dev 的方式使用。</h6><hr>
+<h6 id="使用npm自定义一个全局命令工具（类似于gulp-webpack一样的命令）"><a href="#使用npm自定义一个全局命令工具（类似于gulp-webpack一样的命令）" class="headerlink" title="使用npm自定义一个全局命令工具（类似于gulp , webpack一样的命令）"></a>使用npm自定义一个全局命令工具（类似于gulp , webpack一样的命令）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">实现一个自动化部署的全局名： 作用就是将当前的项目打包后的代码部署到服务器（通过FTP传输）</span><br><span class="line"></span><br><span class="line">思路： 就是通过npm link 命令 将本地写好的功能映射为一个全局命令。</span><br><span class="line"></span><br><span class="line">1.新创建一个新的项目（命令工具）, 例如 ：npm init 初始化的时候将name设置为 （server-push 自定义的，后面会被用作命令的）【package.json 文件中的name 就是命令的名字】</span><br><span class="line"></span><br><span class="line">2.在当前项目根目录下，创建一个 bin 文件夹（命令工具执行的核心程序文件） index.js</span><br><span class="line">	（当前文件需要在文件的开头第一行添加： #! &#x2F;usr&#x2F;bin&#x2F;evn node   指定当前的运行环境使用node）</span><br><span class="line"></span><br><span class="line">3.在package.json 文件中添加一个bin 字段 ，并且设置 为 bin&#x2F;index.js</span><br><span class="line"></span><br><span class="line">4.使用npm link 命令 将当前创建好的项目作为一个全局命令使用（链接全局）</span><br><span class="line"></span><br><span class="line">5.如果以上都完成即可使用全局命令 ( server-push ) 也能像gulp ， git , webpack一样的全局命令了</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">执行的 bin&#x2F;index.js 文件：</span><br><span class="line">至于代码的上传 ，如果使用FTP ,则可以使用node包中的ftp模块（需要下载） ，跟着官方文档进行本地文件的传输即可。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Webpack-构建工具"><a href="#Webpack-构建工具" class="headerlink" title="Webpack 构建工具"></a>Webpack 构建工具</h2><blockquote>
+<p>中文官网： <a target="_blank" rel="noopener" href="https://www.webpackjs.com/">https://www.webpackjs.com/</a></p>
+<p>​    <em>webpack</em> 是一个现代 JavaScript 应用程序的<em>静态模块打包器(module bundler)<em>。当 webpack 处理应用程序时，它会递归地构建一个</em>依赖关系图(dependency graph)*，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 *bundle</em>。 </p>
+<p>webpack 就是node.js 开发出来的一个用于处理文件，对项目文件结构依赖关系进行打包处理的一个自动化工具。</p>
+</blockquote>
+<h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">安装3.12.0    、  4.x 都可以 (3.x包含cli ， 4.x 需要单独安装webpack-cli)</span><br><span class="line"></span><br><span class="line">cnpm install webpack@3.12.0 -g </span><br></pre></td></tr></table></figure>
+
+<p>使用 webpack  -v   检测是否安装成功。</p>
+<h6 id="入口："><a href="#入口：" class="headerlink" title="入口："></a>入口：</h6><blockquote>
+<p>*<em>入口起点(entry point)**指示 webpack 应该使用哪个模块，来作为构建其内部</em>依赖图*的开始。进入入口起点后，webpack 会找出有哪些模块和库是入口起点（直接和间接）依赖的。 </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">项目结构：</span><br><span class="line">	-config</span><br><span class="line">		|-build.webpack.config.js</span><br><span class="line">	-src</span><br><span class="line">		|- main.js  &#x3D;&gt;  项目的入口</span><br><span class="line">		</span><br><span class="line">	-dist</span><br><span class="line">		|- bundle.js &#x3D;&gt; webpack 根据入口的文件内容进行打包输出的内容</span><br><span class="line">		|- index.html &#x3D;&gt;构建好的html文件</span><br><span class="line">		</span><br><span class="line">	-webpack.config.js &#x3D;&gt;webpack 默认的配置文件	</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">基本的打包命令： </span><br><span class="line">	webpack .&#x2F;src&#x2F;main.js .&#x2F;dist&#x2F;bundle.js</span><br><span class="line">	解释： webpack 需要打包的入口文件地址[input] 打包后输出的文件地址[output]</span><br></pre></td></tr></table></figure>
+
+<p>为了方便使用（包含需要进行一些具体的配置指定项），一般会创建一个webpack的打包配置文件（webpack.config.js ， 类似于前面用过的gulpfile.js 文件）所以主要的学习webpack就是学习如何去编写webpack的配置文件。</p>
+<h6 id="默认情况下：执行webpack之后会自动在根目录搜索webpack-config-js-作为webpack工具的配置-，可以修改。"><a href="#默认情况下：执行webpack之后会自动在根目录搜索webpack-config-js-作为webpack工具的配置-，可以修改。" class="headerlink" title="默认情况下：执行webpack之后会自动在根目录搜索webpack.config.js 作为webpack工具的配置 ，可以修改。"></a>默认情况下：执行webpack之后会自动在根目录搜索webpack.config.js 作为webpack工具的配置 ，可以修改。</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">修改webpack 默认使用的配置文件 ，其实只要在webpack 命令后添加 --config 参数指定配置文件的地址即可</span><br><span class="line">示例：</span><br><span class="line">	webpack --config .&#x2F;config&#x2F;build.webpack.config.js</span><br><span class="line">	</span><br><span class="line">其实webpack后面还可以添加很多参数 ，为了方便每次不需要敲那么多参数，我们直接在package.json文件中添加scripts选项命令。</span><br><span class="line"></span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,</span><br><span class="line">    &quot;build&quot;:&quot;webpack --config .&#x2F;config&#x2F;build.webpack.config.js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  如果收想要知道webpack命令 后面可以使用哪些参数：https:&#x2F;&#x2F;www.webpackjs.com&#x2F;api&#x2F;cli&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h5 id="常用的webpack命令参数"><a href="#常用的webpack命令参数" class="headerlink" title="常用的webpack命令参数:"></a>常用的webpack命令参数:</h5><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–config</td>
+<td>指定webpack 的配置文件地址</td>
+</tr>
+<tr>
+<td>–env</td>
+<td>当配置文件是一个函数时，会将环境变量传给这个函数</td>
+</tr>
+<tr>
+<td>–mode</td>
+<td>用到的模式，”development” 或 “production” 之中的一个</td>
+</tr>
+<tr>
+<td>–progress</td>
+<td>打包时显示进度 (true / false)</td>
+</tr>
+<tr>
+<td>–devtool</td>
+<td>为打包好的资源定义 [source map 的类型]   (sourcemap)</td>
+</tr>
+<tr>
+<td>–display-error-details</td>
+<td>展示打包时错误的一些细节问题 （布尔值）</td>
+</tr>
+<tr>
+<td>–watch-aggregate-timeout</td>
+<td>指定一个毫秒数，在这个时间内，文件若发送了多次变化，会被合并</td>
+</tr>
+<tr>
+<td>–color</td>
+<td>开启/关闭控制台的颜色 (布尔值)</td>
+</tr>
+<tr>
+<td>–display</td>
+<td>选择<a target="_blank" rel="noopener" href="https://www.webpackjs.com/configuration/stats">显示预设</a>(verbose - 繁琐, detailed - 细节, normal - 正常, minimal - 最小, errors-only - 仅错误, none - 无; 从 webpack 3.0.0 开始)</td>
+</tr>
+</tbody></table>
+<h6 id="webpack的常用配置："><a href="#webpack的常用配置：" class="headerlink" title="webpack的常用配置："></a>webpack的常用配置：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">context:&#x2F;&#x2F;配置基础目录 绝对路径，用于从配置中解析入口起点(entry point)和 loader</span><br><span class="line">enrty:配置项目的入口文件</span><br><span class="line">output：配置项目的输出（目录，文件名）</span><br><span class="line">module:配置项目模块中不同类型文件的解析处理（使用loader进行文件的解析）</span><br><span class="line">devServer: 配置本地开发测试的web服务环境</span><br></pre></td></tr></table></figure>
+
+<h6 id="常用的loader-（执行顺序-从下往上-，-从右往左）"><a href="#常用的loader-（执行顺序-从下往上-，-从右往左）" class="headerlink" title="常用的loader:（执行顺序: 从下往上 ， 从右往左）"></a>常用的loader:（执行顺序: 从下往上 ， 从右往左）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">css-loader : 在js中将css样式文件，解析为js的模块 ，因为最终打包的一个js文件</span><br><span class="line"></span><br><span class="line">style-loader: 就是将解析过的css的模块 ，应用到网页样式（内部样式），会将css块的样式生成style标签应用样式</span><br><span class="line"></span><br><span class="line">less-loader:将less文件通过less包编译成css内容 （需要同时安装， less , less-loader）</span><br><span class="line"></span><br><span class="line">postcss-loader ： 处理css 可以配合 autoprefixer插件实现补充前缀</span><br><span class="line">file-loader :处理那些css文件或引入的图片资源文件转移（拷贝）</span><br><span class="line">url-loader : 功能与file-loader 类似，但是可以设置文件的大小 ，如果文件小于指定的大小，会直接转码成base64编码内容</span><br><span class="line"></span><br><span class="line">babel-loader &#x2F; @bable&#x2F;core  这一类就是处理 js 中es6 转 es5等功能</span><br></pre></td></tr></table></figure>
+
+<h6 id="插件（Plugins）"><a href="#插件（Plugins）" class="headerlink" title="插件（Plugins）:"></a>插件（Plugins）:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">extract-text-webpack-plugin 插件负责将项目中内部样式抽离出一个单独的css文件 （目前支持webpack3.x）</span><br><span class="line"></span><br><span class="line">mini-css-extract-plugin(支持webpack4.x)</span><br><span class="line"></span><br><span class="line">html-webpack-plugin（生成html模板文件，会自动引入那些打包出来的css , js文件）</span><br><span class="line"></span><br><span class="line">clean-webpack-plugin 每次打包生成之前会先把原有的目录内容清空</span><br><span class="line"></span><br><span class="line">webpack-bundle-analyzer 这是一个打包文件bundle的 性能分析插件、</span><br><span class="line"></span><br><span class="line">MinChunkSizePlugin  合并一些小模块文件（减少http请求）</span><br><span class="line"></span><br><span class="line">CommonsChunkPlugin 提取公共模块</span><br><span class="line"></span><br><span class="line">LimitChunkCountPlugin 切割文件， 来实现文件的按需加载</span><br><span class="line"></span><br><span class="line">webpack-merge 提取公共webpack配置然后按环境合并</span><br><span class="line"></span><br><span class="line">DefinePlugin 在webpack库中内置的一个用于定义打包时全局变量的插件(在处理webpack时生成一个全局变量提供代码内部使用)</span><br><span class="line"></span><br><span class="line">friendly-errors-webpack-plugin 友好的错误提示（成功）</span><br><span class="line">portfinder 插件用于端口检测获取可用端口号</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="参考配置："><a href="#参考配置：" class="headerlink" title="参考配置："></a>参考配置：</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//生产环境的配置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    context: path.resolve(process.cwd(), <span class="string">&quot;src&quot;</span>),<span class="comment">//配置基础目录 绝对路径，用于从配置中解析入口起点(entry point)和 loader</span></span><br><span class="line">    entry: <span class="string">&quot;./main.js&quot;</span>,<span class="comment">//单入口文件</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.resolve(process.cwd(), <span class="string">&quot;dist&quot;</span>),<span class="comment">//必须绝对路径 ， 打包静态资源输出的目录</span></span><br><span class="line">        filename: <span class="string">&quot;app.js&quot;</span>,<span class="comment">//指定打包的bundle的文件名称</span></span><br><span class="line">        <span class="comment">// filename:&quot;[name].app.[hash].js&quot;,//[name]就是入口文件名 ，[id]模块标识符 ,[hash:5] 模块标识符的hash值 [chunkhash]编译模块内容的hash(文件内容变化才变化，不然都一样) hash值默认长度为20 ， [query] 模块的 query，例如，文件名? 后面的字符串</span></span><br><span class="line">        publicPath: <span class="string">&quot;./&quot;</span>,<span class="comment">//此选项指定在浏览器中所引用的静态资源的路径「此输出目录对应的公开 URL」</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;<span class="comment">//配置项目依赖中各个不同类型的文件模块，该使用什么样的loader去进行文件的解析处理</span></span><br><span class="line">        rules: [<span class="comment">//具体的解析规则</span></span><br><span class="line">            &#123;<span class="comment">//配置一个解析css样式文件的 loader</span></span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,<span class="comment">//正则匹配文件名以.css结尾的文件，对于这些文件配置解析方式</span></span><br><span class="line">                <span class="comment">// loader: &quot;style-loader!css-loader&quot;,//指定使用css-loader进行解析处理(loader的执行顺序就是从下往上， 从右往左)</span></span><br><span class="line">                loader:[<span class="string">&#x27;style-loader&#x27;</span>,<span class="string">&#x27;css-loader&#x27;</span>]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                test:<span class="regexp">/\.less$/</span>,</span><br><span class="line">                loader:[<span class="string">&#x27;style-loader&#x27;</span>,<span class="string">&#x27;css-loader&#x27;</span>,<span class="string">&#x27;less-loader&#x27;</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [],</span><br><span class="line">    resolve: &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<hr>
+<h4 id="webpack-构建优化："><a href="#webpack-构建优化：" class="headerlink" title="webpack 构建优化："></a>webpack 构建优化：</h4><h6 id="1-设置排除项（或者指定项的打包目录）减少构建时遍历文件目录-和打包时间"><a href="#1-设置排除项（或者指定项的打包目录）减少构建时遍历文件目录-和打包时间" class="headerlink" title="1.设置排除项（或者指定项的打包目录）减少构建时遍历文件目录 和打包时间"></a>1.设置排除项（或者指定项的打包目录）减少构建时遍历文件目录 和打包时间</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exclude: &#x2F;node_modules&#x2F;   排除不要的</span><br><span class="line">include:[]   指定需要打包编译的目录</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-通过webpack-merge-提取公共的webpack配置"><a href="#2-通过webpack-merge-提取公共的webpack配置" class="headerlink" title="2.通过webpack-merge 提取公共的webpack配置"></a>2.通过webpack-merge 提取公共的webpack配置</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">webpack.base.config.js  公共</span><br><span class="line">webpack.dev.config.js   开发环境</span><br><span class="line">webpack.build.config.js  生产环境</span><br></pre></td></tr></table></figure>
+
+<h6 id="3-打包切片（实现模块懒加载）-，-模块抽离"><a href="#3-打包切片（实现模块懒加载）-，-模块抽离" class="headerlink" title="3.打包切片（实现模块懒加载） ， 模块抽离"></a>3.打包切片（实现模块懒加载） ， 模块抽离</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4.</span>x 以后使用 webpack.config.js 中的配置项直接配置：</span><br><span class="line">	optimization: &#123;<span class="comment">//优化配置</span></span><br><span class="line">        splitChunks: &#123;</span><br><span class="line">            chunks: <span class="string">&#x27;async&#x27;</span>,</span><br><span class="line">            minSize: <span class="number">30000</span>,</span><br><span class="line">            maxSize: <span class="number">0</span>,</span><br><span class="line">            minChunks: <span class="number">1</span>,</span><br><span class="line">            maxAsyncRequests: <span class="number">5</span>,</span><br><span class="line">            maxInitialRequests: <span class="number">3</span>,</span><br><span class="line">            automaticNameDelimiter: <span class="string">&#x27;~&#x27;</span>,</span><br><span class="line">            automaticNameMaxLength: <span class="number">30</span>,</span><br><span class="line">            name: <span class="literal">true</span>,</span><br><span class="line">            cacheGroups: &#123;<span class="comment">//进一步详细配置切割规则</span></span><br><span class="line">                <span class="keyword">default</span>: &#123;</span><br><span class="line">                    minChunks: <span class="number">2</span>,</span><br><span class="line">                    priority: -<span class="number">20</span>,</span><br><span class="line">                    reuseExistingChunk: <span class="literal">true</span>,</span><br><span class="line">                &#125;,</span><br><span class="line">                vendors: &#123;<span class="comment">//配置所有来自于node_modules中的模块全部打包到vendors中</span></span><br><span class="line">                    test: <span class="regexp">/[\\/]node_modules[\\/]/</span>,</span><br><span class="line">                    priority: <span class="number">10</span>,</span><br><span class="line">                    name: <span class="string">&quot;vendor&quot;</span>,</span><br><span class="line">                    chunks: <span class="string">&quot;all&quot;</span>,</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2018/10/22/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" title="前端工程化" target="_blank" rel="external">https://xulujin.gitee.io/blog/2018/10/22/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2018/10/22/javascript%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" title="javascript编程基础"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2018/10/22/HTML%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/" title="HTML网页基础"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+            更多功能正在开发中...
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: '前端工程化', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

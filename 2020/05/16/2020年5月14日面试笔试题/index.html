@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>2020年5月14日面试笔试题 | 永恒的金色年华</title>
+  <meta name="description" content="Vue1.Vue常用指令及其作用​    v-model     双向绑定指令 ​    v-bind    绑定属性指令(语法糖写法”:”) ​    v-on    绑定事件指令(语法糖写法”@”) ​    v-show    控制隐藏和显示的指令，值是boolean ​    v-for    列表渲染指令(就是循环) ​    v-if v-else-if v-else    控制DOM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020年5月14日面试笔试题">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2020/05/16/2020%E5%B9%B45%E6%9C%8814%E6%97%A5%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="LuKing">
+<meta property="og:description" content="Vue1.Vue常用指令及其作用​    v-model     双向绑定指令 ​    v-bind    绑定属性指令(语法糖写法”:”) ​    v-on    绑定事件指令(语法糖写法”@”) ​    v-show    控制隐藏和显示的指令，值是boolean ​    v-for    列表渲染指令(就是循环) ​    v-if v-else-if v-else    控制DOM">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-16T12:45:51.000Z">
+<meta property="article:modified_time" content="2020-06-21T13:10:21.226Z">
+<meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="前端面试题">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2020/05/16/2020%E5%B9%B45%E6%9C%8814%E6%97%A5%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95%E9%A2%98/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/1314xulujin" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">LuKing-Xun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/blog/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/blog/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/blog/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一如前端深似海,回头?...没头回了!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BootStrap/" rel="tag">BootStrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML5-css3/" rel="tag">HTML5+css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" rel="tag">Storage存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Web-Worker/" rel="tag">Web Worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">hexo搭建博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html4/" rel="tag">html4</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/photoshop/" rel="tag">photoshop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/websocket/" rel="tag">websocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window10/" rel="tag">window10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" rel="tag">冷知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">函数柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" rel="tag">微信小程序UI框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" rel="tag">本科考试科目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">软件设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/BFC/" style="font-size: 13px;">BFC</a> <a href="/blog/tags/BootStrap/" style="font-size: 13px;">BootStrap</a> <a href="/blog/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/blog/tags/HTML5-css3/" style="font-size: 13px;">HTML5+css3</a> <a href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" style="font-size: 13px;">OOP面向对象思想</a> <a href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" style="font-size: 13px;">Storage存储</a> <a href="/blog/tags/Web-Worker/" style="font-size: 13px;">Web Worker</a> <a href="/blog/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/blog/tags/call%E5%92%8Capply/" style="font-size: 13px;">call和apply</a> <a href="/blog/tags/css3/" style="font-size: 13px;">css3</a> <a href="/blog/tags/git/" style="font-size: 13px;">git</a> <a href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">hexo搭建博客</a> <a href="/blog/tags/html4/" style="font-size: 13px;">html4</a> <a href="/blog/tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="/blog/tags/javascript/" style="font-size: 13.2px;">javascript</a> <a href="/blog/tags/photoshop/" style="font-size: 13px;">photoshop</a> <a href="/blog/tags/vue/" style="font-size: 13.6px;">vue</a> <a href="/blog/tags/webpack/" style="font-size: 13.2px;">webpack</a> <a href="/blog/tags/websocket/" style="font-size: 13px;">websocket</a> <a href="/blog/tags/window10/" style="font-size: 13px;">window10</a> <a href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" style="font-size: 13.2px;">冷知识</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" style="font-size: 13px;">函数柯里化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 13px;">前端工程化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.8px;">前端面试题</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">微信小程序UI框架</a> <a href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" style="font-size: 13.2px;">智扬信达</a> <a href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" style="font-size: 13px;">本科考试科目</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 13px;">跨域</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">软件设计模式</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.4px;">面试题</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">八月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">六月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">四月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">十月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.215Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.176Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/" class="title">echarts多Y轴显示负数零刻度线对齐</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-18T03:23:11.000Z" itemprop="datePublished">2020-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" class="title">chrome80版本以后，SAMESITE COOKIE验证跨站问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="title">前端知识结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-2020年5月14日面试笔试题" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2020年5月14日面试笔试题
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2020/05/16/2020%E5%B9%B45%E6%9C%8814%E6%97%A5%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95%E9%A2%98/" class="article-date">
+	  <time datetime="2020-05-16T12:45:51.000Z" itemprop="datePublished">2020-05-16</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/05/16/2020%E5%B9%B45%E6%9C%8814%E6%97%A5%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95%E9%A2%98/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h5 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h5><h6 id="1-Vue常用指令及其作用"><a href="#1-Vue常用指令及其作用" class="headerlink" title="1.Vue常用指令及其作用"></a>1.Vue常用指令及其作用</h6><p>​    v-model     双向绑定指令</p>
+<p>​    v-bind    绑定属性指令(语法糖写法”:”)</p>
+<p>​    v-on    绑定事件指令(语法糖写法”@”)</p>
+<p>​    v-show    控制隐藏和显示的指令，值是boolean</p>
+<p>​    v-for    列表渲染指令(就是循环)</p>
+<p>​    v-if v-else-if v-else    控制DOM删除的添加的指令，值是boolean</p>
+<p>​    v-once    只渲染一次的指令</p>
+<p>​    v-pre    跳过模板渲染的指令</p>
+<p>​    v-cloak    解决花括号模板刷新时闪烁出现的问题</p>
+<h6 id="2-Vue父子组件传值"><a href="#2-Vue父子组件传值" class="headerlink" title="2.Vue父子组件传值"></a>2.Vue父子组件传值</h6><p>父到子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>在该父组件里的子组件里面v-bind父组件需要传的值，子组件使用prop来接收属性名，即可获取到传过来的值。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>$parent在父组件里面使用，可直接获取到其父组件，并且父组件里面的值就可以获取的到。</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>使用provide和inject,</span><br><span class="line">provide为提供值的一方,例：</span><br><span class="line">    provide:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            apple:<span class="built_in">this</span>.title</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">inject为接收的一方</span><br><span class="line">	inject:[<span class="string">&#x27;apple&#x27;</span>]</span><br><span class="line">这样就接受到了其他组件传过来的值</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>子到父：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>在组件定义一个方法绑定到子组件的模板中去，方法里用<span class="built_in">this</span>.$emit(第一个参数，第二参数)，第一个参数为发送的方法键名在父组件中写为(@第一个参数)，键值为方法名，可在父组件的methods使用；第二个参数为发送的一些值，可在父组件中的键值方法中获取的到</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>$children在子组件里面使用，可直接获取到子组件的(为一个数组，使用下标获取到想要的子组件)，并且子组件里面的值就可以获取的到。</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>使用provide和inject,</span><br><span class="line">provide为提供值的一方,例：</span><br><span class="line">    provide:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            apple:<span class="built_in">this</span>.title</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">inject为接收的一方</span><br><span class="line">	inject:[<span class="string">&#x27;apple&#x27;</span>]</span><br><span class="line">这样就接受到了其他组件传过来的值</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="3-Vue如何阻止事件冒泡"><a href="#3-Vue如何阻止事件冒泡" class="headerlink" title="3.Vue如何阻止事件冒泡"></a>3.Vue如何阻止事件冒泡</h6><p>比如@click.stop=””</p>
+<h6 id="4-Vue生命周期"><a href="#4-Vue生命周期" class="headerlink" title="4.Vue生命周期"></a>4.Vue生命周期</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">beforeCreate()</span><br><span class="line"></span><br><span class="line">	 在实例初始化之后，数据观测(data observer) 和 event&#x2F;watcher 事件配置之前被调用。 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">created()</span><br><span class="line"></span><br><span class="line"> 	实例已经创建完成之后被调用。在这一步，实例已完成以下的配置：数据观测(data observer)，属性和方法的运算， watch&#x2F;event 事件回调。然而，挂载阶段还没开始，$el 属性目前不可见。 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">beforeMount()</span><br><span class="line"></span><br><span class="line">	 在挂载开始之前被调用：相关的 render 函数首次被调用。 	</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mounted()</span><br><span class="line"></span><br><span class="line">	 el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子。如果 root 实例挂载了一个文档内元素，当 mounted 被调用时 vm.$el 也在文档内。 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">beforeUpdate()</span><br><span class="line"></span><br><span class="line">	 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">updated()</span><br><span class="line"></span><br><span class="line">	由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子。</span><br><span class="line"></span><br><span class="line">当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态，因为这可能会导致更新无限循环。</span><br><span class="line"></span><br><span class="line">该钩子在服务器端渲染期间不被调用。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">beforeDestroy()</span><br><span class="line"></span><br><span class="line">	 实例销毁之前调用。在这一步，实例仍然完全可用。 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">destroyed()</span><br><span class="line"></span><br><span class="line">	 Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。 该钩子在服务器端渲染期间不被调用。 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h5><h6 id="1-css3的新特性"><a href="#1-css3的新特性" class="headerlink" title="1.css3的新特性"></a>1.css3的新特性</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">答:<span class="number">1.</span>css选择器(属性选择器和伪类选择器)</span><br><span class="line"></span><br><span class="line">   E[att^=<span class="string">&quot;val&quot;</span>]匹配具有att属性、且值以val开头的E元素</span><br><span class="line"></span><br><span class="line">　  E[att$=<span class="string">&quot;val&quot;</span>]匹配具有att属性、且值以val结尾的E元素</span><br><span class="line"></span><br><span class="line">　　E[att*=<span class="string">&quot;val&quot;</span>]匹配具有att属性、且值中含有val的E元素</span><br><span class="line"></span><br><span class="line">　　E:root匹配文档的根元素。在HTML中，根元素永远是HTML</span><br><span class="line"></span><br><span class="line">　　E:nth-child(n)匹配父元素中的第n个子元素E</span><br><span class="line"></span><br><span class="line">　　E:nth-last-child(n)匹配父元素中的倒数第n个结构子元素E</span><br><span class="line"></span><br><span class="line">　　E:nth-<span class="keyword">of</span>-type(n)匹配同类型中的第n个同级兄弟元素E</span><br><span class="line"></span><br><span class="line">　　E:nth-last-<span class="keyword">of</span>-type(n)匹配同类型中的倒数第n个同级兄弟元素E</span><br><span class="line"></span><br><span class="line">　　E:last-child匹配父元素中最后一个E元素</span><br><span class="line"></span><br><span class="line">　　E:first-<span class="keyword">of</span>-type匹配同级兄弟元素中的第一个E元素</span><br><span class="line"></span><br><span class="line">　　E:only-child匹配属于父元素中唯一子元素的E</span><br><span class="line">	</span><br><span class="line">　　E:only-<span class="keyword">of</span>-type匹配属于同类型中唯一兄弟元素的E</span><br><span class="line">	</span><br><span class="line">　　E:empty匹配没有任何子元素（包括text节点）的元素E</span><br><span class="line"></span><br><span class="line">　　:target匹配相关URL指向的E元素</span><br><span class="line"></span><br><span class="line">　　E:enabled匹配所有用户界面（form表单）中处于可用状态的E元素</span><br><span class="line"></span><br><span class="line">　　E:disabled匹配所有用户界面（form表单）中处于不可用状态的E元素</span><br><span class="line"></span><br><span class="line">　　E:checked匹配所有用户界面（form表单）中处于选中状态的元素E</span><br><span class="line"></span><br><span class="line">　　E::selection匹配E元素中被用户选中或处于高亮状态的部分</span><br><span class="line"></span><br><span class="line">　　E:not(s)匹配所有不匹配简单选择符s的元素E</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> <span class="number">2.</span>css样式特效部分：</span><br><span class="line"> 圆角：border-radius: 参数一(圆角半径单位可以是字体大小的所有单位)</span><br><span class="line"> </span><br><span class="line"> 盒子阴影:box-shadow:<span class="number">0</span> <span class="number">0</span> 2px 2px #fff inset; 阴影上下偏移距离 阴影左右偏移距离 阴影宽度 阴影模糊程度 颜色 inset表示阴影在内部</span><br><span class="line"> </span><br><span class="line"> 文字阴影:text-shadow</span><br><span class="line"> </span><br><span class="line"> 颜色渐变:backgrount: linear-gradient(直线渐变) radial-gradient径向渐变</span><br><span class="line"> </span><br><span class="line"> background：rgba()颜色属性</span><br><span class="line"> </span><br><span class="line"> 边框图像：border-image</span><br><span class="line"> </span><br><span class="line"> 滤镜：filter:rayscale(<span class="number">100</span>%)、褐色filter:sepia(<span class="number">1</span>)、饱和度saturate(<span class="number">2</span>)、色相旋转hue-rotate(90deg) 模糊blur(3px)</span><br><span class="line"> </span><br><span class="line"> 透明度:opacity:<span class="number">0.5</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> <span class="number">3.</span>css高级部分</span><br><span class="line"> </span><br><span class="line"> transform：</span><br><span class="line"> 	rotate 旋转(rotateX,rotateY,rotateZ)以下三个都有X/Y/Z</span><br><span class="line"> 	scale 缩放</span><br><span class="line"> 	translate 平移</span><br><span class="line"> 	</span><br><span class="line"> transform-origin 中心点调整</span><br><span class="line"> </span><br><span class="line"> transition: 过渡</span><br><span class="line"> 	transition-property 需要过度的属性</span><br><span class="line"> 	transition-duration 过渡的总时间</span><br><span class="line"> 	transition-timing-<span class="function"><span class="keyword">function</span> 过渡的时间曲线</span></span><br><span class="line"><span class="function"> 	<span class="title">transition</span>-<span class="title">delay</span> 过渡的延迟发生时间</span></span><br><span class="line"><span class="function"> 	<span class="title">matrix</span> 矩阵参数</span></span><br><span class="line"><span class="function"> </span></span><br><span class="line"><span class="function"> <span class="title">animation</span>：动画</span></span><br><span class="line"><span class="function">   <span class="title">animation</span>-<span class="title">name</span> 动画名称</span></span><br><span class="line"><span class="function">　　<span class="title">animation</span>-<span class="title">duration</span> 动画总时间</span></span><br><span class="line"><span class="function">　　<span class="title">animation</span>-<span class="title">timing</span>-<span class="function"><span class="keyword">function</span> 动画时间曲线</span></span></span><br><span class="line"><span class="function"><span class="function">　　<span class="title">animation</span>-<span class="title">delay</span> 动画延迟时间</span></span></span><br><span class="line"><span class="function"><span class="function">　　<span class="title">animation</span>-<span class="title">iteration</span>-<span class="title">count</span> 动画播放方式(<span class="params">重复还是一次</span>)</span></span></span><br><span class="line"><span class="function"><span class="function">　　<span class="title">animation</span>-<span class="title">direction</span> 动画播放是否来回播放(<span class="params">方向</span>)</span></span></span><br><span class="line"><span class="function"><span class="function">　　<span class="title">animation</span>-<span class="title">fill</span>-<span class="title">mode</span> 动画天从模式<span class="title">none</span>(<span class="params">正常</span>)|<span class="title">forwards</span>(<span class="params">在动画初始位置停止</span>)|<span class="title">backwards</span>(<span class="params">动画在最后位置停止</span>)|<span class="title">both</span>(<span class="params">都有</span>)</span>;</span></span><br><span class="line"><span class="function">　　</span></span><br><span class="line"><span class="function">　　@<span class="title">keyframe</span> 动画名称</span>&#123;</span><br><span class="line">　　	<span class="number">0</span>%&#123;</span><br><span class="line">　　	</span><br><span class="line">　　	&#125;</span><br><span class="line">　　	<span class="number">100</span>%&#123;</span><br><span class="line">　　	</span><br><span class="line">　　	&#125;</span><br><span class="line">　　&#125;</span><br><span class="line">　</span><br><span class="line"> <span class="number">4.</span>盒子反射box-reflect方向[ above-上 | below-下 | right-右 | left-左 ]，偏移量，遮罩图片</span><br><span class="line"> <span class="number">5.</span>弹性布局：flex见菜鸟教程官方文档教程 https:<span class="comment">//www.runoob.com/css3/css3-flexbox.html</span></span><br><span class="line">   栅格布局：gird</span><br><span class="line"> <span class="number">6.</span>媒体查询:@media () &#123;</span><br><span class="line">     </span><br><span class="line"> 			&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="js"><a href="#js" class="headerlink" title="js"></a>js</h5><p>​    1.关于promise输出的先后顺序的题目</p>
+<p>​    2.关于定义变量作用域和变量命名(用输出的先后顺序和输出结果来做题目)</p>
+<p>​    3.for( var i=0;i&lt;5;i++ ){</p>
+<p>​        if( i=3 ) continue</p>
+<p>​        console.log(i)</p>
+<p>​    } 输出什么</p>
+<p>​    </p>
+<h5 id="小程序"><a href="#小程序" class="headerlink" title="小程序"></a>小程序</h5><p>​    1.bindTap和catchTap的区别</p>
+<p>​        答：bindtap绑定事件会冒泡到父级元素上面，catchTap不会</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2020/05/16/2020%E5%B9%B45%E6%9C%8814%E6%97%A5%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95%E9%A2%98/" title="2020年5月14日面试笔试题" target="_blank" rel="external">https://xulujin.gitee.io/blog/2020/05/16/2020%E5%B9%B45%E6%9C%8814%E6%97%A5%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95%E9%A2%98/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2020/05/24/%E9%A9%AC%E5%93%A5%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" title="马哥面试经验题目"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2020/05/10/2020%E5%B9%B405%E6%9C%8810%E6%97%A5%E9%9D%A2%E8%AF%95%E9%A2%98/" title="2020年05月10日面试题"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+            更多功能正在开发中...
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: '2020年5月14日面试笔试题', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

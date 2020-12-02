@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>赋值、浅拷贝和深拷贝 | 永恒的金色年华</title>
+  <meta name="description" content="赋值、浅拷贝和深拷贝一、赋值（Copy） 赋值是将某一数值或对象赋给某个变量的过程，分为： 1、基本数据类型：赋值，赋值之后两个变量互不影响 2、引用数据类型：赋址，两个变量具有相同的引用，指向同一个对象，相互之间有影响 对基本类型进行赋值操作，两个变量互不影响。 123456789&gt;&#x2F;&#x2F; saucxs&gt;let a &#x3D; &quot;saucxs&quot;;&gt;let b &#x3D; a;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="赋值、浅拷贝和深拷贝">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2020/06/10/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/index.html">
+<meta property="og:site_name" content="LuKing">
+<meta property="og:description" content="赋值、浅拷贝和深拷贝一、赋值（Copy） 赋值是将某一数值或对象赋给某个变量的过程，分为： 1、基本数据类型：赋值，赋值之后两个变量互不影响 2、引用数据类型：赋址，两个变量具有相同的引用，指向同一个对象，相互之间有影响 对基本类型进行赋值操作，两个变量互不影响。 123456789&gt;&#x2F;&#x2F; saucxs&gt;let a &#x3D; &quot;saucxs&quot;;&gt;let b &#x3D; a;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="og:image" content="https://www.mwcxs.top/static/upload/pics/2019/2/16oMJJeom39jby2TqBYMYYqeMY.png">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+<meta property="article:published_time" content="2020-06-10T04:40:11.000Z">
+<meta property="article:modified_time" content="2020-06-21T13:10:21.379Z">
+<meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="面试题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2020/06/10/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/1314xulujin" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">LuKing-Xun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/blog/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/blog/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/blog/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一如前端深似海,回头?...没头回了!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BootStrap/" rel="tag">BootStrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML5-css3/" rel="tag">HTML5+css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" rel="tag">Storage存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Web-Worker/" rel="tag">Web Worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">hexo搭建博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html4/" rel="tag">html4</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/photoshop/" rel="tag">photoshop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/websocket/" rel="tag">websocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window10/" rel="tag">window10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" rel="tag">冷知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">函数柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" rel="tag">微信小程序UI框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" rel="tag">本科考试科目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">软件设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/BFC/" style="font-size: 13px;">BFC</a> <a href="/blog/tags/BootStrap/" style="font-size: 13px;">BootStrap</a> <a href="/blog/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/blog/tags/HTML5-css3/" style="font-size: 13px;">HTML5+css3</a> <a href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" style="font-size: 13px;">OOP面向对象思想</a> <a href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" style="font-size: 13px;">Storage存储</a> <a href="/blog/tags/Web-Worker/" style="font-size: 13px;">Web Worker</a> <a href="/blog/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/blog/tags/call%E5%92%8Capply/" style="font-size: 13px;">call和apply</a> <a href="/blog/tags/css3/" style="font-size: 13px;">css3</a> <a href="/blog/tags/git/" style="font-size: 13px;">git</a> <a href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">hexo搭建博客</a> <a href="/blog/tags/html4/" style="font-size: 13px;">html4</a> <a href="/blog/tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="/blog/tags/javascript/" style="font-size: 13.2px;">javascript</a> <a href="/blog/tags/photoshop/" style="font-size: 13px;">photoshop</a> <a href="/blog/tags/vue/" style="font-size: 13.6px;">vue</a> <a href="/blog/tags/webpack/" style="font-size: 13.2px;">webpack</a> <a href="/blog/tags/websocket/" style="font-size: 13px;">websocket</a> <a href="/blog/tags/window10/" style="font-size: 13px;">window10</a> <a href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" style="font-size: 13.2px;">冷知识</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" style="font-size: 13px;">函数柯里化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 13px;">前端工程化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.8px;">前端面试题</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">微信小程序UI框架</a> <a href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" style="font-size: 13.2px;">智扬信达</a> <a href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" style="font-size: 13px;">本科考试科目</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 13px;">跨域</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">软件设计模式</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.4px;">面试题</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">八月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">六月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">四月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">十月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.215Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.176Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/" class="title">echarts多Y轴显示负数零刻度线对齐</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-18T03:23:11.000Z" itemprop="datePublished">2020-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" class="title">chrome80版本以后，SAMESITE COOKIE验证跨站问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="title">前端知识结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-浅拷贝和深拷贝" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      赋值、浅拷贝和深拷贝
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2020/06/10/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="article-date">
+	  <time datetime="2020-06-10T04:40:11.000Z" itemprop="datePublished">2020-06-10</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/06/10/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="赋值、浅拷贝和深拷贝"><a href="#赋值、浅拷贝和深拷贝" class="headerlink" title="赋值、浅拷贝和深拷贝"></a>赋值、浅拷贝和深拷贝</h1><h4 id="一、赋值（Copy）"><a href="#一、赋值（Copy）" class="headerlink" title="一、赋值（Copy）"></a>一、赋值（Copy）</h4><blockquote>
+<p>赋值是将某一<strong>数值或对象</strong>赋给某个<strong>变量</strong>的过程，分为：</p>
+<p>1、基本数据类型：赋值，赋值之后两个变量互不影响</p>
+<p>2、引用数据类型：赋<strong>址</strong>，两个变量具有相同的引用，指向同一个对象，相互之间有影响</p>
+<p>对基本类型进行赋值操作，两个变量互不影响。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">// saucxs</span></span><br><span class="line">&gt;<span class="keyword">let</span> a = <span class="string">&quot;saucxs&quot;</span>;</span><br><span class="line">&gt;<span class="keyword">let</span> b = a;</span><br><span class="line">&gt;<span class="built_in">console</span>.log(b);  <span class="comment">// saucxs</span></span><br><span class="line"></span><br><span class="line">&gt;a = <span class="string">&quot;change&quot;</span>;</span><br><span class="line">&gt;<span class="built_in">console</span>.log(a);   <span class="comment">// change</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="built_in">console</span>.log(b);    <span class="comment">// saucxs</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>对引用类型进行赋<strong>址</strong>操作，两个变量指向同一个对象，改变变量 a 之后会影响变量 b，哪怕改变的只是对象 a 中的基本类型数据。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">// saucxs</span></span><br><span class="line">&gt;<span class="keyword">let</span> a = &#123;</span><br><span class="line">   name: <span class="string">&quot;saucxs&quot;</span>,</span><br><span class="line">   book: &#123;</span><br><span class="line">       title: <span class="string">&quot;You Don&#x27;t Know JS&quot;</span>,</span><br><span class="line">       price: <span class="string">&quot;45&quot;</span></span><br><span class="line">   &#125;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;<span class="keyword">let</span> b = a;</span><br><span class="line">&gt;<span class="built_in">console</span>.log(b);</span><br><span class="line">&gt;<span class="comment">// &#123;</span></span><br><span class="line">&gt;<span class="comment">// 	name: &quot;saucxs&quot;,</span></span><br><span class="line">&gt;<span class="comment">// 	book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;45&quot;&#125;</span></span><br><span class="line">&gt;<span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line">&gt;a.name = <span class="string">&quot;change&quot;</span>;</span><br><span class="line">&gt;a.book.price = <span class="string">&quot;55&quot;</span>;</span><br><span class="line">&gt;<span class="built_in">console</span>.log(a);</span><br><span class="line">&gt;<span class="comment">// &#123;</span></span><br><span class="line">&gt;<span class="comment">// 	name: &quot;change&quot;,</span></span><br><span class="line">&gt;<span class="comment">// 	book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;55&quot;&#125;</span></span><br><span class="line">&gt;<span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line">&gt;<span class="built_in">console</span>.log(b);</span><br><span class="line">&gt;<span class="comment">// &#123;</span></span><br><span class="line">&gt;<span class="comment">// 	name: &quot;change&quot;,</span></span><br><span class="line">&gt;<span class="comment">// 	book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;55&quot;&#125;</span></span><br><span class="line">&gt;<span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>通常在开发中并不希望改变变量 a 之后会影响到变量 b，这时就需要用到浅拷贝和深拷贝。</p>
+</blockquote>
+<h4 id="二、浅拷贝（Shallow-Copy）"><a href="#二、浅拷贝（Shallow-Copy）" class="headerlink" title="二、浅拷贝（Shallow Copy）"></a>二、浅拷贝（Shallow Copy）</h4><blockquote>
+<p><strong>1、什么是浅拷贝</strong></p>
+<p><strong>创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝</strong>。如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。</p>
+<p><img src="https://www.mwcxs.top/static/upload/pics/2019/2/16oMJJeom39jby2TqBYMYYqeMY.png" alt="img"><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>上图中，<code>SourceObject</code> 是原对象，其中包含基本类型属性 <code>field1</code> 和引用类型属性 <code>refObj</code>。浅拷贝之后基本类型数据 <code>field2</code> 和 <code>filed1</code> 是不同属性，互不影响。但引用类型 <code>refObj</code> 仍然是同一个，改变之后会对另一个对象产生影响。</p>
+<p>简单来说可以理解为浅拷贝只解决了第一层的问题，拷贝第一层的<strong>基本类型值</strong>，以及第一层的<strong>引用类型地址</strong>。</p>
+<p><strong>2、浅拷贝使用场景</strong></p>
+<p><strong>2.1 Object.assign()</strong></p>
+<p><code>Object.assign()</code> 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。</p>
+<p>有些文章说<code>Object.assign()</code> 是深拷贝，其实这是不正确的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">// saucxs</span></span><br><span class="line">&gt;<span class="keyword">let</span> a = &#123;</span><br><span class="line">   name: <span class="string">&quot;saucxs&quot;</span>,</span><br><span class="line">   book: &#123;</span><br><span class="line">       title: <span class="string">&quot;You Don&#x27;t Know JS&quot;</span>,</span><br><span class="line">       price: <span class="string">&quot;45&quot;</span></span><br><span class="line">   &#125;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;<span class="keyword">let</span> b = <span class="built_in">Object</span>.assign(&#123;&#125;, a);</span><br><span class="line">&gt;<span class="built_in">console</span>.log(b);</span><br><span class="line">&gt;<span class="comment">// &#123;</span></span><br><span class="line">&gt;<span class="comment">// 	name: &quot;saucxs&quot;,</span></span><br><span class="line">&gt;<span class="comment">// 	book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;45&quot;&#125;</span></span><br><span class="line">&gt;<span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line">&gt;a.name = <span class="string">&quot;change&quot;</span>;</span><br><span class="line">&gt;a.book.price = <span class="string">&quot;55&quot;</span>;</span><br><span class="line">&gt;<span class="built_in">console</span>.log(a);</span><br><span class="line">&gt;<span class="comment">// &#123;</span></span><br><span class="line">&gt;<span class="comment">// 	name: &quot;change&quot;,</span></span><br><span class="line">&gt;<span class="comment">// 	book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;55&quot;&#125;</span></span><br><span class="line">&gt;<span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line">&gt;<span class="built_in">console</span>.log(b);</span><br><span class="line">&gt;<span class="comment">// &#123;</span></span><br><span class="line">&gt;<span class="comment">// 	name: &quot;saucxs&quot;,</span></span><br><span class="line">&gt;<span class="comment">// 	book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;55&quot;&#125;</span></span><br><span class="line">&gt;<span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>上面代码改变对象 a 之后，对象 b 的基本属性保持不变。但是当改变对象 a 中的对象 <code>book</code> 时，对象 b 相应的位置也发生了变化。</p>
+<p><strong>2.2 展开语法 <code>Spread</code></strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">// saucxs</span></span><br><span class="line">&gt;<span class="keyword">let</span> a = &#123;</span><br><span class="line">   name: <span class="string">&quot;saucxs&quot;</span>,</span><br><span class="line">   book: &#123;</span><br><span class="line">       title: <span class="string">&quot;You Don&#x27;t Know JS&quot;</span>,</span><br><span class="line">       price: <span class="string">&quot;45&quot;</span></span><br><span class="line">   &#125;</span><br><span class="line">&gt;&#125;</span><br><span class="line">&gt;<span class="keyword">let</span> b = &#123;...a&#125;;</span><br><span class="line">&gt;<span class="built_in">console</span>.log(b);</span><br><span class="line">&gt;<span class="comment">// &#123;</span></span><br><span class="line">&gt;<span class="comment">// 	name: &quot;saucxs&quot;,</span></span><br><span class="line">&gt;<span class="comment">// 	book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;45&quot;&#125;</span></span><br><span class="line">&gt;<span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line">&gt;a.name = <span class="string">&quot;change&quot;</span>;</span><br><span class="line">&gt;a.book.price = <span class="string">&quot;55&quot;</span>;</span><br><span class="line">&gt;<span class="built_in">console</span>.log(a);</span><br><span class="line">&gt;<span class="comment">// &#123;</span></span><br><span class="line">&gt;<span class="comment">// 	name: &quot;change&quot;,</span></span><br><span class="line">&gt;<span class="comment">// 	book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;55&quot;&#125;</span></span><br><span class="line">&gt;<span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line">&gt;<span class="built_in">console</span>.log(b);</span><br><span class="line">&gt;<span class="comment">// &#123;</span></span><br><span class="line">&gt;<span class="comment">// 	name: &quot;saucxs&quot;,</span></span><br><span class="line">&gt;<span class="comment">// 	book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;55&quot;&#125;</span></span><br><span class="line">&gt;<span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p><strong>2.3 Array.prototype.slice方法</strong></p>
+<p>slice不会改变原数组，<code>slice()</code> 方法返回一个新的数组对象，这一对象是一个由 <code>begin</code>和 <code>end</code>（不包括<code>end</code>）决定的原数组的<strong>浅拷贝</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="comment">// saucxs</span></span><br><span class="line">&gt;<span class="keyword">let</span> a = [<span class="number">0</span>, <span class="string">&quot;1&quot;</span>, [<span class="number">2</span>, <span class="number">3</span>]];</span><br><span class="line">&gt;<span class="keyword">let</span> b = a.slice(<span class="number">1</span>);</span><br><span class="line">&gt;<span class="built_in">console</span>.log(b);</span><br><span class="line">&gt;<span class="comment">// [&quot;1&quot;, [2, 3]]</span></span><br><span class="line"></span><br><span class="line">&gt;a[<span class="number">1</span>] = <span class="string">&quot;99&quot;</span>;</span><br><span class="line">&gt;a[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">4</span>;</span><br><span class="line">&gt;<span class="built_in">console</span>.log(a);</span><br><span class="line">&gt;<span class="comment">// [0, &quot;99&quot;, [4, 3]]</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="built_in">console</span>.log(b);</span><br><span class="line">&gt;<span class="comment">//  [&quot;1&quot;, [4, 3]]</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" alt="点击并拖拽以移动"></p>
+<p>可以看出，改变 <code>a[1]</code> 之后 <code>b[0]</code> 的值并没有发生变化，但改变 <code>a[2][0]</code> 之后，相应的 <code>b[1][0]</code> 的值也发生变化。</p>
+<p><strong>说明 <code>slice()</code> 方法是浅拷贝</strong>，相应的还有<code>concat</code>等，在工作中面对复杂数组结构要额外注意。</p>
+</blockquote>
+<h4 id="三、深拷贝的方法"><a href="#三、深拷贝的方法" class="headerlink" title="三、深拷贝的方法"></a>三、深拷贝的方法</h4><blockquote>
+<h3 id="1-JSON转换"><a href="#1-JSON转换" class="headerlink" title="1.JSON转换"></a>1.JSON转换</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">var</span> targetObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(copyObj))</span><br><span class="line">&gt;<span class="keyword">let</span> arr4 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(arr))</span><br></pre></td></tr></table></figure>
+
+<p>缺点：</p>
+<p>（1）如果对象里有函数,函数无法被拷贝下来</p>
+<p>（2）无法拷贝copyObj对象原型链上的属性和方法</p>
+<p>（3）当数据的层次很深，会栈溢出</p>
+<h3 id="2-普通递归函数"><a href="#2-普通递归函数" class="headerlink" title="2.普通递归函数"></a>2.普通递归函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params"> source </span>) </span>&#123;</span><br><span class="line">&gt;<span class="keyword">if</span> (!isObject(source)) <span class="keyword">return</span> source; <span class="comment">//如果不是对象的话直接返回</span></span><br><span class="line">   <span class="keyword">let</span> target = <span class="built_in">Array</span>.isArray( source ) ? [] : &#123;&#125; <span class="comment">//数组兼容</span></span><br><span class="line">   <span class="keyword">for</span> ( <span class="keyword">var</span> k <span class="keyword">in</span> source ) &#123;</span><br><span class="line">   	<span class="keyword">if</span> (source.hasOwnProperty(k)) &#123;</span><br><span class="line">   		<span class="keyword">if</span> ( <span class="keyword">typeof</span> source[ k ] === <span class="string">&#x27;object&#x27;</span> ) &#123;</span><br><span class="line">           	target[ k ] = deepCopy( source[ k ] )</span><br><span class="line">       	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           	target[ k ] = source[ k ]</span><br><span class="line">       	&#125;</span><br><span class="line">   	&#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> target</span><br><span class="line">&gt;&#125;</span><br><span class="line"></span><br><span class="line">&gt;<span class="function"><span class="keyword">function</span> <span class="title">isObject</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">typeof</span> obj === <span class="string">&#x27;object&#x27;</span> &amp;&amp; obj !== <span class="literal">null</span></span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>缺点：</p>
+<p>（1）无法保持引用</p>
+<p>（2）当数据的层次很深，会栈溢出</p>
+<h3 id="3-防栈溢出函数"><a href="#3-防栈溢出函数" class="headerlink" title="3.防栈溢出函数"></a>3.防栈溢出函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="function"><span class="keyword">function</span> <span class="title">cloneLoop</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">const</span> root = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 栈</span></span><br><span class="line">   <span class="keyword">const</span> loopList = [</span><br><span class="line">       &#123;</span><br><span class="line">           parent: root,</span><br><span class="line">           key: <span class="literal">undefined</span>,</span><br><span class="line">           data: x,</span><br><span class="line">       &#125;</span><br><span class="line">   ];</span><br><span class="line"></span><br><span class="line">   <span class="keyword">while</span>(loopList.length) &#123;</span><br><span class="line">       <span class="comment">// 深度优先</span></span><br><span class="line">       <span class="keyword">const</span> node = loopList.pop();</span><br><span class="line">       <span class="keyword">const</span> parent = node.parent;</span><br><span class="line">       <span class="keyword">const</span> key = node.key;</span><br><span class="line">       <span class="keyword">const</span> data = node.data;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 初始化赋值目标，key为undefined则拷贝到父元素，否则拷贝到子元素</span></span><br><span class="line">       <span class="keyword">let</span> res = parent;</span><br><span class="line">       <span class="keyword">if</span> (<span class="keyword">typeof</span> key !== <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">           res = parent[key] = &#123;&#125;;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">let</span> k <span class="keyword">in</span> data) &#123;</span><br><span class="line">           <span class="keyword">if</span> (data.hasOwnProperty(k)) &#123;</span><br><span class="line">               <span class="keyword">if</span> (<span class="keyword">typeof</span> data[k] === <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">                   <span class="comment">// 下一次循环</span></span><br><span class="line">                   loopList.push(&#123;</span><br><span class="line">                       parent: res,</span><br><span class="line">                       key: k,</span><br><span class="line">                       data: data[k],</span><br><span class="line">                   &#125;);</span><br><span class="line">               &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                   res[k] = data[k];</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> root;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优点：</p>
+<p>（1）不会栈溢出</p>
+<p>（2）支持很多层级的数据</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2020/06/10/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/" title="赋值、浅拷贝和深拷贝" target="_blank" rel="external">https://xulujin.gitee.io/blog/2020/06/10/%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B7%B1%E6%8B%B7%E8%B4%9D/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2020/06/11/js-new%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/" title="js new一个对象做了什么"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2020/06/07/%E8%85%BE%E8%AE%AF%E4%B8%80%E5%B9%B4%E7%BB%8F%E9%AA%8C%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%84%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9D%A2%E8%AF%95%E9%A2%98/" title="腾讯一年经验页面重构工程师面试题"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+            更多功能正在开发中...
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: '赋值、浅拷贝和深拷贝', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

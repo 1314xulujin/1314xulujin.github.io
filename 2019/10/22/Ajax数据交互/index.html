@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Ajax数据交互 | 永恒的金色年华</title>
+  <meta name="description" content="Ajax数据交互 何为数据交互?  &#x3D;&gt;  前后端数据的交互 (前端向后端发起数据请求 ,由后端响应数据给前端) Ajax : 在浏览器与服务器之间异步加载数据 . (web2.0重要技术) 可以在不重载整个页面的情况下 ,更新页面的某一块内容    因涉及后端数据交互 ,所以需要有后端服务.(后台 &#x2F; 服务器环境) 准备工作: 搭建一个本地开发测试(服务器)环境搭建一台本地的web服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax数据交互">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2019/10/22/Ajax%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/index.html">
+<meta property="og:site_name" content="LuKing">
+<meta property="og:description" content="Ajax数据交互 何为数据交互?  &#x3D;&gt;  前后端数据的交互 (前端向后端发起数据请求 ,由后端响应数据给前端) Ajax : 在浏览器与服务器之间异步加载数据 . (web2.0重要技术) 可以在不重载整个页面的情况下 ,更新页面的某一块内容    因涉及后端数据交互 ,所以需要有后端服务.(后台 &#x2F; 服务器环境) 准备工作: 搭建一个本地开发测试(服务器)环境搭建一台本地的web服务器">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-22T02:38:47.000Z">
+<meta property="article:modified_time" content="2020-06-21T13:10:21.231Z">
+<meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="ajax">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2019/10/22/Ajax%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/1314xulujin" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">LuKing-Xun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/blog/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/blog/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/blog/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一如前端深似海,回头?...没头回了!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BootStrap/" rel="tag">BootStrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML5-css3/" rel="tag">HTML5+css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" rel="tag">Storage存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Web-Worker/" rel="tag">Web Worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">hexo搭建博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html4/" rel="tag">html4</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/photoshop/" rel="tag">photoshop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/websocket/" rel="tag">websocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window10/" rel="tag">window10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" rel="tag">冷知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">函数柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" rel="tag">微信小程序UI框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" rel="tag">本科考试科目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">软件设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/BFC/" style="font-size: 13px;">BFC</a> <a href="/blog/tags/BootStrap/" style="font-size: 13px;">BootStrap</a> <a href="/blog/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/blog/tags/HTML5-css3/" style="font-size: 13px;">HTML5+css3</a> <a href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" style="font-size: 13px;">OOP面向对象思想</a> <a href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" style="font-size: 13px;">Storage存储</a> <a href="/blog/tags/Web-Worker/" style="font-size: 13px;">Web Worker</a> <a href="/blog/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/blog/tags/call%E5%92%8Capply/" style="font-size: 13px;">call和apply</a> <a href="/blog/tags/css3/" style="font-size: 13px;">css3</a> <a href="/blog/tags/git/" style="font-size: 13px;">git</a> <a href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">hexo搭建博客</a> <a href="/blog/tags/html4/" style="font-size: 13px;">html4</a> <a href="/blog/tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="/blog/tags/javascript/" style="font-size: 13.2px;">javascript</a> <a href="/blog/tags/photoshop/" style="font-size: 13px;">photoshop</a> <a href="/blog/tags/vue/" style="font-size: 13.6px;">vue</a> <a href="/blog/tags/webpack/" style="font-size: 13.2px;">webpack</a> <a href="/blog/tags/websocket/" style="font-size: 13px;">websocket</a> <a href="/blog/tags/window10/" style="font-size: 13px;">window10</a> <a href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" style="font-size: 13.2px;">冷知识</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" style="font-size: 13px;">函数柯里化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 13px;">前端工程化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.8px;">前端面试题</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">微信小程序UI框架</a> <a href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" style="font-size: 13.2px;">智扬信达</a> <a href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" style="font-size: 13px;">本科考试科目</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 13px;">跨域</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">软件设计模式</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.4px;">面试题</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">八月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">六月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">四月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">十月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.215Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.176Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/" class="title">echarts多Y轴显示负数零刻度线对齐</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-18T03:23:11.000Z" itemprop="datePublished">2020-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" class="title">chrome80版本以后，SAMESITE COOKIE验证跨站问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="title">前端知识结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Ajax数据交互" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ajax数据交互
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2019/10/22/Ajax%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/" class="article-date">
+	  <time datetime="2019-10-22T02:38:47.000Z" itemprop="datePublished">2019-10-22</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/ajax/" rel="tag">ajax</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2019/10/22/Ajax%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="Ajax数据交互"><a href="#Ajax数据交互" class="headerlink" title="Ajax数据交互"></a>Ajax数据交互</h2><blockquote>
+<p>何为数据交互?  =&gt;  前后端数据的交互 (前端向后端发起数据请求 ,由后端响应数据给前端)</p>
+<p>Ajax : 在浏览器与服务器之间异步加载数据 . (web2.0重要技术) 可以在不重载整个页面的情况下 ,更新页面的某一块内容 </p>
+</blockquote>
+<blockquote>
+<h5 id="因涉及后端数据交互-所以需要有后端服务-后台-服务器环境"><a href="#因涉及后端数据交互-所以需要有后端服务-后台-服务器环境" class="headerlink" title="因涉及后端数据交互 ,所以需要有后端服务.(后台 / 服务器环境)"></a>因涉及后端数据交互 ,所以需要有后端服务.(后台 / 服务器环境)</h5></blockquote>
+<h5 id="准备工作-搭建一个本地开发测试-服务器-环境"><a href="#准备工作-搭建一个本地开发测试-服务器-环境" class="headerlink" title="准备工作: 搭建一个本地开发测试(服务器)环境"></a>准备工作: 搭建一个本地开发测试(服务器)环境</h5><p>搭建一台本地的web服务器 ,让自己的pc充当为一台本地的服务器(其实就是一台性能比普通电脑更高的电脑,24小时不关机,给其他的pc或终端提供服务使用).</p>
+<p>目前主流的服务器的操作系统:</p>
+<ol>
+<li>windows server 2008 (窗口式操作)</li>
+<li>Linux (centOS )</li>
+<li>Unix</li>
+</ol>
+<p>常见的服务:</p>
+<p>​    web服务:搭建网站提供给互联网用户访问</p>
+<p>​    smtp服务: 提供电子邮件发送服务</p>
+<p>​    ftp服务: 提供文件共享服务(传输)</p>
+<hr>
+<h5 id="常用于搭建web服务的软件"><a href="#常用于搭建web服务的软件" class="headerlink" title="常用于搭建web服务的软件:"></a>常用于搭建web服务的软件:</h5><ol>
+<li><p>IIS 微软 因特网信息服务  (运行在windows服务器上)</p>
+</li>
+<li><p>Apache  (linux , windows)</p>
+</li>
+<li><p>Nginx (linux) (推荐 ,服务器首选)</p>
+</li>
+<li><p>Nodejs  (linux , windows)</p>
+</li>
+<li><p>Tomcat  (linux , windows)</p>
+<h6 id="在真实项目的上一般会选用Linux操作系统-nginx-apache-的服务器-小型-或者个人项目可能会使用IIS的windows服务"><a href="#在真实项目的上一般会选用Linux操作系统-nginx-apache-的服务器-小型-或者个人项目可能会使用IIS的windows服务" class="headerlink" title="在真实项目的上一般会选用Linux操作系统(nginx / apache)的服务器 (小型,或者个人项目可能会使用IIS的windows服务)"></a>在真实项目的上一般会选用Linux操作系统(nginx / apache)的服务器 (小型,或者个人项目可能会使用IIS的windows服务)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">本地的开发测试环境 ,可以使用一些集成的环境 &#x3D; &gt; XAMPP</span><br><span class="line"></span><br><span class="line">XAMPP集成:</span><br><span class="line"></span><br><span class="line">		1.Apache (阿帕奇服务)</span><br><span class="line"></span><br><span class="line">		2.PHP (后端语言)</span><br><span class="line"></span><br><span class="line">		3.Mysql (数据库)</span><br><span class="line"></span><br><span class="line">		4.FileZilla ( FTP 服务 )	</span><br><span class="line"></span><br><span class="line">		5.Tomcat (运行java web的服务)		</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<hr>
+<p>安装完 XAMPP 打开控制面板 ,start 启动 apache 服务 ,服务默认会运行在80端口  , </p>
+<h6 id="访问方式"><a href="#访问方式" class="headerlink" title="访问方式:"></a>访问方式:</h6><p>​    (本地)</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="http://localhost/">http://localhost</a>  (localhost 是本地的主机名称 , 只能访问当前设备上的服务) </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://127.0.0.1/">http://127.0.0.1</a> (所有的网络设备 ,都有一个本地的回路地址 : 127.0.0.1 )</p>
+<h6 id="可以访问其他的网络设备提供的服务"><a href="#可以访问其他的网络设备提供的服务" class="headerlink" title="可以访问其他的网络设备提供的服务"></a>可以访问其他的网络设备提供的服务</h6></li>
+<li><p>172.16.4.1  (可以使用为当前网络下 ,可以被访问的其他设备的web服务) </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://class4/">http://class4</a>  (class4名称是当前运行apache服务的计算机名) 相当于  <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
+<p>安装目录下的 : htdocs (存放网站程序的目录)  web服务默认会以网站根目录下 ,文件名为 index的文件作为当前站点的首页</p>
+</li>
+</ol>
+<hr>
+<h6 id="使用FTP-上传-文件-至服务器"><a href="#使用FTP-上传-文件-至服务器" class="headerlink" title="使用FTP 上传 文件 至服务器"></a>使用FTP 上传 文件 至服务器</h6><p>   ftp 地址 :  <a href="ftp://class4/">ftp://class4</a>  </p>
+<p>   账号: wt18</p>
+<p>   密码: 123456</p>
+<hr>
+<blockquote>
+<p>浏览器的地址栏 , 输入 <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 然后按回车 =&gt;  发生了什么事情?</p>
+<h5 id="互联网上通信-只能通过-IP-地址进行寻址"><a href="#互联网上通信-只能通过-IP-地址进行寻址" class="headerlink" title="互联网上通信 , 只能通过 IP 地址进行寻址 ."></a>互联网上通信 , 只能通过 IP 地址进行寻址 .</h5><p>1.按下回车 : 先对需要访问的域名进行解析   = &gt;  DNS (域名解析 )  将域名解析为对应的 ip 地址 </p>
+<p>​        解析:  1. 本地解析 (优先使用)  2. DNS服务解析</p>
+<p>2.地址解析成功之后 , 就直接进行http请求访问…     </p>
+</blockquote>
+<h6 id="经常在开发场景中-需要模拟多站点通信-apache-运行配置多个虚拟主机"><a href="#经常在开发场景中-需要模拟多站点通信-apache-运行配置多个虚拟主机" class="headerlink" title="经常在开发场景中 , 需要模拟多站点通信  , apache 运行配置多个虚拟主机 :"></a>经常在开发场景中 , 需要模拟多站点通信  , apache 运行配置多个虚拟主机 :</h6><ol>
+<li><h6 id="配置本地的解析文件-C-Windows-System32-drivers-etc-hosts-在很多软件破解时也会使用到"><a href="#配置本地的解析文件-C-Windows-System32-drivers-etc-hosts-在很多软件破解时也会使用到" class="headerlink" title="配置本地的解析文件 : C:\Windows\System32\drivers\etc\hosts  (在很多软件破解时也会使用到)"></a>配置本地的解析文件 : C:\Windows\System32\drivers\etc\hosts  (在很多软件破解时也会使用到)</h6><ol>
+<li>配置一个本地域名 m.com</li>
+<li>配置一个本地域名 s.com</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1  		m.com</span><br><span class="line">127.0.0.1  		s.com </span><br></pre></td></tr></table></figure>
+
+<h6 id="2-配置apache-的虚拟主机"><a href="#2-配置apache-的虚拟主机" class="headerlink" title="2.配置apache 的虚拟主机"></a>2.配置apache 的虚拟主机</h6><p>找到apahce 的安装目录  (E:\xampp\apache\conf\extra\httpd-vhosts.conf)</p>
+<p>参考配置如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#配置 s.com</span><br><span class="line">&lt;VirtualHost*:80&gt;</span><br><span class="line">    ServerAdmin admin@s.com</span><br><span class="line">    DocumentRoot &quot;&#x2F;xampp&#x2F;htdocs&#x2F;s.com&quot;</span><br><span class="line">    ServerName s.com</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br><span class="line"></span><br><span class="line">#配置 m.com</span><br><span class="line">&lt;VirtualHost*:80&gt;</span><br><span class="line">    ServerAdmin admin@m.com</span><br><span class="line">    DocumentRoot &quot;&#x2F;xampp&#x2F;htdocs&#x2F;m.com&quot;</span><br><span class="line">    ServerName m.com</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<p>所有的配置 ,修改完之后 ,都需要重启 apache 服务 生效.</p>
+<hr>
+<p>搭环境与不搭环境的区别:</p>
+<p>​    http服务环境:  <a target="_blank" rel="noopener" href="http://m.com/">http://m.com</a></p>
+<p>​    没有环境: file:///E:/xampp/htdocs/s.com/index.html</p>
+<hr>
+<h5 id="jQuery-中的ajax"><a href="#jQuery-中的ajax" class="headerlink" title="jQuery 中的ajax:"></a>jQuery 中的ajax:</h5><h6 id="万能-ajax"><a href="#万能-ajax" class="headerlink" title="(万能)ajax()"></a>(万能)ajax()</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ajax(&#123;</span><br><span class="line">	url:<span class="string">&quot;请求的服务器的url地址&quot;</span>, <span class="comment">//[必须]</span></span><br><span class="line">    type:<span class="string">&quot;get&quot;</span>,<span class="comment">// post , put , delete 请求方式   (method 也可以 , 效果一样)</span></span><br><span class="line">    data:<span class="string">&quot;需要发送给服务器的数据&quot;</span>,</span><br><span class="line">    dataType:<span class="string">&#x27;服务器返回的数据类型&#x27;</span>,<span class="comment">//text , html ,css , script , json , jsonp</span></span><br><span class="line">    <span class="keyword">async</span>:<span class="literal">true</span>,<span class="comment">//(默认为true) 是否异步操作 </span></span><br><span class="line">    beforeSend:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//开始发送请求执行 执行</span></span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    complete:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//请求过程结束(完成, 无论成功失败)</span></span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;<span class="comment">//请求成功的回调函数 ,  data 请求成功的数据</span></span><br><span class="line">        </span><br><span class="line">    &#125;,</span><br><span class="line">    error:<span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;<span class="comment">//请求失败 执行</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h6 id="异步-在同一时刻-在执行一个任务时-也可以继续执行其他任务"><a href="#异步-在同一时刻-在执行一个任务时-也可以继续执行其他任务" class="headerlink" title="异步: 在同一时刻 ,在执行一个任务时 ,也可以继续执行其他任务"></a>异步: 在同一时刻 ,在执行一个任务时 ,也可以继续执行其他任务</h6><h6 id="同步-在同一时刻-同时只能处理一个任务-V8引擎-每次同时只能处理一个js任务-如果该任务还未执行完毕-那么下一个任务-就要等待该任务执行完之后才能进行"><a href="#同步-在同一时刻-同时只能处理一个任务-V8引擎-每次同时只能处理一个js任务-如果该任务还未执行完毕-那么下一个任务-就要等待该任务执行完之后才能进行" class="headerlink" title="同步:在同一时刻,同时只能处理一个任务 (V8引擎 , 每次同时只能处理一个js任务) ,如果该任务还未执行完毕,那么下一个任务,就要等待该任务执行完之后才能进行."></a>同步:在同一时刻,同时只能处理一个任务 (V8引擎 , 每次同时只能处理一个js任务) ,如果该任务还未执行完毕,那么下一个任务,就要等待该任务执行完之后才能进行.</h6><p>  注意:浏览器js引擎是单线程应用,每次只能执行一个任务 , 如果此时为同步请求 ,(请求时间稍长一些就更明显) ,会导致js 引擎运行暂停(堵塞)  造成 = &gt; “页面假死” </p>
+<h6 id="页面假死-1-页面的交互无响应-右键无反应-包括浏览器中的一些事件处理都将失去反应-2-暂停渲染"><a href="#页面假死-1-页面的交互无响应-右键无反应-包括浏览器中的一些事件处理都将失去反应-2-暂停渲染" class="headerlink" title="页面假死 : 1.页面的交互无响应 (右键无反应 , 包括浏览器中的一些事件处理都将失去反应)  2.暂停渲染"></a>页面假死 : 1.页面的交互无响应 (右键无反应 , 包括浏览器中的一些事件处理都将失去反应)  2.暂停渲染</h6><hr>
+<h6 id="post-通过http-post方式发起请求"><a href="#post-通过http-post方式发起请求" class="headerlink" title="post() : 通过http post方式发起请求"></a>post() : 通过http post方式发起请求</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post(请求服务器地址[必须],发送的数据,请求成功回调函数,服务器返回数据类型)</span><br></pre></td></tr></table></figure>
+
+<h6 id="get-通过http-get方式发起请求"><a href="#get-通过http-get方式发起请求" class="headerlink" title="get() :通过http get方式发起请求"></a>get() :通过http get方式发起请求</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get(请求服务器地址[必须],发送的数据,请求成功回调函数,服务器返回数据类型)</span><br></pre></td></tr></table></figure>
+
+<h6 id="getScript-通过http-get请求方式-获取服务器上的一段-js脚本-并运行"><a href="#getScript-通过http-get请求方式-获取服务器上的一段-js脚本-并运行" class="headerlink" title="getScript() : 通过http get请求方式 ,获取服务器上的一段 js脚本 ,并运行"></a>getScript() : 通过http get请求方式 ,获取服务器上的一段 js脚本 ,并运行</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getScript(请求服务器地址[必须])</span><br></pre></td></tr></table></figure>
+
+<h6 id="load-使用在jQ对象上-直接把请求的内容显示到对应的DOM上"><a href="#load-使用在jQ对象上-直接把请求的内容显示到对应的DOM上" class="headerlink" title="load() : 使用在jQ对象上 ,直接把请求的内容显示到对应的DOM上"></a>load() : 使用在jQ对象上 ,直接把请求的内容显示到对应的DOM上</h6><h6 id="getJSON-使用get-请求-获取服务器上的json数据"><a href="#getJSON-使用get-请求-获取服务器上的json数据" class="headerlink" title="getJSON() : 使用get 请求 ,获取服务器上的json数据"></a>getJSON() : 使用get 请求 ,获取服务器上的json数据</h6><hr>
+<p>(主流 )JSON : 是JavaScript 对象的表示方式 ,用于数据交换格式.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//json格式 ,就是组键值对关系  = &gt; 对象的形式 (通过对象属性方式调用 .属性名)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;键名1&quot;</span>:键值<span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;键名2&quot;</span>:键值<span class="number">2</span>,</span><br><span class="line">    <span class="string">&quot;键名3&quot;</span>:键值<span class="number">3</span>   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//数组形式 (使用时候 ,用下标找到对应的对象 )</span></span><br><span class="line">[</span><br><span class="line">   &#123;</span><br><span class="line">	<span class="string">&quot;键名1&quot;</span>:键值<span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;键名2&quot;</span>:键值<span class="number">2</span>,</span><br><span class="line">    <span class="string">&quot;键名3&quot;</span>:键值<span class="number">3</span>   </span><br><span class="line">&#125;,&#123;</span><br><span class="line">	<span class="string">&quot;键名1&quot;</span>:键值<span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;键名2&quot;</span>:键值<span class="number">2</span>,</span><br><span class="line">    <span class="string">&quot;键名3&quot;</span>:键值<span class="number">3</span>   </span><br><span class="line">&#125;,&#123;</span><br><span class="line">	<span class="string">&quot;键名1&quot;</span>:键值<span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;键名2&quot;</span>:键值<span class="number">2</span>,</span><br><span class="line">    <span class="string">&quot;键名3&quot;</span>:键值<span class="number">3</span>   </span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>(已经逐步淘汰)XML: 是一种互联网应用交换数据格式 (xml是扩展型标记语言 ,类似于html)</p>
+<h6 id="XML与JSON的区别"><a href="#XML与JSON的区别" class="headerlink" title="XML与JSON的区别"></a>XML与JSON的区别</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">详见 : https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;243deb64bcb5</span><br></pre></td></tr></table></figure>
+
+<h6 id="需要具备一定的数据结构设计能力-对后端提供的数据要求-编写模拟数据"><a href="#需要具备一定的数据结构设计能力-对后端提供的数据要求-编写模拟数据" class="headerlink" title="需要具备一定的数据结构设计能力. ( 对后端提供的数据要求 , 编写模拟数据)"></a>需要具备一定的数据结构设计能力. ( 对后端提供的数据要求 , 编写模拟数据)</h6><p>模拟数据 , 数据结构与真实的后端接口数据格式一致 ,但是是本地模拟使用,用于在前后端开发时 ,后端暂未将后台的接口数据开发完时,提供前端本地开发模拟使用.</p>
+<hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">轮播图:</span><br><span class="line">	每张轮播图需要的数据 : <span class="number">1.</span> 图片的地址  <span class="number">2.</span>图片的跳转链接地址</span><br><span class="line">	&#123;</span><br><span class="line">		picUrl:<span class="string">&quot;图片地址&quot;</span>,</span><br><span class="line">		url:<span class="string">&quot;点击的超链接跳转地址&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	[</span><br><span class="line">		&#123;</span><br><span class="line">		  picUrl:<span class="string">&quot;图片地址&quot;</span>,</span><br><span class="line">		  url:<span class="string">&quot;点击的超链接跳转地址&quot;</span></span><br><span class="line">	   &#125;,&#123;</span><br><span class="line">		  picUrl:<span class="string">&quot;图片地址&quot;</span>,</span><br><span class="line">		  url:<span class="string">&quot;点击的超链接跳转地址&quot;</span></span><br><span class="line">	   &#125;,&#123;</span><br><span class="line">		  picUrl:<span class="string">&quot;图片地址&quot;</span>,</span><br><span class="line">		  url:<span class="string">&quot;点击的超链接跳转地址&quot;</span></span><br><span class="line">	   &#125;,&#123;</span><br><span class="line">		  picUrl:<span class="string">&quot;图片地址&quot;</span>,</span><br><span class="line">		  url:<span class="string">&quot;点击的超链接跳转地址&quot;</span></span><br><span class="line">	   &#125;,&#123;</span><br><span class="line">		  picUrl:<span class="string">&quot;图片地址&quot;</span>,</span><br><span class="line">		  url:<span class="string">&quot;点击的超链接跳转地址&quot;</span></span><br><span class="line">	   &#125;</span><br><span class="line">	]</span><br><span class="line"></span><br><span class="line">例举京东单个商品展示列表 :</span><br><span class="line">	商品的<span class="number">6</span>款型号图片 \ 价格 \ 商品的标题 \ 评价的数量 \ 店铺的名称 \ 商品的跳转链接 \ 店铺的链接 \ 评价的跳转链接 \ 是否二手在售 ,跳转地址 \ 商品的特性 \ 商品的SID \ 是否广告 \ 客服的地址</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="渲染"><a href="#渲染" class="headerlink" title="渲染:"></a>渲染:</h5><h6 id="1-后端渲染"><a href="#1-后端渲染" class="headerlink" title="1.后端渲染:"></a>1.后端渲染:</h6><p>​        服务端在返回 html 之前，在特定的区域，符号里用数据填充，再给客户端，客户端只负责解析 HTML </p>
+<p>​    </p>
+<h6 id="2-前端渲染-客户端渲染"><a href="#2-前端渲染-客户端渲染" class="headerlink" title="2.前端渲染(客户端渲染):"></a>2.前端渲染(客户端渲染):</h6><p>​        html 仅仅作为静态文件，客户端端在请求时，服务端不做任何处理，直接以原文件的形式返回给客户端客户端，然后根据 html 上的 JavaScript，生成 DOM 插入 html。</p>
+<h5 id="前端渲染不利于SEO优化-内容需要在客户端通过js生成-所以爬虫抓取的时候是没有内容的-或者内容不多"><a href="#前端渲染不利于SEO优化-内容需要在客户端通过js生成-所以爬虫抓取的时候是没有内容的-或者内容不多" class="headerlink" title="前端渲染不利于SEO优化(内容需要在客户端通过js生成,所以爬虫抓取的时候是没有内容的,或者内容不多)"></a>前端渲染不利于SEO优化(内容需要在客户端通过js生成,所以爬虫抓取的时候是没有内容的,或者内容不多)</h5><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0719c6102639">https://www.jianshu.com/p/0719c6102639</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">京东左侧导航分类 接口地址:https:&#x2F;&#x2F;dc.3.cn&#x2F;category&#x2F;get?&amp;callback&#x3D;getCategoryCallback</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="发送数据"><a href="#发送数据" class="headerlink" title="发送数据:"></a>发送数据:</h5><h6 id="GET请求方式"><a href="#GET请求方式" class="headerlink" title="GET请求方式"></a>GET请求方式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">通过请求的地址中传递发送给后台的数据 &#x3D; &gt; QueryString (查询字符串)</span><br><span class="line"></span><br><span class="line">http:&#x2F;&#x2F;m.com&#x2F;api&#x2F;?name&#x3D;张三&amp;age&#x3D;20&amp;sex&#x3D;男</span><br></pre></td></tr></table></figure>
+
+<h6 id="POST请求方式"><a href="#POST请求方式" class="headerlink" title="POST请求方式"></a>POST请求方式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过post特定方式传输 </span><br><span class="line">格式可以为 QueryString  &#x2F; 表单数据 (字符串)</span><br></pre></td></tr></table></figure>
+
+<p>[注意] : 前后端数据交互中 , 没有json对象的概念 (php没有json对象的概念的,因为json是js中对象的表示形式)</p>
+<p>虽然php中不存在json对象 ,但是为了更方便于前端js交互 ,后端有 json字符串(长得像json格式的字符串)的概念. (但是数据的类型其实就是字符串)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一般的后台返回的数据格式 ,其实就是字符串类型数据 (只不过外观长得像json) &#x3D; &gt; json 字符串</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="前端处理json字符串格式数据"><a href="#前端处理json字符串格式数据" class="headerlink" title="前端处理json字符串格式数据:"></a>前端处理json字符串格式数据:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;1.json序列化  &#x3D; &gt; 将json字符串 , 解析为json对象  (方便js使用)</span><br><span class="line">JSON.parse()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;2.json反序列化  &#x3D; &gt; 将json对象 ,转换为json字符串 (一般在发送对象格式数据给后台 , 进行对象格式数据的存储之类操作)</span><br><span class="line">JSON.stringify()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h5 id="1-原生ajax-基础的原理"><a href="#1-原生ajax-基础的原理" class="headerlink" title="1.原生ajax (基础的原理)"></a>1.原生ajax (基础的原理)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*原生ajax :  XMLHttpRequest 对象 &#x3D;  XHR</span><br><span class="line">   *   属性:</span><br><span class="line">           readyState: 请求过程状态</span><br><span class="line">                   0:未初始化</span><br><span class="line">                   1:正在建立连接</span><br><span class="line">                   2:发送数据</span><br><span class="line">                   3:接收数据 (并没有接收完毕)</span><br><span class="line">                   4:接收数据完成 ,请求结束</span><br><span class="line"></span><br><span class="line">           response:    响应内容</span><br><span class="line">           responseText: 响应文本内容</span><br><span class="line">           responseType: 响应内容类型</span><br><span class="line">           responseURL:  响应服务器地址</span><br><span class="line">           responseXML:  响应XML内容</span><br><span class="line">           status: 0      http响应的状态码</span><br><span class="line">           statusText:    http响应的状态文本提示内容</span><br><span class="line">           timeout: 0     超时时间</span><br><span class="line">   *</span><br><span class="line">   *   方法:</span><br><span class="line">   *       abort()  取消请求</span><br><span class="line">   *       open()   建立连接(打开连接)</span><br><span class="line">   *       send()   发送数据</span><br><span class="line">   *       setRequestHeader() 设置请求包头</span><br><span class="line">   *       getResponseHeader() 获取响应包头</span><br><span class="line">   *       getAllResponseHeaders() 获取所有响应包头</span><br><span class="line">   *</span><br><span class="line">   *   事件:</span><br><span class="line">   *       onabort: 取消事件</span><br><span class="line">           onerror: 请求错误事件</span><br><span class="line">           onload:  请求成功</span><br><span class="line">           onloadend: 请求结束</span><br><span class="line">           onloadstart: 开始请求</span><br><span class="line">           onprogress: 请求的进度</span><br><span class="line">           onreadystatechange: 请求过程状态改变事件</span><br><span class="line">           ontimeout: 请求超时事件</span><br><span class="line">           </span><br><span class="line">           </span><br><span class="line">      upload : 用于上传文件时使用 (H5文件操作再说)     </span><br><span class="line">   *</span><br><span class="line">   *</span><br><span class="line">   * *&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><blockquote>
+<p>HTTP（超文本传输协议）是一个基于请求与响应模式的、无状态的、应用层的协议，常基于TCP的连接方式，HTTP1.1版本中给出一种持续连接的机制，绝大多数的Web开发，都是构建在HTTP协议之上的Web应用。</p>
+</blockquote>
+<blockquote>
+<h4 id="HTTP协议的特点-："><a href="#HTTP协议的特点-：" class="headerlink" title="HTTP协议的特点 ："></a>HTTP协议的特点 ：</h4><ul>
+<li>http协议是一种无状态协议。（每次访问服务器时，没有办法识别身份）</li>
+<li>短连接协议（每次通信完毕就断开了）</li>
+<li>http协议是一种单向通信协议（只能由客户的端主动向服务器发出请求，然后接受响应，服务器端不能主动给客户端发送消息）</li>
+<li>每次发起HTTP请求时，都会将浏览器缓存的cookie发送给服务器端。</li>
+<li>每次只能处理一个请求（两张图片，就是两个请求）</li>
+<li>简单、快捷、高效</li>
+</ul>
+</blockquote>
+<h6 id="http协议约定浏览器端与服务器端之间的通信规范"><a href="#http协议约定浏览器端与服务器端之间的通信规范" class="headerlink" title="http协议约定浏览器端与服务器端之间的通信规范:"></a>http协议约定浏览器端与服务器端之间的通信规范:</h6><p>从浏览器发起请求(数据包) :</p>
+<h6 id="Request-告知服务器-我需要什么-你要做什么"><a href="#Request-告知服务器-我需要什么-你要做什么" class="headerlink" title="Request : (告知服务器,我需要什么,你要做什么)"></a>Request : (告知服务器,我需要什么,你要做什么)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP请求由状态行、请求头、请求正文三部分组成：</span><br><span class="line">1.状态行：包括请求方式Method、资源路径URL、协议版本Version；</span><br><span class="line">2.请求头：包括一些访问的域名、用户代理、Cookie等信息；</span><br><span class="line">3.请求正文：就是HTTP请求的数据。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>服务器响应客户端请求(数据包):</p>
+<h6 id="Response-告知浏览器-我给了你什么-你该怎么玩"><a href="#Response-告知浏览器-我给了你什么-你该怎么玩" class="headerlink" title="Response:(告知浏览器,我给了你什么,你该怎么玩)"></a>Response:(告知浏览器,我给了你什么,你该怎么玩)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP响应由三部分组成：状态行、响应头、响应正文；</span><br><span class="line">状态行：包括协议版本Version、状态码Status Code、回应短语；</span><br><span class="line">响应头：包括搭建服务器的软件，发送响应的时间，回应数据的格式等信息；</span><br><span class="line">响应正文：就是响应的具体数据。</span><br><span class="line">备注：我们主要关心并且能够在客户端浏览器看得到的是三位数的状态码，不同的状态码代表不同的含义，其中</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="常见的请求-响应包头"><a href="#常见的请求-响应包头" class="headerlink" title="常见的请求 / 响应包头:"></a>常见的请求 / 响应包头:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Accept   : 定义客户端可以处理的媒体类型，按优先级排序 - &gt; (告诉服务器,我能接受那些格式的文件)</span><br><span class="line">Accept-Encoding :  定义客户端可以理解的编码机制。例如：Accept-Encoding:gzip,compress (能处理的编码方式)</span><br><span class="line">Accept-Language    定义客户端乐于接受的自然语言列表。</span><br><span class="line">Cache-Control      一个用于定义缓存指令的通用头标。例如：Cache-Control: max-age&#x3D;30</span><br><span class="line">Connection        一个用于表明是否保存socket连接为开放的通用头标 keep-alive</span><br><span class="line">Contern-Type        标明发送或者接收的实体的MIME类型。例如：Content-Type: text&#x2F;html(告诉服务器,我发送的数据内容类型)</span><br><span class="line">Host            被请求资源的主机名。</span><br><span class="line">If-Modified-Since        如果包含了GET请求，导致该请求条件性地依赖于资源上次修改日期。(用于校验文件是否最新,做缓存优化)</span><br><span class="line">Server            一种标明Web服务器软件及其版本号的头标。</span><br></pre></td></tr></table></figure>
+
+<h6 id="HTTP常见请求状态码"><a href="#HTTP常见请求状态码" class="headerlink" title="HTTP常见请求状态码"></a>HTTP常见请求状态码</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">200 ok  &#x3D; &gt; 请求数据成功</span><br><span class="line">304 	&#x3D;&gt;  请求内容与之前请求过的内容一样(暂未修改)</span><br><span class="line">404		&#x3D;&gt;  服务器找不到请求的网页</span><br><span class="line">500		&#x3D;&gt;	服务器内部错误</span><br></pre></td></tr></table></figure>
+
+<h6 id="HTTP请求状态码"><a href="#HTTP请求状态码" class="headerlink" title="HTTP请求状态码"></a>HTTP请求状态码</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">2**开头 （请求成功）表示成功处理了请求的状态代码。</span><br><span class="line">200 （成功） 服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。</span><br><span class="line">201 （已创建） 请求成功并且服务器创建了新的资源。</span><br><span class="line">202 （已接受） 服务器已接受请求，但尚未处理。</span><br><span class="line">203 （非授权信息） 服务器已成功处理了请求，但返回的信息可能来自另一来源。</span><br><span class="line">204 （无内容） 服务器成功处理了请求，但没有返回任何内容。</span><br><span class="line">205 （重置内容） 服务器成功处理了请求，但没有返回任何内容。</span><br><span class="line">206 （部分内容） 服务器成功处理了部分 GET 请求。</span><br><span class="line"></span><br><span class="line">3** 开头 （请求被重定向）表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</span><br><span class="line">300 （多种选择） 针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</span><br><span class="line">301 （永久移动） 请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</span><br><span class="line">302 （临时移动） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</span><br><span class="line">303 （查看其他位置） 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</span><br><span class="line">304 （未修改） 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</span><br><span class="line">305 （使用代理） 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</span><br><span class="line">307 （临时重定向） 服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</span><br><span class="line"></span><br><span class="line">4**开头 （请求错误）这些状态代码表示请求可能出错，妨碍了服务器的处理。</span><br><span class="line">400 （错误请求） 服务器不理解请求的语法。</span><br><span class="line">401 （未授权） 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</span><br><span class="line">403 （禁止） 服务器拒绝请求。</span><br><span class="line">404 （未找到） 服务器找不到请求的网页。</span><br><span class="line">405 （方法禁用） 禁用请求中指定的方法。</span><br><span class="line">406 （不接受） 无法使用请求的内容特性响应请求的网页。</span><br><span class="line">407 （需要代理授权） 此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</span><br><span class="line">408 （请求超时） 服务器等候请求时发生超时。</span><br><span class="line">409 （冲突） 服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</span><br><span class="line">410 （已删除） 如果请求的资源已永久删除，服务器就会返回此响应。</span><br><span class="line">411 （需要有效长度） 服务器不接受不含有效内容长度标头字段的请求。</span><br><span class="line">412 （未满足前提条件） 服务器未满足请求者在请求中设置的其中一个前提条件。</span><br><span class="line">413 （请求实体过大） 服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</span><br><span class="line">414 （请求的 URI 过长） 请求的 URI（通常为网址）过长，服务器无法处理。</span><br><span class="line">415 （不支持的媒体类型） 请求的格式不受请求页面的支持。</span><br><span class="line">416 （请求范围不符合要求） 如果页面无法提供请求的范围，则服务器会返回此状态代码。</span><br><span class="line">417 （未满足期望值） 服务器未满足&quot;期望&quot;请求标头字段的要求。</span><br><span class="line"></span><br><span class="line">5**开头（服务器错误）这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</span><br><span class="line">500 （服务器内部错误） 服务器遇到错误，无法完成请求。</span><br><span class="line">501 （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</span><br><span class="line">502 （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。</span><br><span class="line">503 （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</span><br><span class="line">504 （网关超时） 服务器作为网关或代理，但是没有及时从上游服务器收到请求。</span><br><span class="line">505 （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h6 id="模拟一个http通信过程"><a href="#模拟一个http通信过程" class="headerlink" title="模拟一个http通信过程:"></a>模拟一个http通信过程:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">小B(浏览器)  &#x2F;  小S(服务器)</span><br><span class="line"></span><br><span class="line">小B: 小S ,你在吗?</span><br><span class="line">小S:在的</span><br><span class="line">小B:最近手头有点紧,能不能借个100块钱救急?</span><br><span class="line">小S:微信转账100 </span><br><span class="line"></span><br><span class="line">....</span><br><span class="line"></span><br><span class="line">过了一会(10天 ,也可能是5s后)</span><br><span class="line">小B:小S ,你在吗?</span><br><span class="line">小S:在的</span><br><span class="line">小B:能不能借100块给我?</span><br><span class="line">小S:支付宝转账100</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="3-跨域-浏览器同源策略"><a href="#3-跨域-浏览器同源策略" class="headerlink" title="3.跨域 / 浏览器同源策略"></a>3.跨域 / 浏览器同源策略</h5><h6 id="跨域-请求域与当前域中-只要有-【端口-协议-域名】-任何一项不同-则视为跨域"><a href="#跨域-请求域与当前域中-只要有-【端口-协议-域名】-任何一项不同-则视为跨域" class="headerlink" title="跨域:请求域与当前域中 , 只要有: 【端口 , 协议 , 域名】 任何一项不同 ,则视为跨域."></a>跨域:请求域与当前域中 , 只要有: 【端口 , 协议 , 域名】 任何一项不同 ,则视为跨域.</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">当前站点(域):http:&#x2F;&#x2F;localhost:63342&#x2F;</span><br><span class="line"></span><br><span class="line">目标请求站点(域):https:&#x2F;&#x2F;tcc.taobao.com  (域名, 协议 ,端口都不同)</span><br><span class="line"></span><br><span class="line">目标域:http:&#x2F;&#x2F;localhost:8080    端口与当前域不同 ,属于跨域</span><br><span class="line">目标域:http:&#x2F;&#x2F;lobaidu.com:63342 域名与当前域不同 ,属于跨域</span><br><span class="line">目标域:https:&#x2F;&#x2F;localhost:63342&#x2F; 协议与当前域不同 ,属于跨域</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="跨域的来源-gt-浏览器的同源策略"><a href="#跨域的来源-gt-浏览器的同源策略" class="headerlink" title="跨域的来源 = &gt;  浏览器的同源策略"></a>跨域的来源 = &gt;  浏览器的同源策略</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">同源策略的目的是为了维护用户数据信息安全而定制的浏览器规则.</span><br><span class="line">同源策略限定范围: http 请求  , cookie , 本地的存储类功能(localStorage , sessionStorage ,indexDB)</span><br><span class="line"></span><br><span class="line">因为存在浏览器同源策略，所以才会有跨域问题。那么浏览器是出于何种原因会有跨域的限制呢。其实不难想到，跨域限制主要的目的就是为了用户的上网安全。</span><br><span class="line"></span><br><span class="line">域之间域名\协议\端口都相同则视为同源.</span><br><span class="line"></span><br><span class="line">浏览器对: script &#x2F; link &#x2F; img 三个标签引入资源没有限定</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access to XMLHttpRequest at &#39;https:&#x2F;&#x2F;tcc.taobao.com&#x2F;cc&#x2F;json&#x2F;mobile_tel_segment.htm?tel&#x3D;13800138000&#39; (redirected from &#39;http:&#x2F;&#x2F;tcc.taobao.com&#x2F;cc&#x2F;json&#x2F;mobile_tel_segment.htm?tel&#x3D;13800138000&#39;) from origin &#39;null&#39; has been blocked by CORS policy: No &#39;Access-Control-Allow-Origin&#39; header is present on the requested resource.</span><br></pre></td></tr></table></figure>
+
+<h5 id="解决跨域的方案"><a href="#解决跨域的方案" class="headerlink" title="解决跨域的方案:"></a>解决跨域的方案:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">1.jsonp</span><br><span class="line">	解决方案: 在ajax的请求中 ,设置 dataType属性 为 jsonp, 即可.</span><br><span class="line">	原理:因为浏览器中对于scrpt &#x2F; img &#x2F; link 标签的http请求 ,不作同源策略限制 ,所以就可以利用同在网页中加载js脚本的方式 ,引入一段跨域的脚本(返回的是一个方法 ,方法中是调用的方式 ,并且带有数据内容的实参)</span><br><span class="line">需要在请求的时候 , 带上一个 callback 参数  ,来告知后台, 需要返回一个指定名字的函数 (需要后台支持)	</span><br><span class="line">	特性: jsonp的请求方式只能为get请求 , 不适用于需要使用post请求的场景.</span><br><span class="line">	</span><br><span class="line">	动态创建 &lt;script&gt;&lt;&#x2F;script&gt; 引入需要请求的数据地址 ,以脚本方式调用,获取返回的数据</span><br><span class="line">------------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">2.cors (跨域共享)</span><br><span class="line">	原理: 就是通过服务器的响应包头 ,设定允许本次请求  ,浏览器收到请求后,就会放行.</span><br><span class="line">	</span><br><span class="line">	跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。</span><br><span class="line">比如，站点 http:&#x2F;&#x2F;domain-a.com 的某 HTML 页面通过 &lt;img&gt; 的 src 请求 http:&#x2F;&#x2F;domain-b.com&#x2F;image.jpg。网络上的许多页面都会加载来自不同域的CSS样式表，图像和脚本等资源。</span><br><span class="line">	</span><br><span class="line">	实现 : 以php为例:	</span><br><span class="line">		php文件中添加:  header(&quot;Access-Control-Allow-Origin:*&quot;);</span><br><span class="line"></span><br><span class="line">https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;docs&#x2F;Web&#x2F;HTTP&#x2F;Access_control_CORS</span><br><span class="line"></span><br><span class="line">(问题点)OPTIONS 方法的“预检请求” 用于检测服务端是否支持对应的包头字段 ,及请求类型 ,如果确认可以,才会正式发起对应的get &#x2F; post请求</span><br><span class="line"></span><br><span class="line"> header(&quot;Access-Control-Allow-Origin:*&quot;);</span><br><span class="line"> header(&quot;Access-Control-Allow-Methods:POST,GET,OPTIONS&quot;);</span><br><span class="line"> header(&quot;Access-Control-Allow-Headers:*&quot;);</span><br><span class="line">------------------------------------------------------------------------------------</span><br><span class="line">3.proxy(代理跨域) &#x3D; &gt; 就是避免跨域 (大型的项目的生产环境,开发环境都是使用的非常多)</span><br><span class="line">常见http代理 : apache &#x2F; nginx &#x2F; nodejs (webpack-dev-server)</span><br><span class="line"></span><br><span class="line">反向代理:指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。</span><br><span class="line"></span><br><span class="line">代理跨域理解: 比如现在当前域为: http:&#x2F;&#x2F;m.com  , 需要请求的目标域为 http:&#x2F;&#x2F;s.com&#x2F;api ,如果说使用代理解决跨域 ,就会把请求的目标地址 ,转换成本地的地址 ,由对应的服务器代理去请求真实的目标地址</span><br><span class="line">把请求地址改为  : http:&#x2F;&#x2F;m.com&#x2F;api  就不跨域了 , 数据的话还是在原来的http:&#x2F;&#x2F;s.com&#x2F;api 中 ,我们跨域通过服务器软件 ,配置代理 ,来实现,通过服务器的请求完成即可.</span><br><span class="line"></span><br><span class="line">使用xampp配置反向代理为例:</span><br><span class="line">1.找到之前配置虚拟主机的文件 ,打开, 在对应的虚拟直接配置中 ,添加一条代理即可.</span><br><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    DocumentRoot &quot;&#x2F;xampp&#x2F;htdocs&#x2F;s.com&quot;</span><br><span class="line">    ServerName s.com</span><br><span class="line">	ProxyPass &#x2F;api http:&#x2F;&#x2F;m.com&#x2F;api</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br><span class="line"></span><br><span class="line">2.需要配置httpd.conf 的开启代理模块 (#去掉) </span><br><span class="line">第139行：     LoadModule proxy_module modules&#x2F;mod_proxy.so</span><br><span class="line">第142行：     LoadModule proxy_connect_modulemodules&#x2F;mod_proxy_connect.so</span><br><span class="line">第145行：     LoadModule proxy_ftp_modulemodules&#x2F;mod_proxy_ftp.so</span><br><span class="line">第147行：     LoadModule proxy_http_modulemodules&#x2F;mod_proxy_http.so</span><br><span class="line">————————————————</span><br><span class="line">原文链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;u011637739&#x2F;article&#x2F;details&#x2F;80718127</span><br><span class="line"></span><br><span class="line">最后 重启 apache 服务即可 ,开启反向代理</span><br><span class="line">------------------------------------------------------------------------------------</span><br><span class="line">4.(H5)websocket &#x2F; postMessage</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------------------------------</span><br><span class="line">5.iframe</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="https协议"><a href="#https协议" class="headerlink" title="https协议"></a>https协议</h3><blockquote>
+<p>​        什么是HTTPS： HTTPS（Secure Hypertext Transfer Protocol）安全超文本传输协议。 </p>
+<p>​        它是一个安全通信通道，它基于HTTP开发，用于在客户计算机和服务器之间交换信息。它使用安全套接字层(SSL)进行信息交换，简单来说它是HTTP的 安全版。 它是由Netscape开发并内置于其浏览器中，用于对数据进行压缩和解压操作，并返回网络上传送回的结果。HTTPS实际上应用了Netscape的安 全全套接字层（SSL）作为HTTP应用层的子层。（HTTPS使用端口443，而不是象HTTP那样使用端口80来和TCP/IP进行通信。）SSL使 用40 位关键字作为RC4流加密算法，这对于商业信息的加密是合适的。HTTPS和SSL支持使用X.509数字认证，如果需要的话用户可以确认发送者是谁。 </p>
+</blockquote>
+<h4 id="https协议通俗比喻故事-天地会暗语"><a href="#https协议通俗比喻故事-天地会暗语" class="headerlink" title="https协议通俗比喻故事(天地会暗语)"></a>https协议通俗比喻故事(天地会暗语)</h4><blockquote>
+<p>​        HTTPS的全称是Secure Hypertext Transfer Protocol（安全超文本传输协议），是在http协议基础上增加了使用SSL加密传送信息的协议。我们还是用天地会接头的例子来讲，大家可能觉得每 次天地会接头都是使用“地震高岗，一派西山千古秀！”这类妇孺皆知的接头暗号，这样的组织还有什么安全性可言？只要说出了暗号那么就可能获得天地会的相关 秘密。事实上并不是这样的，如果仅仅是靠一个妇孺皆知的接头暗号进行信息保密，天地会可能早被清兵围剿了，何来那么多传奇故事呢？他们之间的交流除了使用 了接头暗号外，可能还是用了“黑话”，就是一些仅仅只有天地会成员才能听懂的黑话，这样即使天地会成员之间的交谈信息被泄露出去了，没有相关揭秘的东西， 谁也不会知道这些黑话是什么？同样HTTPS协议就如同上面天地会的信息交谈一样，它也将自己需要传输的超文本协议通过SSL加密，让明文变成了“黑话” 即使传输的信息被人捕获，捕获的人也没办法知道其实际内容。 </p>
+</blockquote>
+<h4 id="HTTPS和HTTP的区别："><a href="#HTTPS和HTTP的区别：" class="headerlink" title="HTTPS和HTTP的区别："></a>HTTPS和HTTP的区别：</h4><blockquote>
+<p>https协议需要到ca申请证书，一般免费证书很少，需要交费。</p>
+<p>​    http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。</p>
+<p>  http和https使用的是完全不同的连接方式用的端口也不一样，前者是80，后者是443。</p>
+<p>  http的连接很简单，是无状态的。</p>
+<p>  HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，要比http协议安全。</p>
+</blockquote>
+<h4 id="HTTPS解决的问题："><a href="#HTTPS解决的问题：" class="headerlink" title="HTTPS解决的问题："></a>HTTPS解决的问题：</h4><blockquote>
+<p>1 . 信任主机的问题. 采用https 的server 必须从CA 申请一个用于证明服务器用途类型的证书. 改证书只有用于对应的server 的时候，客户度才信任次主机。所以目前所有的银行系统网站，关键部分应用都是https 的，客户通过信任该证书，从而信任了该主机，其实这样做效率很低，但是银行更侧重安全。这一点对我们没有任何意义，我们的server 采用的证书不管自己issue 还是从公众的地方issue，客户端都是自己人，所以我们也就肯定信任该server。</p>
+<p>   2 . 通讯过程中的数据的泄密和被窜改</p>
+<p>​    1）一般意义上的https, 就是 server 有一个证书.</p>
+<p>​    a) 主要目的是保证server 就是他声称的server. 这个跟第一点一样.</p>
+<p>  b) 服务端和客户端之间的所有通讯，都是加密的.</p>
+<p>​    i. 具体讲，是客户端产生一个对称的密钥，通过server 的证书来交换密钥，一般意义上的握手过程。</p>
+<p>  ii. 加下来所有的信息往来就都是加密的，第三方即使截获，也没有任何意义，因为他没有密钥，当然窜改也就没有什么意义了。</p>
+<p>  2）少许对客户端有要求的情况下，会要求客户端也必须有一个证书。</p>
+<p>​    a) 这里客户端证书，其实就类似表示个人信息的时候，除了用户名/密码， 还有一个CA 认证过的身份，个人证书一般来说上别人无法模拟的，所有这样能够更深的确认自己的身份。</p>
+<p>​    b) 目前少数个人银行的专业版是这种做法，具体证书可能是拿U盘作为一个备份的载体。</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2019/10/22/Ajax%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/" title="Ajax数据交互" target="_blank" rel="external">https://xulujin.gitee.io/blog/2019/10/22/Ajax%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2019/11/04/css3%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E5%B8%83%E5%B1%80/" title="css3弹性盒子布局"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2019/10/18/OOP%E6%80%9D%E6%83%B3-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" title="OOP思想(面向对象思想)"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+            更多功能正在开发中...
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'Ajax数据交互', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

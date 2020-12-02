@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>马哥面试经验题目 | 永恒的金色年华</title>
+  <meta name="description" content="css 12341. transform，transition和translate的区别	答：首先，三者的中文意思transform(变形，变换)，translate(调动)，transition(过渡)	transform是css3的属性；而translate是tranform的属性值，指的是元素平移的值；transition也是css3的属性，作用是用来实现一组css属性变换到另一组css属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="马哥面试经验题目">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2020/05/24/%E9%A9%AC%E5%93%A5%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/index.html">
+<meta property="og:site_name" content="LuKing">
+<meta property="og:description" content="css 12341. transform，transition和translate的区别	答：首先，三者的中文意思transform(变形，变换)，translate(调动)，transition(过渡)	transform是css3的属性；而translate是tranform的属性值，指的是元素平移的值；transition也是css3的属性，作用是用来实现一组css属性变换到另一组css属性">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-24T01:56:47.000Z">
+<meta property="article:modified_time" content="2020-06-21T13:10:21.388Z">
+<meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2020/05/24/%E9%A9%AC%E5%93%A5%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/blog/css/style.css">
+
+  
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/1314xulujin" target="_blank">
+          <img class="img-circle img-rotate" src="/blog/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">LuKing-Xun</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/blog/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/blog/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/blog/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>一如前端深似海,回头?...没头回了!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BFC/" rel="tag">BFC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/BootStrap/" rel="tag">BootStrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/HTML5-css3/" rel="tag">HTML5+css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" rel="tag">OOP面向对象思想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" rel="tag">Storage存储</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Web-Worker/" rel="tag">Web Worker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/call%E5%92%8Capply/" rel="tag">call和apply</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">hexo搭建博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/html4/" rel="tag">html4</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/photoshop/" rel="tag">photoshop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vue/" rel="tag">vue</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/websocket/" rel="tag">websocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/window10/" rel="tag">window10</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" rel="tag">冷知识</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" rel="tag">函数柯里化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">前端工程化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" rel="tag">微信小程序UI框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" rel="tag">智扬信达</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" rel="tag">本科考试科目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">软件设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/blog/tags/BFC/" style="font-size: 13px;">BFC</a> <a href="/blog/tags/BootStrap/" style="font-size: 13px;">BootStrap</a> <a href="/blog/tags/ES6/" style="font-size: 13px;">ES6</a> <a href="/blog/tags/HTML5-css3/" style="font-size: 13px;">HTML5+css3</a> <a href="/blog/tags/OOP%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3/" style="font-size: 13px;">OOP面向对象思想</a> <a href="/blog/tags/Storage%E5%AD%98%E5%82%A8/" style="font-size: 13px;">Storage存储</a> <a href="/blog/tags/Web-Worker/" style="font-size: 13px;">Web Worker</a> <a href="/blog/tags/ajax/" style="font-size: 13px;">ajax</a> <a href="/blog/tags/call%E5%92%8Capply/" style="font-size: 13px;">call和apply</a> <a href="/blog/tags/css3/" style="font-size: 13px;">css3</a> <a href="/blog/tags/git/" style="font-size: 13px;">git</a> <a href="/blog/tags/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" style="font-size: 13px;">hexo搭建博客</a> <a href="/blog/tags/html4/" style="font-size: 13px;">html4</a> <a href="/blog/tags/jQuery/" style="font-size: 13px;">jQuery</a> <a href="/blog/tags/javascript/" style="font-size: 13.2px;">javascript</a> <a href="/blog/tags/photoshop/" style="font-size: 13px;">photoshop</a> <a href="/blog/tags/vue/" style="font-size: 13.6px;">vue</a> <a href="/blog/tags/webpack/" style="font-size: 13.2px;">webpack</a> <a href="/blog/tags/websocket/" style="font-size: 13px;">websocket</a> <a href="/blog/tags/window10/" style="font-size: 13px;">window10</a> <a href="/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/" style="font-size: 13.2px;">冷知识</a> <a href="/blog/tags/%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96/" style="font-size: 13px;">函数柯里化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 13px;">前端工程化</a> <a href="/blog/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.8px;">前端面试题</a> <a href="/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">微信小程序UI框架</a> <a href="/blog/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/" style="font-size: 13.2px;">智扬信达</a> <a href="/blog/tags/%E6%9C%AC%E7%A7%91%E8%80%83%E8%AF%95%E7%A7%91%E7%9B%AE/" style="font-size: 13px;">本科考试科目</a> <a href="/blog/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 13px;">跨域</a> <a href="/blog/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">软件设计模式</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px;">面试</a> <a href="/blog/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 13.4px;">面试题</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/12/">十二月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/08/">八月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/06/">六月 2020</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/05/">五月 2020</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/04/">四月 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/03/">三月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/02/">二月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2020/01/">一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/12/">十二月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/11/">十一月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/10/">十月 2018</a><span class="archive-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.215Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T07:56:17.176Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/" class="title">echarts多Y轴显示负数零刻度线对齐</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-09-18T03:23:11.000Z" itemprop="datePublished">2020-09-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/CHROME%2080%E7%89%88%E6%9C%AC%E4%BB%A5%E5%90%8E%EF%BC%8CSAMESITE%20COOKIE%E9%AA%8C%E8%AF%81%E8%B7%A8%E7%AB%99%E9%97%AE%E9%A2%98/" class="title">chrome80版本以后，SAMESITE COOKIE验证跨站问题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/blog/2020/08/21/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E7%BB%93%E6%9E%84/" class="title">前端知识结构</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-08-21T08:33:10.000Z" itemprop="datePublished">2020-08-21</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-马哥面试经验题目" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      马哥面试经验题目
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2020/05/24/%E9%A9%AC%E5%93%A5%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" class="article-date">
+	  <time datetime="2020-05-24T01:56:47.000Z" itemprop="datePublished">2020-05-24</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2020/05/24/%E9%A9%AC%E5%93%A5%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. transform，transition和translate的区别</span><br><span class="line"></span><br><span class="line">	答：首先，三者的中文意思transform(变形，变换)，translate(调动)，transition(过渡)</span><br><span class="line">	transform是css3的属性；而translate是tranform的属性值，指的是元素平移的值；transition也是css3的属性，作用是用来实现一组css属性变换到另一组css属性的动画过程，其参数有 transition-property(需要过渡的属性，如宽度) transition-duration(过渡的总时间) transition-delay(动画延迟播放的时间) transition-timing-function(时间曲线)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Vue</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 	生命周期的实现原理？</span><br><span class="line">	答：</span><br><span class="line">    	用一句话来说：Vue生命周期就是从开始创建实例，初始化数据；然后编译template模板，挂载到dom上，进行更新，渲染，最后卸载，销毁实例。</span><br><span class="line">	</span><br><span class="line"><span class="number">2.</span>  $nextick</span><br><span class="line">	答：</span><br><span class="line">    	<span class="number">1.</span>作用：因为Vue在数据更新之后其DOM是不会立即更新的，而是按Vue规划的一定的策略进行更细DOM，所以会导致我们修改data的数据时，获取DOM的数据给data的另外的一个变量再在DOM里面渲染DOM不会更新，我们会看不到更新的效果，这时我们就用到$nextTick进行延迟到其DOM更新完毕时进行获取数据。</span><br><span class="line">        <span class="number">2.</span>原理：我们看$nextTick源码，里面的定时器就是他的精髓，我们碰到DOM更新渲染不出来的时候用到定时器来延迟，有时也是有用的，但是Vue中封装好的$nextTick似乎更好</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>  Vue 中这些挂载的顺序 prop  methods  data  computed  watch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>  Vue各种守卫钩子，说出钩子函数及其参数就够了</span><br><span class="line">	答：</span><br><span class="line">    	<span class="number">1.</span>全局前置守卫:beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>)=&gt;</span>&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;)</span><br><span class="line">		</span><br><span class="line">		<span class="number">2.</span>全局解析守卫:beforeResolve(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>)=&gt;</span>&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">		<span class="number">3.</span>你也可以注册全局后置钩子，然而和守卫不同的是，这些钩子不会接受 next 函数也不会改变导			航本身：</span><br><span class="line">		全局后置钩子(不能守卫导航获取不到<span class="built_in">this</span>):afterEach(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>)=&gt;</span>&#123;</span><br><span class="line">            </span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">		<span class="number">4.</span>路由独享守卫:beforeEnter()</span><br><span class="line">			<span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">              routes: [</span><br><span class="line">                &#123;</span><br><span class="line">                  path: <span class="string">&#x27;/foo&#x27;</span>,</span><br><span class="line">                  component: Foo,</span><br><span class="line">                  beforeEnter: <span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">                    <span class="comment">// ...</span></span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">              ]</span><br><span class="line">            &#125;)</span><br><span class="line">            </span><br><span class="line">        <span class="number">5.</span>组件内守卫:beforeRouter(),beforeRouteUpdate(),beforeRouteLeave()</span><br><span class="line"></span><br><span class="line">			<span class="keyword">const</span> Foo = &#123;</span><br><span class="line">              template: <span class="string">`...`</span>,</span><br><span class="line">              beforeRouteEnter (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">                <span class="comment">// 在渲染该组件的对应路由被 confirm 前调用</span></span><br><span class="line">                <span class="comment">// 不！能！获取组件实例 `this`</span></span><br><span class="line">                <span class="comment">// 因为当守卫执行前，组件实例还没被创建</span></span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="comment">//不过，你可以通过传一个回调给 next来访问组件实例。</span></span><br><span class="line">              <span class="comment">//在导航被确认的时候执行回调，并且把组件实例作为回调方法的参数。</span></span><br><span class="line">              beforeRouteEnter (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">                next(<span class="function"><span class="params">vm</span> =&gt;</span> &#123;</span><br><span class="line">                  <span class="comment">// 通过 `vm` 访问组件实例</span></span><br><span class="line">                &#125;)</span><br><span class="line">              &#125;,</span><br><span class="line">              beforeRouteUpdate (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">                <span class="comment">// 在当前路由改变，但是该组件被复用时调用</span></span><br><span class="line">                <span class="comment">// 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，</span></span><br><span class="line">                <span class="comment">// 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。</span></span><br><span class="line">                <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">              &#125;,</span><br><span class="line">              beforeRouteLeave (to, <span class="keyword">from</span>, next) &#123;</span><br><span class="line">                <span class="comment">// 导航离开该组件的对应路由时调用</span></span><br><span class="line">                <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>  Vue组件传值</span><br><span class="line">	答：</span><br><span class="line">    	一.父到子：</span><br><span class="line">			<span class="number">1.</span>父组件将数据v-bind到子节点上面 例如子节点&lt;sonCom v-bind:msg=<span class="string">&quot;父组件的数据&quot;</span> </span><br><span class="line">			&gt;,子组件在实例中使用props:[<span class="string">&#x27;msg&#x27;</span>]接收使用。</span><br><span class="line">    	</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span>  利用div实现table，不能用flex布局和table标签</span><br><span class="line">	答：</span><br><span class="line">		给最外层作为table的div加属性display:table，给作为tr的div加属性display:table-row属性,给作为th和td的div加属性display:table-cell。</span><br><span class="line"></span><br><span class="line"><span class="number">7.</span>  左右布局，左边固定宽度，右边自适应</span><br><span class="line">	答：</span><br><span class="line">		①：给他加float:left，右边的盒子width:<span class="number">100</span>%。</span><br><span class="line">		②：他们的父级盒子加display:flex弹性盒子，右边的盒子添加属性flex:<span class="number">1</span>。</span><br><span class="line">		③：假如左边为200px，左右俩个盒子都添加属性float:left,右边的盒子设置宽度		 width:calc(<span class="number">100</span>% - 200px)</span><br><span class="line">	</span><br><span class="line"><span class="number">8.</span>  数组去重的方法</span><br><span class="line">	答：</span><br><span class="line">		例：<span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">58</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line">		<span class="number">1.</span>indexOf</span><br><span class="line">            <span class="keyword">let</span> tmp = []</span><br><span class="line">            <span class="keyword">for</span>( <span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++ )&#123;</span><br><span class="line">                <span class="keyword">if</span>( tmp.indexOf(arr[i]) == -<span class="number">1</span> )&#123;</span><br><span class="line">                    tmp.push( arr[i] )</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">		<span class="number">2.</span>es6(set)</span><br><span class="line">			<span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr))</span><br><span class="line">		<span class="number">3.</span>利用sort()</span><br><span class="line">			arr = arr.sort()</span><br><span class="line">			<span class="keyword">let</span> arr2 = arr[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">for</span>( <span class="keyword">var</span> i=<span class="number">1</span>;i&lt;arrlength;i++ )&#123;</span><br><span class="line">                <span class="keyword">if</span>( arr[i] !== arr[i-<span class="number">1</span>] )&#123;</span><br><span class="line">                    arr2.push( arr[i] )</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">			</span><br><span class="line"></span><br><span class="line"><span class="number">9.</span>  函数组件和动态组件</span><br><span class="line"></span><br><span class="line">	答:</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line"><span class="number">10.</span> keep-alive</span><br><span class="line">	答:</span><br><span class="line">		<span class="number">1.</span>keep-alive是用来缓存组件，避免多次加载相应的组件，减少重新加载组件的消耗，简单一点来说，就是从A到B页面之后再返回A页面将不会重新执行页面A的代码，只会从缓存中加载已经缓存的A页面。</span><br><span class="line"></span><br><span class="line">		<span class="number">2.</span>keep-alive组件中的参数</span><br><span class="line">	</span><br><span class="line">            一.include and exclude</span><br><span class="line"></span><br><span class="line">            <span class="number">2.1</span><span class="number">.0</span> 新增</span><br><span class="line"></span><br><span class="line">            include 和 exclude prop 允许组件有条件地缓存。二者都可以用逗号分隔字符串、正则表达式或一个数组来表示：</span><br><span class="line"></span><br><span class="line">            &lt;!-- 逗号分隔字符串 --&gt;</span><br><span class="line">            &lt;keep-alive include=<span class="string">&quot;a,b&quot;</span>&gt;</span><br><span class="line">              &lt;component :is=<span class="string">&quot;view&quot;</span>&gt;&lt;/component&gt;</span><br><span class="line">            &lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">            &lt;!-- 正则表达式 (使用 <span class="string">`v-bind`</span>) --&gt;</span><br><span class="line">            &lt;keep-alive :include=<span class="string">&quot;/a|b/&quot;</span>&gt;</span><br><span class="line">              &lt;component :is=<span class="string">&quot;view&quot;</span>&gt;&lt;/component&gt;</span><br><span class="line">            &lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">            &lt;!-- 数组 (使用 <span class="string">`v-bind`</span>) --&gt;</span><br><span class="line">            &lt;keep-alive :include=<span class="string">&quot;[&#x27;a&#x27;, &#x27;b&#x27;]&quot;</span>&gt;</span><br><span class="line">              &lt;component :is=<span class="string">&quot;view&quot;</span>&gt;&lt;/component&gt;</span><br><span class="line">            &lt;/keep-alive&gt;</span><br><span class="line">            匹配首先检查组件自身的 name 选项，如果 name 选项不可用，则匹配它的局部注册名称 (父组件 components 选项的键值)。匿名组件不能被匹配。</span><br><span class="line">            </span><br><span class="line">            二.max</span><br><span class="line"></span><br><span class="line">            <span class="number">2.5</span><span class="number">.0</span> 新增</span><br><span class="line"></span><br><span class="line">            最多可以缓存多少组件实例。一旦这个数字达到了，在新实例被创建之前，已缓存组件中最久没有被访问的实例会被销毁掉。</span><br><span class="line"></span><br><span class="line">            &lt;keep-alive :max=<span class="string">&quot;10&quot;</span>&gt;</span><br><span class="line">              &lt;component :is=<span class="string">&quot;view&quot;</span>&gt;&lt;/component&gt;</span><br><span class="line">            &lt;/keep-alive&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>javaScript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 	项目中用到哪些es6？</span><br><span class="line">		答：解构赋值，promise，<span class="keyword">async</span>和<span class="keyword">await</span>，<span class="keyword">for</span> <span class="keyword">of</span>遍历数组。</span><br><span class="line">        </span><br><span class="line"><span class="number">2.</span>	谈谈你对闭包的理解？</span><br><span class="line">		答：一个函数可以访问另一个函数内部的作用域。</span><br><span class="line">        </span><br><span class="line"><span class="number">3.</span>	继承</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>	构造函数 <span class="title">constructor</span>指回(<span class="params">es5</span>)</span><br><span class="line"></span><br><span class="line">5.  <span class="title">map</span>和<span class="title">foreach</span>区别</span><br><span class="line">		答：<span class="title">map</span>返回一个新数组，函数里面需要<span class="title">return</span>;</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span>	事件冒泡说一下</span><br><span class="line">		答：</span><br><span class="line">	</span><br><span class="line"><span class="number">7.</span>	<span class="keyword">async</span>和<span class="keyword">await</span>的原理讲一下</span><br><span class="line">		答：</span><br><span class="line">        	</span><br><span class="line"><span class="number">8.</span>	js数据类型</span><br><span class="line">		答：加上es6的symbol</span><br><span class="line">        </span><br><span class="line"><span class="number">9.</span>	js文件的加载方式</span><br><span class="line"></span><br><span class="line"><span class="number">10.</span>	jsonp详细说一下，会问具体代码</span><br><span class="line">	答：</span><br><span class="line">        原理：创建一个script标签，将路径，需要传过去的参数和回调函数拼接后添加给script的src，</span><br><span class="line">        将完整的script添加到网页中请求然后删除。</span><br><span class="line">        详情见本博客文章	https:<span class="comment">//1314xulujin.github.io/2020/05/27/%E5%8E%9F%E7%94%9Fjsonp%E8%B7%A8%E5%9F%9F/</span></span><br><span class="line">	</span><br><span class="line"><span class="number">11.</span>	http2<span class="number">.0</span>和http1<span class="number">.1</span>的区别</span><br><span class="line">		答：</span><br><span class="line">        	<span class="number">1.</span>新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认<span class="number">0</span>和<span class="number">1</span>的组合。基于这种考虑HTTP2<span class="number">.0</span>的协议解析决定采用二进制格式，实现方便且健壮。</span><br><span class="line">            <span class="number">2.</span>多路复用（MultiPlexing），即连接共享，即每一个request都是是用作连接共享机制的。一个request对应一个id，这样一个连接上可以有多个request，每个连接的request可以随机的混杂在一起，接收方可以根据request的 id将request再归属到各自不同的服务端请求里面。</span><br><span class="line">            <span class="number">3.</span>header压缩，如上文中所言，对前面提到过HTTP1.x的header带有大量信息，而且每次都要重复发送，HTTP2<span class="number">.0</span>使用encoder来减少需要传输的header大小，通讯双方各自cache一份header fields表，既避免了重复header的传输，又减小了需要传输的大小。</span><br><span class="line">            <span class="number">4.</span>服务端推送（server push），同SPDY一样，HTTP2<span class="number">.0</span>也具有server push功能。</span><br><span class="line">        </span><br><span class="line"><span class="number">12.</span>	cookie的存活周期</span><br><span class="line">		答:</span><br><span class="line">			</span><br><span class="line"></span><br><span class="line"><span class="number">13.</span>	js原型链</span><br><span class="line">		答:</span><br><span class="line">			<span class="number">1.</span>首先先说原型，每一个对象他都有原型，这个原型对象由对象的内置属性__proto__指向他的<span class="title">constructor</span>(<span class="params">构造函数</span>)的<span class="title">prototype</span>指向的对象，也就是说每一个对象都是一个构造函数创建的，但不是每一个对象都有<span class="title">prototype</span>,只有方法才有。</span><br><span class="line">			2.原型链的核心就是依赖对象的<span class="title">_proto_</span>的指向，当自身不存在的属性时，就一层层的扒出创建对象的<span class="title">constructor</span>(<span class="params">构造函数</span>)，直至到<span class="title">Object</span>时，就没有<span class="title">_proto_</span>指向了。</span><br><span class="line"></span><br><span class="line">14. <span class="title">jQuery</span>封装方法</span><br><span class="line">		答:</span><br><span class="line">			// <span class="title">myplugin</span>为自定义封装的方法名字</span><br><span class="line">			<span class="title">$</span>.<span class="title">fn</span>.<span class="title">myplugin</span> = <span class="title">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">              <span class="comment">// 这里写方法的业务逻辑</span></span><br><span class="line">                <span class="built_in">this</span>.fadeOut()</span><br><span class="line">            &#125;</span><br><span class="line">			<span class="comment">// 调用</span></span><br><span class="line">			$(<span class="string">&quot;.element&quot;</span>).myplugin()</span><br><span class="line">	</span><br><span class="line"><span class="number">15.</span>	原生ajax的封装</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">ajax</span> (<span class="params">url, fn</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">		xhr.open( <span class="string">&quot;GET&quot;</span>, url, <span class="literal">false</span> )</span><br><span class="line">		xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>( xhr.readyState == <span class="number">4</span> )&#123;</span><br><span class="line">                <span class="built_in">console</span>.log( xhr.responseText )</span><br><span class="line">                fn.call( xhr.responseText )</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 调用</span></span><br><span class="line">	ajax(&#123;</span><br><span class="line">        url: <span class="string">&#x27;https://www.baidu.com&#x27;</span>,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>移动端：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.	移动端的1px问题</span><br><span class="line">	</span><br><span class="line">2.	工作中移动端碰到兼容性的问题</span><br></pre></td></tr></table></figure>
+
+
+
+<p>安全问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>	xss攻击</span><br><span class="line">		答:</span><br><span class="line">			<span class="number">1.</span>定义:xss攻击指的是攻击者通过巧妙的方式在网页代码中恶意注入一些特殊的代码使其运</span><br><span class="line">            行，这些代码多数是js脚本，但也有可能是java，vbscript，flash，甚至是HTML标记语</span><br><span class="line">            言，攻击者在攻击成功后将会得到一些权限切不限于更高的权限，如查看私密的内容，修改一些</span><br><span class="line">            只有超级管理员才能修改的内容，盗取用户会话存储和cookie等。</span><br><span class="line">            </span><br><span class="line">			<span class="number">2.</span>防范技巧，过滤一些特殊dom事件，如点击事件；过滤一些特殊符号，如<span class="string">&#x27;&lt;&#x27;</span> 和 <span class="string">&#x27;&gt;&#x27;</span>;</span><br><span class="line">			禁止一些网页跳转操作。</span><br><span class="line">			</span><br><span class="line">			<span class="number">3.</span>在Vue中使用xss防范插件</span><br><span class="line">				<span class="comment">// main.js</span></span><br><span class="line">                <span class="keyword">import</span> VueXss <span class="keyword">from</span> <span class="string">&#x27;vue-xss&#x27;</span></span><br><span class="line">                Vue.use(VueXss)</span><br><span class="line">				</span><br><span class="line">				&lt;!-- *.vue --&gt;</span><br><span class="line">				&lt;div v-html=<span class="string">&quot;$xss(content)&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// main.js</span></span><br><span class="line">                    <span class="keyword">var</span> options = &#123;</span><br><span class="line">                      <span class="comment">// 默认白名单参考 xss.whiteList</span></span><br><span class="line">                      whiteList: &#123;</span><br><span class="line">                        a: [<span class="string">&#x27;href&#x27;</span>, <span class="string">&#x27;style&#x27;</span>],</span><br><span class="line">                        img: [<span class="string">&#x27;src&#x27;</span>, <span class="string">&#x27;alt&#x27;</span>],</span><br><span class="line">                        ...</span><br><span class="line">                      &#125;,</span><br><span class="line">                      stripIgnoreTag: <span class="literal">true</span>, <span class="comment">// 去掉不在白名单上的标签   true：去掉不在白名单上的标签</span></span><br><span class="line">                      stripIgnoreTagBody: [<span class="string">&#x27;script&#x27;</span>, <span class="string">&#x27;style&#x27;</span>] <span class="comment">// 去掉不在白名单上的标签及标签体   [&#x27;tag1&#x27;, &#x27;tag2&#x27;]：仅去掉指定的不在白名单上的标签</span></span><br><span class="line">                      onTagAttr: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                        <span class="comment">// todo</span></span><br><span class="line">                      &#125;,</span><br><span class="line">                      ...</span><br><span class="line">                    &#125;</span><br><span class="line">                    Vue.use(VueXss, options)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    &lt;!-- *.vue --&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;template&gt;</span><br><span class="line">                      &lt;div v-html=<span class="string">&quot;$xss(content)&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">                      &lt;!-- 过滤后输出：&lt;iframe&gt;&lt;/iframe&gt; --&gt;</span><br><span class="line">                    &lt;template&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;script&gt;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">                      data () &#123;</span><br><span class="line">                        <span class="keyword">return</span>&#123;</span><br><span class="line">                          content: <span class="string">&#x27;&lt;iframe onload=alert(&quot;XSS-TEST&quot;)&gt;&lt;/iframe&gt;&#x27;</span></span><br><span class="line">                        &#125;</span><br><span class="line">                      &#125;,</span><br><span class="line">                      ...</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    &lt;/script&gt;</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line"><span class="number">2.</span>	你们前端对用户的密码进行加密用了那些？</span><br><span class="line">		答：利用md5加密密码放在请求包头里面发给后端。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>自动化工具</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>	webpack如何设置跨域？</span><br><span class="line">		答:</span><br><span class="line">			在config文件夹中的index.js中的dev属性对象中的proxyTable中设置需要跨域访问的站</span><br><span class="line">			点，例如:</span><br><span class="line">			<span class="built_in">module</span>.exports = &#123;</span><br><span class="line">              	dev: &#123;</span><br><span class="line">                	proxyTable: &#123;</span><br><span class="line">                  	  <span class="string">&#x27;/admin&#x27;</span>: &#123;</span><br><span class="line">                        target:<span class="string">&quot;https://snackshop.lby.link/&quot;</span>,</span><br><span class="line">                        secure: <span class="literal">false</span>,<span class="comment">//运行在https协议上</span></span><br><span class="line">                        changeOrigin: <span class="literal">true</span>,  <span class="comment">//是否跨域</span></span><br><span class="line">                  	&#125;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">				</span><br><span class="line"><span class="number">2.</span>	git的流程</span><br><span class="line">	见本博客文章</span><br><span class="line">    	地址：https:<span class="comment">//1314xulujin.github.io/2020/01/31/Git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/</span></span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+
+
+<p>对前端的优化</p>
+<p>​    答：减少http请求，防止回流和重绘(减少DOM操作)，对用户操作比较频繁的操作进行防抖和节流，清除需要清除的定时器，减少css选择符（前端优化的视频 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ZE411r7ri">https://www.bilibili.com/video/BV1ZE411r7ri</a> ）</p>
+<p>其他</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. 	如果整个项目中内存泄漏，需要怎么检测出来</span><br><span class="line">2.	整个项目组是怎么测试bug的</span><br></pre></td></tr></table></figure>
+
+
+
+<p>实战全栈项目bilibili</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1EE411B7SU">https://www.bilibili.com/video/BV1EE411B7SU</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2020/05/24/%E9%A9%AC%E5%93%A5%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" title="马哥面试经验题目" target="_blank" rel="external">https://xulujin.gitee.io/blog/2020/05/24/%E9%A9%AC%E5%93%A5%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/blog/2020/05/24/%E6%B8%A9%E5%A5%95%E9%BE%99%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" title="温奕龙面试经验题目"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/blog/2020/05/16/2020%E5%B9%B45%E6%9C%8814%E6%97%A5%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%95%E9%A2%98/" title="2020年5月14日面试笔试题"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/1314xulujin" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://mail.qq.com/cgi-bin/loginpage" target="_blank" title="Email" data-toggle=tooltip data-placement=top><i class="icon icon-email"></i></a></li>
+        
+        <li><a href="/blog/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+            更多功能正在开发中...
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/blog/js/plugin.min.js"></script>
+
+
+<script src="/blog/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/blog/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: '马哥面试经验题目', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
