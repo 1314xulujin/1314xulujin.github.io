@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xulujin.gitee.io/blog/blog/2020/06/11/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2020-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://xulujin.gitee.io/blog/blog/2020/07/16/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/</loc>
+    <lastmod>2020-12-02</lastmod>
+  </url>
+  <url>
     <loc>https://xulujin.gitee.io/blog/blog/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/</loc>
     <lastmod>2020-09-18</lastmod>
   </url>
@@ -62,10 +70,6 @@
   </url>
   <url>
     <loc>https://xulujin.gitee.io/blog/blog/2020/06/04/%E6%9D%AD%E5%B7%9E%E6%9F%90%E5%A4%A7%E5%8E%82%E5%BA%94%E5%B1%8A%E7%94%9F%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
-    <lastmod>2020-06-21</lastmod>
-  </url>
-  <url>
-    <loc>https://xulujin.gitee.io/blog/blog/2020/12/02/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/</loc>
     <lastmod>2020-06-21</lastmod>
   </url>
   <url>
@@ -138,10 +142,6 @@
   </url>
   <url>
     <loc>https://xulujin.gitee.io/blog/blog/2020/04/21/vant_weapp(%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6)/</loc>
-    <lastmod>2020-06-21</lastmod>
-  </url>
-  <url>
-    <loc>https://xulujin.gitee.io/blog/blog/2020/12/02/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2020-06-21</lastmod>
   </url>
   <url>
