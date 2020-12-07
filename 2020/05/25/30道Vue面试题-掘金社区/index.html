@@ -638,7 +638,7 @@
 </ul>
 <h2 id="20、什么是-MVVM？"><a href="#20、什么是-MVVM？" class="headerlink" title="20、什么是 MVVM？"></a>20、什么是 MVVM？</h2><p>Model–View–ViewModel （MVVM） 是一个软件架构设计模式，由微软 WPF 和 Silverlight 的架构师 Ken Cooper 和 Ted Peters 开发，是一种简化用户界面的事件驱动编程方式。由 John Gossman（同样也是 WPF 和 Silverlight 的架构师）于2005年在他的博客上发表</p>
 <p>MVVM 源自于经典的 Model–View–Controller（MVC）模式 ，MVVM 的出现促进了前端开发与后端业务逻辑的分离，极大地提高了前端开发效率，MVVM 的核心是 ViewModel 层，它就像是一个中转站（value converter），负责转换 Model 中的数据对象来让数据变得更容易管理和使用，该层向上与视图层进行双向数据绑定，向下与 Model 层通过接口请求进行数据交互，起呈上启下作用。如下图所示：</p>
-<p>![1.png](data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="966" height="311"></svg>)</p>
+<p>![1.png](data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="966" height="311"/>)</p>
 <p>（1）View 层</p>
 <p>View 是视图层，也就是用户界面。前端主要由 HTML 和 CSS 来构建 。</p>
 <p>（2）Model 层</p>
@@ -670,7 +670,7 @@
 <p>实现一个订阅者 Watcher：Watcher 订阅者是 Observer 和 Compile 之间通信的桥梁 ，主要的任务是订阅 Observer 中的属性值变化的消息，当收到属性值变化的消息时，触发解析器 Compile 中对应的更新函数。</p>
 <p>实现一个订阅器 Dep：订阅器采用 发布-订阅 设计模式，用来收集订阅者 Watcher，对监听器 Observer 和 订阅者 Watcher 进行统一管理。</p>
 <p>以上四个步骤的流程图表示如下，如果有同学理解不大清晰的，可以查看作者专门介绍数据双向绑定的文章<a target="_blank" rel="noopener" href="https://juejin.im/post/5d421bcf6fb9a06af23853f1">《0 到 1 掌握：Vue 核心之数据双向绑定》</a>，有进行详细的讲解、以及代码 demo 示例。</p>
-<p>![1.png](data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="785" height="578"></svg>)</p>
+<p>![1.png](data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="785" height="578"/>)</p>
 <h2 id="22、Vue-框架怎么实现对象和数组的监听？"><a href="#22、Vue-框架怎么实现对象和数组的监听？" class="headerlink" title="22、Vue 框架怎么实现对象和数组的监听？"></a>22、Vue 框架怎么实现对象和数组的监听？</h2><p>如果被问到 Vue 怎么实现数据双向绑定，大家肯定都会回答 通过 Object.defineProperty() 对数据进行劫持，但是 Object.defineProperty() 只能对属性进行数据劫持，不能对整个对象进行劫持，同理无法对数组进行劫持，但是我们在使用 Vue 框架中都知道，Vue 能检测到对象和数组（部分方法的操作）的变化，那它是怎么实现的呢？我们查看相关代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  &#x2F;**</span><br><span class="line">   * Observe a list of Array items.</span><br><span class="line">   *&#x2F;</span><br><span class="line">  observeArray (items: Array&lt;any&gt;) &#123;</span><br><span class="line">    for (let i &#x3D; 0, l &#x3D; items.length; i &lt; l; i++) &#123;</span><br><span class="line">      observe(items[i])  &#x2F;&#x2F; observe 功能为监测数据的变化</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#x2F;**</span><br><span class="line">   * 对属性进行递归遍历</span><br><span class="line">   *&#x2F;</span><br><span class="line">  let childOb &#x3D; !shallow &amp;&amp; observe(val) &#x2F;&#x2F; observe 功能为监测数据的变化</span><br><span class="line"></span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
 

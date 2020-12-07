@@ -391,42 +391,42 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a target="_blank" rel="noopener" href="http://www.a.com/a.js">http://www.a.com/a.js</a><br/><a target="_blank" rel="noopener" href="http://www.a.com/b.js">http://www.a.com/b.js</a></td>
+<td><a target="_blank" rel="noopener" href="http://www.a.com/a.js">http://www.a.com/a.js</a><br><a target="_blank" rel="noopener" href="http://www.a.com/b.js">http://www.a.com/b.js</a></td>
 <td>同一域名下</td>
 <td>允许</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="http://www.a.com/lab/a.js">http://www.a.com/lab/a.js</a><br/><a target="_blank" rel="noopener" href="http://www.a.com/script/b.js">http://www.a.com/script/b.js</a></td>
+<td><a target="_blank" rel="noopener" href="http://www.a.com/lab/a.js">http://www.a.com/lab/a.js</a><br><a target="_blank" rel="noopener" href="http://www.a.com/script/b.js">http://www.a.com/script/b.js</a></td>
 <td>同一域名下不同文件夹</td>
 <td>允许</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="http://www.a.com:8000/a.js">http://www.a.com:8000/a.js</a><br/><a target="_blank" rel="noopener" href="http://www.a.com/b.js">http://www.a.com/b.js</a></td>
+<td><a target="_blank" rel="noopener" href="http://www.a.com:8000/a.js">http://www.a.com:8000/a.js</a><br><a target="_blank" rel="noopener" href="http://www.a.com/b.js">http://www.a.com/b.js</a></td>
 <td>同一域名，不同端口</td>
 <td>不允许</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="http://www.a.com/a.js">http://www.a.com/a.js</a><br/><a target="_blank" rel="noopener" href="https://www.a.com/b.js">https://www.a.com/b.js</a></td>
+<td><a target="_blank" rel="noopener" href="http://www.a.com/a.js">http://www.a.com/a.js</a><br><a target="_blank" rel="noopener" href="https://www.a.com/b.js">https://www.a.com/b.js</a></td>
 <td>同一域名，不同协议</td>
 <td>不允许</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="http://www.a.com/a.js">http://www.a.com/a.js</a><br/><a target="_blank" rel="noopener" href="http://70.32.92.74/b.js">http://70.32.92.74/b.js</a></td>
+<td><a target="_blank" rel="noopener" href="http://www.a.com/a.js">http://www.a.com/a.js</a><br><a target="_blank" rel="noopener" href="http://70.32.92.74/b.js">http://70.32.92.74/b.js</a></td>
 <td>域名和域名对应ip</td>
 <td>不允许</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="http://www.a.com/a.js">http://www.a.com/a.js</a><br/><a target="_blank" rel="noopener" href="http://script.a.com/b.js">http://script.a.com/b.js</a></td>
+<td><a target="_blank" rel="noopener" href="http://www.a.com/a.js">http://www.a.com/a.js</a><br><a target="_blank" rel="noopener" href="http://script.a.com/b.js">http://script.a.com/b.js</a></td>
 <td>主域相同，子域不同</td>
 <td>不允许</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="http://www.a.com/a.js">http://www.a.com/a.js</a><br/><a target="_blank" rel="noopener" href="http://a.com/b.js">http://a.com/b.js</a></td>
+<td><a target="_blank" rel="noopener" href="http://www.a.com/a.js">http://www.a.com/a.js</a><br><a target="_blank" rel="noopener" href="http://a.com/b.js">http://a.com/b.js</a></td>
 <td>同一域名，不同二级域名（同上）</td>
 <td>不允许（cookie这种情况下也不允许访问）</td>
 </tr>
 <tr>
-<td><a target="_blank" rel="noopener" href="http://www.cnblogs.com/a.js">http://www.cnblogs.com/a.js</a><br/><a target="_blank" rel="noopener" href="http://www.a.com/b.js">http://www.a.com/b.js</a></td>
+<td><a target="_blank" rel="noopener" href="http://www.cnblogs.com/a.js">http://www.cnblogs.com/a.js</a><br><a target="_blank" rel="noopener" href="http://www.a.com/b.js">http://www.a.com/b.js</a></td>
 <td>不同域名</td>
 <td>不允许</td>
 </tr>
@@ -568,12 +568,12 @@ iframe.onload = function(){
 
 <p>然后页面上就可以显示我放在我的github上某个地方的照片啦。</p>
 <p>与<img>类似的可以跨域内嵌资源的还有:</p>
-<p>(1)<script src=""></script>标签嵌入跨域脚本。语法错误信息只能在同源脚本中捕捉到。上面jsonp也用到了呢。</p>
-<p>(2) <link src="">标签嵌入CSS。由于CSS的松散的语法规则，CSS的跨域需要一个设置正确的Content-Type消息头。不同浏览器有不同的限制： IE, Firefox, Chrome, Safari (跳至CVE-2010-0051)部分 和 Opera。</p>
-<p>(3)<video> 和 <audio>嵌入多媒体资源。</p>
-<p>(4)<object>, <embed> 和 <applet>的插件。</p>
+<p>(1)<script src></script>标签嵌入跨域脚本。语法错误信息只能在同源脚本中捕捉到。上面jsonp也用到了呢。</p>
+<p>(2) <link src>标签嵌入CSS。由于CSS的松散的语法规则，CSS的跨域需要一个设置正确的Content-Type消息头。不同浏览器有不同的限制： IE, Firefox, Chrome, Safari (跳至CVE-2010-0051)部分 和 Opera。</p>
+<p>(3)<video> 和 <audio>嵌入多媒体资源。</audio></video></p>
+<p>(4)<object>, <embed> 和 <applet>的插件。</applet></object></p>
 <p>(5)@font-face引入的字体。一些浏览器允许跨域字体（ cross-origin fonts），一些需要同源字体（same-origin fonts）。</p>
-<p>(6) <frame> 和 <iframe>载入的任何资源。站点可以使用X-Frame-Options消息头来阻止这种形式的跨域交互。</p>
+<p>(6) <frame> 和 <iframe>载入的任何资源。站点可以使用X-Frame-Options消息头来阻止这种形式的跨域交互。</iframe></p>
 <h5 id="8-使用片段识别符来进行跨域"><a href="#8-使用片段识别符来进行跨域" class="headerlink" title="8.使用片段识别符来进行跨域"></a>8.使用片段识别符来进行跨域</h5><p>片段标识符（fragment identifier）指的是，URL的#号后面的部分，比如<a target="_blank" rel="noopener" href="http://example.com/x.html#flag%E7%9A%84#flag%E3%80%82%E5%A6%82%E6%9E%9C%E5%8F%AA%E6%98%AF%E6%94%B9%E5%8F%98%E7%89%87%E6%AE%B5%E6%A0%87%E8%AF%86%E7%AC%A6%EF%BC%8C%E9%A1%B5%E9%9D%A2%E4%B8%8D%E4%BC%9A%E9%87%8D%E6%96%B0%E5%88%B7%E6%96%B0%E3%80%82">http://example.com/x.html#flag的#flag。如果只是改变片段标识符，页面不会重新刷新。</a><br>父窗口可以把信息，写入子窗口的片段标识符。在父窗口写入：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">&#x27;frame&#x27;</span>).onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> src = <span class="string">&quot;http://127.0.0.1/JSONP/b.html&quot;</span> + <span class="string">&#x27;#&#x27;</span> + <span class="string">&quot;data&quot;</span>;</span><br><span class="line">    <span class="built_in">this</span>.src = src;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -585,7 +585,7 @@ iframe.onload = function(){
 
 <h6 id="同样的，子窗口也可以改变父窗口的片段标识符。"><a href="#同样的，子窗口也可以改变父窗口的片段标识符。" class="headerlink" title="同样的，子窗口也可以改变父窗口的片段标识符。"></a>同样的，子窗口也可以改变父窗口的片段标识符。</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parent.location.href= target + <span class="string">&quot;#&quot;</span> + hash;</span><br></pre></td></tr></table></figure>
 
-
+</body>
       
     </div>
     <div class="article-footer">
