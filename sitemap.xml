@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/2021/04/15/js%E7%9A%84Object.assign/</loc>
+    <loc>https://xulujin.gitee.io/blog/2020/08/21/js%E7%9A%84Object.assign/</loc>
     
     <lastmod>2021-04-15</lastmod>
     
@@ -522,14 +522,14 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/ES6/</loc>
     <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/ES6/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/</loc>
     <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -578,13 +578,6 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/css3/</loc>
-    <lastmod>2021-04-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xulujin.gitee.io/blog/tags/Web-Worker/</loc>
     <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
@@ -592,7 +585,7 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/css3/</loc>
     <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -600,6 +593,13 @@
   
   <url>
     <loc>https://xulujin.gitee.io/blog/tags/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2021-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xulujin.gitee.io/blog/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -620,14 +620,14 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/window10/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/websocket/</loc>
     <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/websocket/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/window10/</loc>
     <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -648,14 +648,14 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/call%E5%92%8Capply/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/%E8%B7%A8%E5%9F%9F/</loc>
     <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/%E8%B7%A8%E5%9F%9F/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/call%E5%92%8Capply/</loc>
     <lastmod>2021-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
