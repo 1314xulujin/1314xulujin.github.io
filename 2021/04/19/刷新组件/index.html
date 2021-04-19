@@ -17,18 +17,26 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Archive: 2018/10 | 永恒的金色年华</title>
-  <meta name="description" content="最美的不是下雨天，是曾与你躲过雨的屋檐">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LuKing">
-<meta property="og:url" content="https://xulujin.gitee.io/blog/archives/2018/10/index.html">
+  <title>vue刷新组件 | 永恒的金色年华</title>
+  <meta name="description" content="vue刷新组件第一种方法：利用v-if控制router-view，在根组件APP.vue中实现一个刷新方法  123456789101112131415161718192021&lt;template&gt;&lt;router-view v-if&#x3D;&quot;isRouterAlive&quot;&#x2F;&gt;&lt;&#x2F;template&gt;&lt;script&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue刷新组件">
+<meta property="og:url" content="https://xulujin.gitee.io/blog/2021/04/19/%E5%88%B7%E6%96%B0%E7%BB%84%E4%BB%B6/index.html">
 <meta property="og:site_name" content="LuKing">
-<meta property="og:description" content="最美的不是下雨天，是曾与你躲过雨的屋檐">
+<meta property="og:description" content="vue刷新组件第一种方法：利用v-if控制router-view，在根组件APP.vue中实现一个刷新方法  123456789101112131415161718192021&lt;template&gt;&lt;router-view v-if&#x3D;&quot;isRouterAlive&quot;&#x2F;&gt;&lt;&#x2F;template&gt;&lt;script&amp;gt">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="og:image" content="https://common.cnblogs.com/images/copycode.gif">
+<meta property="article:published_time" content="2021-04-19T09:56:20.000Z">
+<meta property="article:modified_time" content="2021-04-19T09:58:05.690Z">
 <meta property="article:author" content="LuKing-Xun">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://common.cnblogs.com/images/copycode.gif">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://xulujin.gitee.io/blog/archives/2018/10/index.html">
+  <link rel="canonical" href="https://xulujin.gitee.io/blog/2021/04/19/%E5%88%B7%E6%96%B0%E7%BB%84%E4%BB%B6/index.html">
   
     <link rel="alternate" href="/atom.xml" title="LuKing" type="application/atom+xml">
   
@@ -39,6 +47,8 @@
 <link rel="stylesheet" href="/blog/css/style.css">
 
   
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
   
   
   
@@ -333,98 +343,177 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">Archive: 2018/10</h1>
-	      <p class="text-muted">Total 6 articles</p>
-	    </header>
-	    <div class="article-body">
-	      
+  <div class="content">
+  <article id="post-刷新组件" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
   
+    <h1 class="article-title" itemprop="name">
+      vue刷新组件
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/blog/2021/04/19/%E5%88%B7%E6%96%B0%E7%BB%84%E4%BB%B6/" class="article-date">
+	  <time datetime="2021-04-19T09:56:20.000Z" itemprop="datePublished">2021-04-19</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/blog/tags/vue/" rel="tag">vue</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/blog/2021/04/19/%E5%88%B7%E6%96%B0%E7%BB%84%E4%BB%B6/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="vue刷新组件"><a href="#vue刷新组件" class="headerlink" title="vue刷新组件"></a>vue刷新组件</h1><p>第一种方法：利用v-if控制router-view，在根组件APP.vue中实现一个刷新方法</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;router-view v-if&#x3D;&quot;isRouterAlive&quot;&#x2F;&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line"> data () &#123;</span><br><span class="line">   return &#123;</span><br><span class="line">     isRouterAlive: true</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;,</span><br><span class="line"> methods: &#123;</span><br><span class="line">   reload () &#123;</span><br><span class="line">     this.isRouterAlive &#x3D; false</span><br><span class="line">     this.$nextTick(() &#x3D;&gt; (this.isRouterAlive &#x3D; true))</span><br><span class="line">   &#125;   </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">然后其它任何想刷新自己的路由页面，都可以这样：</span><br><span class="line">this.reload()</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p> 这种方法可以实现任意组件的刷新。</p>
+<p>第二种方法：路由替换</p>
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> &#x2F;&#x2F; replace another route (with different component or a dead route) at first</span><br><span class="line">&#x2F;&#x2F; 先进入一个空路由</span><br><span class="line">vm.$router.replace(&#123;</span><br><span class="line">  path: &#39;&#x2F;_empty&#39;,</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;then replace your route (with same component)</span><br><span class="line">vm.$router.replace(&#123;</span><br><span class="line">  path: &#39;&#x2F;student&#x2F;report&#39;,</span><br><span class="line">  query: &#123;</span><br><span class="line">    &#39;paperId&#39;:paperId</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
+<p>转载自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40054326/article/details/79384433">https://blog.csdn.net/weixin_40054326/article/details/79384433</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xulujin.gitee.io/blog/2021/04/19/%E5%88%B7%E6%96%B0%E7%BB%84%E4%BB%B6/" title="vue刷新组件" target="_blank" rel="external">https://xulujin.gitee.io/blog/2021/04/19/%E5%88%B7%E6%96%B0%E7%BB%84%E4%BB%B6/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/1314xulujin" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/blog/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/1314xulujin" target="_blank"><span class="text-dark">LuKing-Xun</span><small class="ml-1x">前端工程师</small></a></h3>
+        <div>邮箱:luking-xun@qq.com 微信:Element-UI</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
+  <section id="comments">
+  	
+
     
-      
-      
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2018" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2018
-            </a>
-            <!-- <a href="/blog/archives/2018" class="archive-year">2018</a> -->
-          </h3>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/blog/2021/02/20/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E4%BA%94%E5%A4%A7%E9%99%B7%E9%98%B1/" title="程序员面试五个陷阱"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/alipay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/blog/images/donate/wechatpay.jpg" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div id="collapse2018" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2018">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/blog/2018/10/22/javascript-jQuery/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-10-22T03:11:02.000Z" itemprop="datePublished">2018-10-22</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> javascript+jQuery
-</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  
-    
-    
-    
-<a href="/blog/2018/10/22/Photoshop%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%9F%BA%E7%A1%80/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-10-22T02:40:55.000Z" itemprop="datePublished">2018-10-22</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Photoshop软件使用基础
-</a>
 
-
-  
-    
-    
-    
-<a href="/blog/2018/10/22/javascript%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-10-22T02:40:21.000Z" itemprop="datePublished">2018-10-22</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> javascript编程基础
-</a>
-
-
-  
-    
-    
-    
-<a href="/blog/2018/10/22/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-10-22T02:39:09.000Z" itemprop="datePublished">2018-10-22</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 前端工程化
-</a>
-
-
-  
-    
-    
-    
-<a href="/blog/2018/10/22/HTML%E7%BD%91%E9%A1%B5%E5%9F%BA%E7%A1%80/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-10-22T02:39:09.000Z" itemprop="datePublished">2018-10-22</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> HTML网页基础
-</a>
-
-
-  
-    
-    
-    
-<a href="/blog/2018/10/18/%E4%BD%BF%E7%94%A8hexo%E7%AE%80%E5%8D%95%E7%9A%84%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2018-10-18T06:37:20.000Z" itemprop="datePublished">2018-10-18</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 使用hexo简单的搭建博客
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
-  	 	
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -480,6 +569,32 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+
+   
+
+
+
+
+   
+    
+<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
+<script>
+var gitment = new Gitment({
+  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
+  // https://github.com/imsun/gitment/issues/55
+  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
+  id: 'vue刷新组件', 
+  owner: '1314xulujin', // 可以是你的GitHub用户名，也可以是github id
+  repo: '1314xulujin.github.io',
+  oauth: {
+    client_id: 'f5572d863183b5e79cf9',
+    client_secret: '8754b0d4afae1b366e75b4058a4b83a66ed82f05',
+  }
+})
+gitment.render('comments')
+</script>
 
 
 
