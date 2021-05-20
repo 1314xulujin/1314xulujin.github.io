@@ -536,14 +536,14 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/BootStrap/</loc>
     <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/BootStrap/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/%E5%86%B7%E7%9F%A5%E8%AF%86/</loc>
     <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -592,13 +592,6 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/css3/</loc>
-    <lastmod>2021-05-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xulujin.gitee.io/blog/tags/vue/</loc>
     <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
@@ -607,6 +600,13 @@
   
   <url>
     <loc>https://xulujin.gitee.io/blog/tags/Web-Worker/</loc>
+    <lastmod>2021-05-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xulujin.gitee.io/blog/tags/css3/</loc>
     <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -634,7 +634,7 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/window10/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/webpack/</loc>
     <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -648,7 +648,7 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/webpack/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/window10/</loc>
     <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -669,14 +669,14 @@
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/js/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/%E8%B7%A8%E5%9F%9F/</loc>
     <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xulujin.gitee.io/blog/tags/%E8%B7%A8%E5%9F%9F/</loc>
+    <loc>https://xulujin.gitee.io/blog/tags/js/</loc>
     <lastmod>2021-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
