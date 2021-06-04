@@ -26,7 +26,7 @@
 <meta property="og:description" content="2020东鹏portal07月09日 ​        1.element-ui的table表格布局多了一条线（已解决） ​            答：添加样式 123&gt;.el-table::before &amp;#123; &#x2F;&#x2F; 解决table-el布局栏多一条线的问题z-index: inherit;&gt;&amp;#125;  ​        2.element-ui新增表单提交数据后还出现验证">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-17T06:31:29.000Z">
-<meta property="article:modified_time" content="2021-06-01T03:56:13.239Z">
+<meta property="article:modified_time" content="2021-06-04T08:47:35.038Z">
 <meta property="article:author" content="LuKing-Xun">
 <meta property="article:tag" content="智扬信达">
 <meta name="twitter:card" content="summary">
@@ -303,7 +303,7 @@
                 
               </p>
               <p class="item-title">
-                <a href="/blog/2021/02/20/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E4%BA%94%E5%A4%A7%E9%99%B7%E9%98%B1/" class="title">程序员面试五个陷阱</a>
+                <a href="/blog/2021/02/20/2021%E5%B9%B4%E5%B7%A5%E4%BD%9C%E8%A7%84%E5%88%92/" class="title">2021年规划</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-02-20T06:24:20.000Z" itemprop="datePublished">2021-02-20</time>
@@ -318,7 +318,7 @@
                 
               </p>
               <p class="item-title">
-                <a href="/blog/2021/02/20/2021%E5%B9%B4%E5%B7%A5%E4%BD%9C%E8%A7%84%E5%88%92/" class="title">2021年规划</a>
+                <a href="/blog/2021/02/20/%E7%A8%8B%E5%BA%8F%E5%91%98%E9%9D%A2%E8%AF%95%E4%BA%94%E5%A4%A7%E9%99%B7%E9%98%B1/" class="title">程序员面试五个陷阱</a>
               </p>
               <p class="item-date">
                 <time datetime="2021-02-20T06:24:20.000Z" itemprop="datePublished">2021-02-20</time>
@@ -523,6 +523,23 @@
 <li>碰到相同的页面可以抽离成组件进行使用，碰到相似的页面可以将 数据data,方法methods 等等抽离成混入 mixin 代码使用；</li>
 </ol>
 </blockquote>
+<h4 id="06月02日"><a href="#06月02日" class="headerlink" title="06月02日"></a>06月02日</h4><blockquote>
+<ol>
+<li>new Date(‘2015-5’)在IE浏览器会转化成 invalida Date , 需要协会曾规范的形式new Date(‘2015-05’)才能正常转化；</li>
+</ol>
+</blockquote>
+<h4 id="06月04日"><a href="#06月04日" class="headerlink" title="06月04日"></a>06月04日</h4><blockquote>
+<ol>
+<li><p>问题描述： input file 文件上传，在第一次上传文件触发 change 事件之后，下次再 上传文件 将不会触发 change 事件；</p>
+<p>解决办法：将这个 input dom元素刷新一遍；</p>
+<p>具体方法：     1. 将这个 dom 删除，再克隆一个新的 dom 出来供使用；</p>
+<p>​            2.在 vue 中可以使用 v-if ，将其 show 设置为 false ,再设置为true;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">        &lt;input v-if&#x3D;&quot;fileShow&quot; @change&#x3D;&#39;changeFile&#39; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default&#123;</span><br><span class="line">        data()&#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                fileShow:true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            reload()&#123;</span><br><span class="line">                this.fileShow &#x3D; false;</span><br><span class="line">                this.$nextTick(()&#x3D;&gt;&#123;</span><br><span class="line">                    this.fileShow &#x3D; true</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;,</span><br><span class="line">            changeFile()&#123;</span><br><span class="line">                console.log(&#39;触发change事件&#39;)</span><br><span class="line">                &#x2F;&#x2F; 做完其他操作刷新该 dom , 这样下次还会触发该change事件 </span><br><span class="line">                this.reload();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+</blockquote>
 
       
     </div>
@@ -579,12 +596,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/blog/2020/07/17/vscode%E6%8F%92%E4%BB%B6%E5%A4%A7%E5%85%A8/" title="vscode常用插件在"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/blog/2020/07/17/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/" title="深度优先遍历和广度优先遍历"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/blog/2020/07/17/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/" title="深度优先遍历和广度优先遍历"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/blog/2020/07/16/%E6%9D%8E%E6%B7%B1%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C%E9%A2%98%E7%9B%AE/" title="李深面试经验题目"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
