@@ -6,7 +6,7 @@
   <link href="https://1314xulujin.github.io/atom.xml" rel="self"/>
   
   <link href="https://1314xulujin.github.io/"/>
-  <updated>2023-09-08T08:39:06.837Z</updated>
+  <updated>2023-09-08T08:45:46.289Z</updated>
   <id>https://1314xulujin.github.io/</id>
   
   <author>
@@ -17,42 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>Good Saying</title>
     <link href="https://1314xulujin.github.io/2023/09/08/Good%20Saying/"/>
     <id>https://1314xulujin.github.io/2023/09/08/Good%20Saying/</id>
-    <published>2023-09-08T08:08:38.799Z</published>
-    <updated>2023-09-08T08:39:06.837Z</updated>
+    <published>2023-09-08T08:10:00.000Z</published>
+    <updated>2023-09-08T08:45:46.289Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Good Saying</span><br><span class="line">date: 2023-09-08 17:10:00</span><br><span class="line">tags: Good Saying</span><br></pre></td></tr></table></figure><h1 id="Good-Saying"><a href="#Good-Saying" class="headerlink" title="Good Saying"></a>Good Saying</h1><ol><li>Nothing will not change a person`s original heart, Life also will not defeat ours confidence, chest up! hold up head! look forward!, just ourselves could control our own life.</li><li>Make a decision immediately on an unimportant thing, Do not think about a lot, just do it! Do not waste your time on such futile thing, save your energy and time.</li><li>Imperfection is better than perfection!</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://1314xulujin.github.io/2023/06/18/deepclone&amp;shallowclone/"/>
-    <id>https://1314xulujin.github.io/2023/06/18/deepclone&amp;shallowclone/</id>
-    <published>2023-06-18T10:13:59.639Z</published>
-    <updated>2023-06-21T02:23:44.393Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: assign value, deep clone and shallow clone</span><br><span class="line">date: 2020-06-10 12:40:11</span><br><span class="line">tags: interview question</span><br></pre></td></tr></table></figure><h1 id="Assign-Value-Deep-Clone-and-Shallow-Clone"><a href="#Assign-Value-Deep-Clone-and-Shallow-Clone" class="headerlink" title="Assign Value, Deep Clone and Shallow Clone"></a>Assign Value, Deep Clone and Shallow Clone</h1><h4 id="1-Assign-Value-Copy"><a href="#1-Assign-Value-Copy" class="headerlink" title="1. Assign Value (Copy)"></a>1. Assign Value (Copy)</h4><blockquote><p>Assign Value, It`s process to assign a value or object to a variable, The details of Assignment fall into the following:</p><pre><code>  1. Base data type: just assign value, Do not effect each others variable after assigned, convert or change, because they compile or design label.  2. Reference data type: assign address, Every variable have the some reference address, point to the same object, will effect each others.</code></pre><p>Here are some examples to describe clearly: </p><p>（Abraham: some examples below show you how to use）</p><ol><li><p>Assign value to Base data type, Do not affect / impact each others</p></li><li><pre><code class="javascript">// saucxslet a = &quot;saucxs&quot;;let b = a;console.log(b);  // saucxsa = &quot;change&quot;;console.log(a);   // changeconsole.log(b);    // saucxs<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;2. Variables will point to the same address If you use reference data to operate assignment. It means if you change &quot;a&quot;, &quot;b&quot; also will change, Even you just change the base data in &quot;a&quot;</span><br><span class="line"></span><br><span class="line">  1. ~~~javascript</span><br><span class="line">     &#x2F;&#x2F; saucxs</span><br><span class="line">     let a &#x3D; &#123;</span><br><span class="line">         name: &quot;saucxs&quot;,</span><br><span class="line">         book: &#123;</span><br><span class="line">             title: &quot;You Don&#39;t Know JS&quot;,</span><br><span class="line">             price: &quot;45&quot;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     let b &#x3D; a;</span><br><span class="line">     console.log(b);</span><br><span class="line">     &#x2F;&#x2F; &#123;</span><br><span class="line">     &#x2F;&#x2F;  name: &quot;saucxs&quot;,</span><br><span class="line">     &#x2F;&#x2F;  book: &#123;title: &quot;You Don&#39;t Know JS&quot;, price: &quot;45&quot;&#125;</span><br><span class="line">     &#x2F;&#x2F; &#125; </span><br><span class="line">     </span><br><span class="line">     a.name &#x3D; &quot;change&quot;;</span><br><span class="line">     a.book.price &#x3D; &quot;55&quot;;</span><br><span class="line">     console.log(a);</span><br><span class="line">     &#x2F;&#x2F; &#123;</span><br><span class="line">     &#x2F;&#x2F;  name: &quot;change&quot;,</span><br><span class="line">     &#x2F;&#x2F;  book: &#123;title: &quot;You Don&#39;t Know JS&quot;, price: &quot;55&quot;&#125;</span><br><span class="line">     &#x2F;&#x2F; &#125; </span><br><span class="line">     </span><br><span class="line">     console.log(b);</span><br><span class="line">     &#x2F;&#x2F; &#123;</span><br><span class="line">     &#x2F;&#x2F;  name: &quot;change&quot;,</span><br><span class="line">     &#x2F;&#x2F;  book: &#123;title: &quot;You Don&#39;t Know JS&quot;, price: &quot;55&quot;&#125;</span><br><span class="line">     &#x2F;&#x2F; &#125;</span><br></pre></td></tr></table></figure>In general / Generally, We don`t want / hope to change the &quot;b&quot; after changed &quot;a&quot;, You should use shallow or deep clone by now.</code></pre></li></ol></blockquote><h4 id="2-Shallow-clone"><a href="#2-Shallow-clone" class="headerlink" title="2. Shallow clone"></a>2. Shallow clone</h4><blockquote><ol><li><h5 id="What-is-Shallow-clone"><a href="#What-is-Shallow-clone" class="headerlink" title="What is Shallow clone?"></a>What is Shallow clone?</h5><p>Create a new object, This object have a exact copy of the original object property values. If property is base data type, then the copy is base type value, If property is reference data type, then the copy is cache address. So if you    one of these objects change this address, then it will affect another object.</p><p>In short, We can think shallow clone just resolve first level question, just copy the base data type value first layer, and reference type address of  first layer</p></li><li><h5 id="Shallow-clone-usage-scenario"><a href="#Shallow-clone-usage-scenario" class="headerlink" title="Shallow clone usage scenario"></a>Shallow clone usage scenario</h5></li><li><h5 id="Object-assign"><a href="#Object-assign" class="headerlink" title="Object.assign()"></a>Object.assign()</h5><ol><li>You can copy the enumerable value from one or more source object to target object, then it will return the target object.</li><li>There are some developer say that “Object.assign()” is deep clone, But that`s actually not true.</li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// saucxs</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">    name: <span class="string">&quot;saucxs&quot;</span>,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: <span class="string">&quot;You Don&#x27;t Know JS&quot;</span>,</span><br><span class="line">        price: <span class="string">&quot;45&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">Object</span>.assign(&#123;&#125;, a);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//  name: &quot;saucxs&quot;,</span></span><br><span class="line"><span class="comment">//  book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;45&quot;&#125;</span></span><br><span class="line"><span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line">a.name = <span class="string">&quot;change&quot;</span>;</span><br><span class="line">a.book.price = <span class="string">&quot;55&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//  name: &quot;change&quot;,</span></span><br><span class="line"><span class="comment">//  book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;55&quot;&#125;</span></span><br><span class="line"><span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//  name: &quot;saucxs&quot;,</span></span><br><span class="line"><span class="comment">//  book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;55&quot;&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></li><li><h5 id="Spread-grammar"><a href="#Spread-grammar" class="headerlink" title="Spread grammar"></a>Spread grammar</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// saucxs</span></span><br><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">    name: <span class="string">&quot;saucxs&quot;</span>,</span><br><span class="line">    book: &#123;</span><br><span class="line">        title: <span class="string">&quot;You Don&#x27;t Know JS&quot;</span>,</span><br><span class="line">        price: <span class="string">&quot;45&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = &#123;...a&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//  name: &quot;saucxs&quot;,</span></span><br><span class="line"><span class="comment">//  book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;45&quot;&#125;</span></span><br><span class="line"><span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line">a.name = <span class="string">&quot;change&quot;</span>;</span><br><span class="line">a.book.price = <span class="string">&quot;55&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//  name: &quot;change&quot;,</span></span><br><span class="line"><span class="comment">//  book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;55&quot;&#125;</span></span><br><span class="line"><span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//  name: &quot;saucxs&quot;,</span></span><br><span class="line"><span class="comment">//  book: &#123;title: &quot;You Don&#x27;t Know JS&quot;, price: &quot;55&quot;&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></li><li><h5 id="Array-prototype-slice"><a href="#Array-prototype-slice" class="headerlink" title="Array.prototype.slice"></a>Array.prototype.slice</h5><p>“slice” don`t change the old array, “slice” can return a new array object, The object is shallow clone of old array was decided by begin and end.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// saucxs</span></span><br><span class="line"><span class="keyword">let</span> a = [<span class="number">0</span>, <span class="string">&quot;1&quot;</span>, [<span class="number">2</span>, <span class="number">3</span>]];</span><br><span class="line"><span class="keyword">let</span> b = a.slice(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// [&quot;1&quot;, [2, 3]]</span></span><br><span class="line"></span><br><span class="line">a[<span class="number">1</span>] = <span class="string">&quot;99&quot;</span>;</span><br><span class="line">a[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">// [0, &quot;99&quot;, [4, 3]]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">//  [&quot;1&quot;, [4, 3]]</span></span><br></pre></td></tr></table></figure><p>From codes, we could see that the “b[0]” was not changed when the “a[1]” changed, But after changing “a[2][0]”, “b[1][0]” changed with it.</p><p>It means “slice” just is shallow clone. Also, “concat” is shallow clone and etc, We ought pay more attention to this at work.</p></li><li><h5 id><a href="#" class="headerlink" title></a></h5></li><li><h5 id="-1"><a href="#-1" class="headerlink" title></a></h5></li></ol></blockquote>]]></content>
+    <content type="html"><![CDATA[<blockquote><h1 id="Good-Saying"><a href="#Good-Saying" class="headerlink" title="Good Saying"></a>Good Saying</h1><ol><li>Nothing will not change a person`s original heart, Life also will not defeat ours confidence, chest up! hold up head! look forward!, just ourselves could control our own life.</li><li>Make a decision immediately on an unimportant thing, Do not think about a lot, just do it! Do not waste your time on such futile thing, save your energy and time.</li><li>Imperfection is better than perfection!</li></ol></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;h1 id=&quot;Good-Saying&quot;&gt;&lt;a href=&quot;#Good-Saying&quot; class=&quot;headerlink&quot; title=&quot;Good Saying&quot;&gt;&lt;/a&gt;Good Saying&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;Nothing will no</summary>
       
     
     
     
+    
+    <category term="Good Saying" scheme="https://1314xulujin.github.io/tags/Good-Saying/"/>
     
   </entry>
   
@@ -82,29 +66,6 @@
     
     
     <category term="面试" scheme="https://1314xulujin.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://1314xulujin.github.io/2022/10/15/js%E5%B0%86%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E6%8B%BC%E5%9C%A8%E4%B8%80%E8%B5%B7%E4%B8%8B%E8%BD%BD%E6%88%90%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87/"/>
-    <id>https://1314xulujin.github.io/2022/10/15/js%E5%B0%86%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E6%8B%BC%E5%9C%A8%E4%B8%80%E8%B5%B7%E4%B8%8B%E8%BD%BD%E6%88%90%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87/</id>
-    <published>2022-10-15T01:06:16.427Z</published>
-    <updated>2021-08-26T10:02:05.781Z</updated>
-    
-    <content type="html"><![CDATA[<p>实现思路：</p><p>​    1.准备下载 html2-canvas 插件（基于canvas drawImgae() 方法截图）</p><p>​    2.调用 html2-canvas 方法截取多个图片，再将多个图片生成在一个div中</p><p>​    3.再调用html2-canvas 方法截取当前div</p><p>​    4.调用 window.atob 将 base64 下载下来</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;实现思路：&lt;/p&gt;
-&lt;p&gt;​    1.准备下载 html2-canvas 插件（基于canvas drawImgae() 方法截图）&lt;/p&gt;
-&lt;p&gt;​    2.调用 html2-canvas 方法截取多个图片，再将多个图片生成在一个div中&lt;/p&gt;
-&lt;p&gt;​    3.</summary>
-      
-    
-    
-    
     
   </entry>
   
@@ -363,6 +324,31 @@
   </entry>
   
   <entry>
+    <title>js将多个图片拼在一起下载成一张图片</title>
+    <link href="https://1314xulujin.github.io/2020/10/15/js%E5%B0%86%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E6%8B%BC%E5%9C%A8%E4%B8%80%E8%B5%B7%E4%B8%8B%E8%BD%BD%E6%88%90%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87/"/>
+    <id>https://1314xulujin.github.io/2020/10/15/js%E5%B0%86%E5%A4%9A%E4%B8%AA%E5%9B%BE%E7%89%87%E6%8B%BC%E5%9C%A8%E4%B8%80%E8%B5%B7%E4%B8%8B%E8%BD%BD%E6%88%90%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87/</id>
+    <published>2020-10-15T04:10:00.000Z</published>
+    <updated>2023-09-08T08:50:14.897Z</updated>
+    
+    <content type="html"><![CDATA[<p>实现思路：</p><p>​    1.准备下载 html2-canvas 插件（基于canvas drawImgae() 方法截图）</p><p>​    2.调用 html2-canvas 方法截取多个图片，再将多个图片生成在一个div中</p><p>​    3.再调用html2-canvas 方法截取当前div</p><p>​    4.调用 window.atob 将 base64 下载下来</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;实现思路：&lt;/p&gt;
+&lt;p&gt;​    1.准备下载 html2-canvas 插件（基于canvas drawImgae() 方法截图）&lt;/p&gt;
+&lt;p&gt;​    2.调用 html2-canvas 方法截取多个图片，再将多个图片生成在一个div中&lt;/p&gt;
+&lt;p&gt;​    3.</summary>
+      
+    
+    
+    
+    
+    <category term="js" scheme="https://1314xulujin.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
     <title>echarts多Y轴显示负数零刻度线对齐</title>
     <link href="https://1314xulujin.github.io/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/"/>
     <id>https://1314xulujin.github.io/2020/09/18/echarts%E5%A4%9AY%E8%BD%B4%E6%98%BE%E7%A4%BA%E8%B4%9F%E6%95%B0%E9%9B%B6%E5%88%BB%E5%BA%A6%E7%BA%BF%E5%AF%B9%E9%BD%90/</id>
@@ -471,6 +457,28 @@
     
     
     <category term="智扬信达" scheme="https://1314xulujin.github.io/tags/%E6%99%BA%E6%89%AC%E4%BF%A1%E8%BE%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode常用插件在</title>
+    <link href="https://1314xulujin.github.io/2020/07/17/vscode%E6%8F%92%E4%BB%B6%E5%A4%A7%E5%85%A8/"/>
+    <id>https://1314xulujin.github.io/2020/07/17/vscode%E6%8F%92%E4%BB%B6%E5%A4%A7%E5%85%A8/</id>
+    <published>2020-07-17T05:31:29.000Z</published>
+    <updated>2021-01-06T09:50:29.555Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="vsCode-常用插件"><a href="#vsCode-常用插件" class="headerlink" title="vsCode 常用插件"></a>vsCode 常用插件</h1><p><img src="https://cdn2.jianshu.io/assets/default_avatar/4-3397163ecdb3855a0a4139c34a695885.jpg" alt="img"></p><p><a href="https://www.jianshu.com/u/02786e6c54b3">shmaur</a>关注</p><p>0.1622019.06.20 15:09:31字数 775阅读 23,810</p><p>记录一下所用的插件</p><h3 id="1-auto-close-tag"><a href="#1-auto-close-tag" class="headerlink" title="1. auto close tag"></a>1. auto close tag</h3><p>​      自动关闭标签，在开始标记的结束括号中键入后，将自动插入结束标记</p><h3 id="2-Auto-Comment-Blocks"><a href="#2-Auto-Comment-Blocks" class="headerlink" title="2. Auto Comment Blocks"></a>2. Auto Comment Blocks</h3><p>​      自动插入注释行</p><h3 id="3-Auto-Rename-Tag"><a href="#3-Auto-Rename-Tag" class="headerlink" title="3. Auto Rename Tag"></a>3. Auto Rename Tag</h3><p>​      自动重命名配对的HTML / XML标记</p><h3 id="4-Auto-Complete-Tag"><a href="#4-Auto-Complete-Tag" class="headerlink" title="4. Auto Complete Tag"></a>4. Auto Complete Tag</h3><p>​      结合了自动关闭标签与同时修改同步标签</p><h3 id="5-Beautify"><a href="#5-Beautify" class="headerlink" title="5. Beautify"></a>5. Beautify</h3><p>​      美化代码<a href="https://links.jianshu.com/go?to=%255Bhttps://marketplace.visualstudio.com/items?itemName=HookyQR.beautify%255D(https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)">参考资料</a></p><h3 id="6-Code-Runner"><a href="#6-Code-Runner" class="headerlink" title="6. Code Runner"></a>6. Code Runner</h3><p>​      可以直接运行多种语言的代码片段和文件</p><h3 id="7-Code-Spell-Checker"><a href="#7-Code-Spell-Checker" class="headerlink" title="7. Code Spell Checker"></a>7. Code Spell Checker</h3><p>​      代码拼写检查工具</p><h3 id="8-Drat"><a href="#8-Drat" class="headerlink" title="8. Drat"></a>8. Drat</h3><p>​      支持 Dart编程语言，并提供有效编辑，重构，运行和重新加载Flutter 移动应用程序和AngularDartWeb应用程序的工具。</p><h3 id="9-Debugger-for-Chrome"><a href="#9-Debugger-for-Chrome" class="headerlink" title="9. Debugger for Chrome"></a>9. Debugger for Chrome</h3><p>​      从VS Code调试在Google Chrome中运行的JavaScript代码。</p><h3 id="10-EditorConfig-for-VS-Code"><a href="#10-EditorConfig-for-VS-Code" class="headerlink" title="10. EditorConfig for VS Code"></a>10. EditorConfig for VS Code</h3><p>​      EditorConfig帮助开发人员定义和维护一致的编码风格在不同的编辑器和IDE。<br>      EditorConfig项目包含一个文件格式定义编码风格和文本编辑器插件的集合。<br>      EditorConfig文件易于阅读并且他们与版本控制器很好地合作。</p><h3 id="11-ESLint"><a href="#11-ESLint" class="headerlink" title="11. ESLint"></a>11. ESLint</h3><p>​      代码检查工具</p><h3 id="12-filesize"><a href="#12-filesize" class="headerlink" title="12. filesize"></a>12. filesize</h3><p>​      实时查看当前文件的大小</p><h3 id="13-Flutter"><a href="#13-Flutter" class="headerlink" title="13. Flutter"></a>13. Flutter</h3><p>​      Flutter移动应用程序的支持，以及对Dart编程语言的支持。</p><h3 id="14-Git-History"><a href="#14-Git-History" class="headerlink" title="14. Git History"></a>14. Git History</h3><p>​      查看git历史与log，搜索等（包括git log）</p><h3 id="15-GitLens-—-Git-supercharged"><a href="#15-GitLens-—-Git-supercharged" class="headerlink" title="15. GitLens — Git supercharged"></a>15. GitLens — Git supercharged</h3><p>​      GitLens只是帮助您更好地理解代码。快速浏览一下，为什么以及何时更改了行或代码块。跳过历史记录，以获得有关代码演变的方式和原因的进一步见解</p><h3 id="16-IntelliSense-for-CSS-class-names-in-HTML"><a href="#16-IntelliSense-for-CSS-class-names-in-HTML" class="headerlink" title="16. IntelliSense for CSS class names in HTML"></a>16. IntelliSense for CSS class names in HTML</h3><p>​       CSS 类名智能提示，可以在html与css中进行智能提示</p><h3 id="17-HTMLHint"><a href="#17-HTMLHint" class="headerlink" title="17. HTMLHint"></a>17. HTMLHint</h3><p>​      HTML 静态检查规则</p><h3 id="18-Image-preview"><a href="#18-Image-preview" class="headerlink" title="18. Image preview"></a>18. Image preview</h3><p>​      在左侧可以预览图片和悬停中显示图片</p><h3 id="19-Import-Cost"><a href="#19-Import-Cost" class="headerlink" title="19. Import Cost"></a>19. Import Cost</h3><p>​      在VS代码编辑器中导入的程序包的大小</p><h3 id="20-JavaScript-ES6-code-snippets"><a href="#20-JavaScript-ES6-code-snippets" class="headerlink" title="20. JavaScript (ES6) code snippets"></a>20. JavaScript (ES6) code snippets</h3><p>​      ES6的代码片段</p><h3 id="21-JavaScript-Snippet-Pack"><a href="#21-JavaScript-Snippet-Pack" class="headerlink" title="21. JavaScript Snippet Pack"></a>21. JavaScript Snippet Pack</h3><p>​      JS代码片段补全</p><h3 id="22-language-stylus"><a href="#22-language-stylus" class="headerlink" title="22. language-stylus"></a>22. language-stylus</h3><p>​      Stylus文件添加语法高亮</p><h3 id="23-stylelint"><a href="#23-stylelint" class="headerlink" title="23. stylelint"></a>23. stylelint</h3><p>​      格式化css代码<br>配置参考<a href="https://links.jianshu.com/go?to=https://stylelint.io/user-guide/configuration/">https://stylelint.io/user-guide/configuration/</a></p><h3 id="24-minapp"><a href="#24-minapp" class="headerlink" title="24. minapp"></a>24. minapp</h3><p>​      微信小程序标签、属性的智能补全（同时支持原生小程序、mpvue 和 wepy 框架，并提供 snippets）</p><h3 id="25-Node-js-Modules-Intellisense"><a href="#25-Node-js-Modules-Intellisense" class="headerlink" title="25. Node.js Modules Intellisense"></a>25. Node.js Modules Intellisense</h3><p>​      在import语句中自动完成Node.js模块</p><h3 id="26-Open-in-Browser"><a href="#26-Open-in-Browser" class="headerlink" title="26. Open in Browser"></a>26. Open in Browser</h3><p>​      在vscode中打开浏览器访问</p><h3 id="27-Path-Intellisense"><a href="#27-Path-Intellisense" class="headerlink" title="27. Path Intellisense"></a>27. Path Intellisense</h3><p>​      自动路径补全</p><h3 id="28-Prettier-Code-formatter"><a href="#28-Prettier-Code-formatter" class="headerlink" title="28. Prettier - Code formatter"></a>28. Prettier - Code formatter</h3><p>​      格式化代码</p><h3 id="29-Pug-Jade-snippets"><a href="#29-Pug-Jade-snippets" class="headerlink" title="29. Pug (Jade) snippets"></a>29. Pug (Jade) snippets</h3><p>​      pug语法提示</p><h3 id="30-Scss"><a href="#30-Scss" class="headerlink" title="30. Scss"></a>30. Scss</h3><p>​      缩进Sass语法高亮</p><h3 id="31-TypeScript-Importer"><a href="#31-TypeScript-Importer" class="headerlink" title="31. TypeScript Importer"></a>31. TypeScript Importer</h3><p>​      自动搜索工作空间文件中的TypeScript定义，并将所有已知符号作为完成项提供，以允许代码完成。</p><h3 id="32-Vetur"><a href="#32-Vetur" class="headerlink" title="32. Vetur"></a>32. Vetur</h3><p>​      代码格式化</p><h3 id="33-vscode-element-helper"><a href="#33-vscode-element-helper" class="headerlink" title="33. vscode-element-helper"></a>33. vscode-element-helper</h3><p>​      用element的就知道它的好，支持element代码自动补全</p><h3 id="34-vscode-icons"><a href="#34-vscode-icons" class="headerlink" title="34. vscode-icons"></a>34. vscode-icons</h3><p>​      在vscode显示文件图标</p><h3 id="35-vue-2-Snippets"><a href="#35-vue-2-Snippets" class="headerlink" title="35. vue 2 Snippets"></a>35. vue 2 Snippets</h3><p>​      vue 代码提示</p><h3 id="36-Vue-Vuex-TypeScript-Snippets"><a href="#36-Vue-Vuex-TypeScript-Snippets" class="headerlink" title="36. Vue/Vuex TypeScript Snippets"></a>36. Vue/Vuex TypeScript Snippets</h3><p>​      支持typescript的代码提示与生成片段</p><h3 id="37-VueHelper"><a href="#37-VueHelper" class="headerlink" title="37. VueHelper"></a>37. VueHelper</h3><p>​      vue 代码提示</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;vsCode-常用插件&quot;&gt;&lt;a href=&quot;#vsCode-常用插件&quot; class=&quot;headerlink&quot; title=&quot;vsCode 常用插件&quot;&gt;&lt;/a&gt;vsCode 常用插件&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://cdn2.jianshu.io/</summary>
+      
+    
+    
+    
+    
+    <category term="前端" scheme="https://1314xulujin.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
