@@ -613,13 +613,6 @@
   </url>
   
   <url>
-    <loc>https://1314xulujin.github.io/tags/BFC/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://1314xulujin.github.io/tags/vue/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
@@ -628,6 +621,13 @@
   
   <url>
     <loc>https://1314xulujin.github.io/tags/ajax/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://1314xulujin.github.io/tags/BFC/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -648,14 +648,14 @@
   </url>
   
   <url>
-    <loc>https://1314xulujin.github.io/tags/git/</loc>
+    <loc>https://1314xulujin.github.io/tags/ES6/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://1314xulujin.github.io/tags/ES6/</loc>
+    <loc>https://1314xulujin.github.io/tags/git/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -669,7 +669,14 @@
   </url>
   
   <url>
-    <loc>https://1314xulujin.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://1314xulujin.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://1314xulujin.github.io/tags/HTML5-css3/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -683,7 +690,14 @@
   </url>
   
   <url>
-    <loc>https://1314xulujin.github.io/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <loc>https://1314xulujin.github.io/tags/photoshop/</loc>
+    <lastmod>2023-09-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://1314xulujin.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -697,21 +711,7 @@
   </url>
   
   <url>
-    <loc>https://1314xulujin.github.io/tags/photoshop/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://1314xulujin.github.io/tags/Web-Worker/</loc>
-    <lastmod>2023-09-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://1314xulujin.github.io/tags/HTML5-css3/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -767,14 +767,14 @@
   </url>
   
   <url>
-    <loc>https://1314xulujin.github.io/tags/window10/</loc>
+    <loc>https://1314xulujin.github.io/tags/websocket/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://1314xulujin.github.io/tags/websocket/</loc>
+    <loc>https://1314xulujin.github.io/tags/window10/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -809,14 +809,14 @@
   </url>
   
   <url>
-    <loc>https://1314xulujin.github.io/tags/%E8%B7%A8%E5%9F%9F/</loc>
+    <loc>https://1314xulujin.github.io/tags/js/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://1314xulujin.github.io/tags/js/</loc>
+    <loc>https://1314xulujin.github.io/tags/%E8%B7%A8%E5%9F%9F/</loc>
     <lastmod>2023-09-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
